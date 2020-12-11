@@ -1,4 +1,4 @@
-/* eslint no-use-before-define: 0 */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 // This optional code is used to register a service worker.
 // register() is not called by default.
 
