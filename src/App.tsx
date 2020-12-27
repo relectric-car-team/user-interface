@@ -2,10 +2,11 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import { carOutline, musicalNoteOutline, navigateOutline, menuOutline } from 'ionicons/icons';
 import Navigation from './pages/Navigation';
 import Car from './pages/Car';
 import Music from './pages/Music';
+import Settings from './pages/Settings';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -33,21 +34,26 @@ const App: React.FC = () => (
                 <IonRouterOutlet>
                     <Route path="/navigation" component={Navigation} exact={true} />
                     <Route path="/car" component={Car} exact={true} />
-                    <Route path="/music" component={Music} />
+                    <Route path="/music" component={Music} exact={true} />
+                    <Route path="/settings" component={Settings} />
                     <Route path="/" render={() => <Redirect to="/navigation" />} exact={true} />
                 </IonRouterOutlet>
                 <IonTabBar slot="bottom">
                     <IonTabButton tab="navigation" href="/navigation">
-                        <IonIcon icon={triangle} />
+                        <IonIcon icon={navigateOutline} />
                         <IonLabel>Navigation</IonLabel>
                     </IonTabButton>
                     <IonTabButton tab="car" href="/car">
-                        <IonIcon icon={ellipse} />
+                        <IonIcon icon={carOutline} />
                         <IonLabel>Car</IonLabel>
                     </IonTabButton>
                     <IonTabButton tab="music" href="/music">
-                        <IonIcon icon={square} />
+                        <IonIcon icon={musicalNoteOutline} />
                         <IonLabel>Music</IonLabel>
+                    </IonTabButton>
+                    <IonTabButton tab="settings" href="/settings">
+                        <IonIcon icon={menuOutline} />
+                        <IonLabel>Settings</IonLabel>
                     </IonTabButton>
                 </IonTabBar>
             </IonTabs>
