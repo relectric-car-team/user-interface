@@ -4,7 +4,7 @@ This repository contains the code for the user interface (UI) including the dash
 This program is to be run on a Raspberry Pi and 2 displays simultaneously on a headless browser that will interact with each other.
 
 ### About the Project
-![](docs/images/home.png)
+![](readme-images/home.png)
 
 This is a draft of the infotainment system, containing functionality for navigation, car stats, music, climate, and more.
 
