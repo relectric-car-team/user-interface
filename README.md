@@ -36,7 +36,7 @@ ionic serve
 
 ## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Please base all pull requests off of the main branch as they will be rebase merged. Check that there are no linter issues before opening a pull request by running `yarn run lint`.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Please base all pull requests off of the main branch as they will be rebase merged. Check that there are no linter issues before opening a pull request by running `yarn run lint-check`.
 
 Please make sure to update tests as appropriate.
 
