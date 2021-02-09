@@ -26,37 +26,21 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import TabBar from './components/TabBar';
+import Home from './pages/Home';
 
 const App: React.FC = () => (
     <IonApp>
         <IonReactRouter>
-            <IonTabs>
-                <IonRouterOutlet>
-                    <Route path="/navigation" component={Navigation} exact={true} />
-                    <Route path="/car" component={Car} exact={true} />
-                    <Route path="/music" component={Music} exact={true} />
-                    <Route path="/settings" component={Settings} />
-                    <Route path="/" render={() => <Redirect to="/navigation" />} exact={true} />
-                </IonRouterOutlet>
-                <IonTabBar slot="bottom">
-                    <IonTabButton tab="navigation" href="/navigation">
-                        <IonIcon icon={navigateOutline} />
-                        <IonLabel>Navigation</IonLabel>
-                    </IonTabButton>
-                    <IonTabButton tab="car" href="/car">
-                        <IonIcon icon={carOutline} />
-                        <IonLabel>Car</IonLabel>
-                    </IonTabButton>
-                    <IonTabButton tab="music" href="/music">
-                        <IonIcon icon={musicalNoteOutline} />
-                        <IonLabel>Music</IonLabel>
-                    </IonTabButton>
-                    <IonTabButton tab="settings" href="/settings">
-                        <IonIcon icon={menuOutline} />
-                        <IonLabel>Settings</IonLabel>
-                    </IonTabButton>
-                </IonTabBar>
-            </IonTabs>
+            <IonRouterOutlet>
+                <Route path="/navigation" component={Navigation} exact={true} />
+                <Route path="/home" component={Home} exact={true} />
+                <Route path="/car" component={Car} exact={true} />
+                <Route path="/music" component={Music} exact={true} />
+                <Route path="/settings" component={Settings} />
+                <Route path="/" render={() => <Redirect to="/home" />} exact={true} />
+            </IonRouterOutlet>
+            <TabBar />
         </IonReactRouter>
     </IonApp>
 );
