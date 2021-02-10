@@ -1,7 +1,6 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
-import ComponentModal from './ComponentModal';
 
 const Home: React.FC = () => {
     return (
@@ -19,7 +18,6 @@ const Home: React.FC = () => {
                     </IonToolbar>
                 </IonHeader>
                 <ExploreContainer name="Home" />
-                <ComponentModal />
             </IonContent>
         </IonPage>
     );

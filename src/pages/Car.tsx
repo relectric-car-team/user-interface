@@ -2,7 +2,7 @@ import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 
-const Tab2: React.FC = () => {
+const Car: React.FC = () => {
     return (
         <IonPage>
             <IonHeader>
@@ -22,4 +22,4 @@ const Tab2: React.FC = () => {
     );
 };
 
-export default Tab2;
+export default Car;
