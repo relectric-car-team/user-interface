@@ -1,26 +1,75 @@
-import { IonIcon, IonLabel, IonTabBar, IonTabButton } from '@ionic/react';
-import { carOutline, menuOutline, musicalNoteOutline, navigateOutline } from 'ionicons/icons';
+import { IonButton, IonCol, IonFooter, IonGrid, IonIcon, IonRow } from '@ionic/react';
+import {
+    carOutline,
+    menuOutline,
+    musicalNoteOutline,
+    navigateOutline,
+    volumeHighOutline,
+    thermometerOutline,
+} from 'ionicons/icons';
 import React from 'react';
+import { Pages } from '../Models/Enums';
+import './TabBar.css';
 
-const TabBar: React.FC = () => (
-    <IonTabBar slot="bottom">
-        <IonTabButton tab="navigation" href="/navigation">
-            <IonIcon icon={navigateOutline} />
-            <IonLabel>Navigation</IonLabel>
-        </IonTabButton>
-        <IonTabButton tab="car" href="/car">
-            <IonIcon icon={carOutline} />
-            <IonLabel>Car</IonLabel>
-        </IonTabButton>
-        <IonTabButton tab="music" href="/music">
-            <IonIcon icon={musicalNoteOutline} />
-            <IonLabel>Music</IonLabel>
-        </IonTabButton>
-        <IonTabButton tab="settings" href="/settings">
-            <IonIcon icon={menuOutline} />
-            <IonLabel>Settings</IonLabel>
-        </IonTabButton>
-    </IonTabBar>
+interface TabBarProps {
+    pageCallback: CallableFunction;
+}
+
+const TabBar: React.FC<TabBarProps> = (props: TabBarProps) => (
+    <IonFooter>
+        <IonGrid>
+            <IonRow className="TabBarRow">
+                <IonCol>
+                    <IonButton fill="clear" size="large" shape="round">
+                        <IonIcon icon={volumeHighOutline} />
+                    </IonButton>
+                </IonCol>
+                <IonCol className="IonColMiddle">
+                    <IonButton
+                        onClick={() => props.pageCallback(Pages.Navigation)}
+                        fill="clear"
+                        size="large"
+                        color="medium"
+                        shape="round"
+                    >
+                        <IonIcon icon={navigateOutline} />
+                    </IonButton>
+                    <IonButton
+                        onClick={() => props.pageCallback(Pages.Car)}
+                        fill="clear"
+                        size="large"
+                        color="medium"
+                        shape="round"
+                    >
+                        <IonIcon icon={carOutline} />
+                    </IonButton>
+                    <IonButton
+                        onClick={() => props.pageCallback(Pages.Music)}
+                        fill="clear"
+                        size="large"
+                        color="medium"
+                        shape="round"
+                    >
+                        <IonIcon icon={musicalNoteOutline} />
+                    </IonButton>
+                    <IonButton
+                        onClick={() => props.pageCallback(Pages.Settings)}
+                        fill="clear"
+                        size="large"
+                        color="medium"
+                        shape="round"
+                    >
+                        <IonIcon icon={menuOutline} />
+                    </IonButton>
+                </IonCol>
+                <IonCol className="IonColRight">
+                    <IonButton fill="clear" size="large" shape="round">
+                        <IonIcon icon={thermometerOutline} />
+                    </IonButton>
+                </IonCol>
+            </IonRow>
+        </IonGrid>
+    </IonFooter>
 );
 
 export default TabBar;

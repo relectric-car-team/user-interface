@@ -1,0 +1,10 @@
+.TabBarRow {
+    justify-content: space-around;
+}
+.IonColMiddle {
+    text-align: center;
+}
+
+.IonColRight {
+    text-align: right;
+}
