@@ -1,12 +1,5 @@
 import React from 'react';
-import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
-import { carOutline, musicalNoteOutline, navigateOutline, menuOutline } from 'ionicons/icons';
-import Navigation from './pages/Navigation';
-import Car from './pages/Car';
-import Music from './pages/Music';
-import Settings from './pages/Settings';
+import { IonApp } from '@ionic/react';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -26,22 +19,11 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import TabBar from './components/TabBar';
-import Home from './pages/Home';
+import AppContainer from './pages/AppContainer';
 
 const App: React.FC = () => (
     <IonApp>
-        <IonReactRouter>
-            <IonRouterOutlet>
-                <Route path="/navigation" component={Navigation} exact={true} />
-                <Route path="/home" component={Home} exact={true} />
-                <Route path="/car" component={Car} exact={true} />
-                <Route path="/music" component={Music} exact={true} />
-                <Route path="/settings" component={Settings} />
-                <Route path="/" render={() => <Redirect to="/home" />} exact={true} />
-            </IonRouterOutlet>
-            <TabBar />
-        </IonReactRouter>
+        <AppContainer />
     </IonApp>
 );
 
