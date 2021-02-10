@@ -19,7 +19,7 @@ const TabBar: React.FC<TabBarProps> = (props: TabBarProps) => (
     <IonFooter>
         <IonGrid>
             <IonRow className="TabBarRow">
-                <IonCol>
+                <IonCol size="2">
                     <IonButton fill="clear" size="large" shape="round">
                         <IonIcon icon={volumeHighOutline} />
                     </IonButton>
@@ -62,7 +62,7 @@ const TabBar: React.FC<TabBarProps> = (props: TabBarProps) => (
                         <IonIcon icon={menuOutline} />
                     </IonButton>
                 </IonCol>
-                <IonCol className="IonColRight">
+                <IonCol className="IonColRight" size="2">
                     <IonButton fill="clear" size="large" shape="round">
                         <IonIcon icon={thermometerOutline} />
                     </IonButton>
