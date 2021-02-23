@@ -1,7 +1,7 @@
 {
-  "name": "UI-infotainment",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "react"
+    "name": "UI-infotainment",
+    "integrations": {
+        "capacitor": {}
+    },
+    "type": "react"
 }
