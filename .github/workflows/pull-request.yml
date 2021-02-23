@@ -21,7 +21,7 @@ jobs:
               with:
                   prettier_options: --write .
               env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.PUSH_TO_PROTECTED_BRANCH }}
             - name: Yarn install
               run: yarn install
             - name: ESLint checker
