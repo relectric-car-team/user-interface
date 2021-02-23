@@ -8,12 +8,14 @@ This program is to be run on a Raspberry Pi and 2 displays simultaneously on a h
 Link to live demo: [relectric-ui.netlify.app](https://relectric-ui.netlify.app)
 
 ### About the Project
+
 ![](docs/images/home.png)
 
 This is a draft of the infotainment system, containing functionality for navigation, car stats, music, climate, and more.
 
 ### Built With
-- [Ionic React](https://ionicframework.com)
+
+-   [Ionic React](https://ionicframework.com)
 
 ## Getting Started
 
@@ -41,4 +43,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## License
+
 This repository is distributed under the MIT License.
