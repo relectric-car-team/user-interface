@@ -11,3 +11,6 @@ redux:
 
 css:
     - 'src/**/*.css'
+
+devops:
+    - '.github/**/*'
