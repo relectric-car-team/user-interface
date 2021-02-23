@@ -1,0 +1,13 @@
+integration: 'src/Models/**/*'
+
+front-end:
+    - 'src/pages/**/*'
+    - 'src/components/**/*'
+    - '**/*.tsx'
+
+redux:
+    - 'src/features/**/*'
+    - 'src/app/**/*'
+
+css:
+    - 'src/**/*.css'

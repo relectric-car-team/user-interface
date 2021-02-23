@@ -1,0 +1,19 @@
+name: Increment version on merge
+'on':
+    push:
+        branches:
+            - main
+jobs:
+    build_and_deploy:
+        if: "!contains(github.event.commits[0].message, '[Bot]')"
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  token: ${{ secrets.PUSH_TO_PROTECTED_BRANCH }}
+            - name: Increment version and push to main
+              run: |
+                  git config --global user.name 'github-actions[bot]'
+                  git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+                  yarn version --patch --message "[Bot] v%s" --git-tag-version=true
+                  git push https://${{ secrets.PUSH_TO_PROTECTED_BRANCH }}@github.com/relectric-car-team/user-interface HEAD:master --follow-tags
