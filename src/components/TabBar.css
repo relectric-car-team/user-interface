@@ -8,3 +8,7 @@
 .IonColRight {
     text-align: right;
 }
+
+.TabBar {
+    z-index: 999999;
+}

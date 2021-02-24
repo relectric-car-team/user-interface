@@ -16,7 +16,7 @@ interface TabBarProps {
 }
 
 const TabBar: React.FC<TabBarProps> = (props: TabBarProps) => (
-    <IonFooter>
+    <IonFooter className="TabBar">
         <IonGrid>
             <IonRow className="TabBarRow">
                 <IonCol size="2">
