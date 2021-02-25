@@ -63,8 +63,8 @@ const TabBar: React.FC<TabBarProps> = (props: TabBarProps) => (
                     </IonButton>
                 </IonCol>
                 <IonCol className="IonColRight" size="2">
-                    <IonButton 
-                    onClick={() => props.pageCallback(Pages.Climate)}
+                    <IonButton
+                        onClick={() => props.pageCallback(Pages.Climate)}
                         fill="clear"
                         size="large"
                         shape="round"
