@@ -1,0 +1,48 @@
+.ClimateToolBar{
+    background: #D99648;
+    color:  #ffffff;
+    border-radius: 15px;
+}
+
+.DirectionCard {
+    transform: translateX(-50%) translateY(-250%);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    width: 60% !important;
+    height: 10%;
+    border-radius: 15px;
+
+    padding-top: 0.75%;
+}
+
+.IntensityCard {
+    transform: translateX(-50%) translateY(-20%);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    width: 80% !important;
+    height: 10%;
+    border-radius: 15px;
+
+    padding-top: 1%;
+}
+
+.SegmentButton {
+    font-size: 200%;
+    color: medium;
+    --color-checked: #D99648;
+    --indicator-color: transparent !important;
+}
+
+.TempCard {
+    display: flex;
+    transform: translateX(200%) translateY(710%);
+    width: 35% !important;
+    height: 10%;
+    border-radius: 40px;
+
+    padding-top: 3.5%;
+    padding-left: 20px;
+    font-size: 200%;
+}
