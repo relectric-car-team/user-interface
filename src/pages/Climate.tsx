@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     IonContent,
     IonHeader,
@@ -11,16 +11,47 @@ import {
     IonSegment,
     IonSegmentButton,
     IonLabel,
-    IonImg,
     IonCol,
 } from '@ionic/react';
 import { carOutline, flameOutline } from 'ionicons/icons';
-import climateUpper from '../assets/icons/climate-upper.svg';
+import climateUpper from '../assets/icons/climate-upper.png';
 import './Climate.css';
+
+enum Direction {
+    Upper = 'Upper',
+    Lower = 'Lower',
+    UpperAndLower = 'UpperAndLower',
+    Front = 'Front',
+}
 
 const Climate: React.FC = () => {
     // dummy varaible to represent temp measurement
-    var temp = 22;
+    const [selectedDirection, setSelectedDirection] = useState<Direction>(Direction.Upper);
+    const temp = 22;
+
+    const setDirection = (d: string | undefined) => {
+        switch (d) {
+            case Direction.Front:
+                setSelectedDirection(Direction.Front);
+                break;
+
+            case Direction.Lower:
+                setSelectedDirection(Direction.Lower);
+                break;
+
+            case Direction.Upper:
+                setSelectedDirection(Direction.Upper);
+                break;
+
+            case Direction.UpperAndLower:
+                setSelectedDirection(Direction.UpperAndLower);
+                break;
+
+            default:
+                setSelectedDirection(Direction.Upper);
+                break;
+        }
+    };
 
     return (
         <IonPage>
@@ -29,30 +60,35 @@ const Climate: React.FC = () => {
                     <IonTitle size="large" color="white">
                         Climate
                     </IonTitle>
+                    0
                 </IonToolbar>
             </IonHeader>
 
             <IonContent fullscreen>
                 <IonHeader collapse="condense">
                     <IonToolbar>
-                        <IonTitle> Climate</IonTitle>
+                        <IonTitle>Climate</IonTitle>
                     </IonToolbar>
                 </IonHeader>
 
                 <IonCard className="DirectionCard" color="light">
                     <IonCardContent>
-                        <IonSegment value="upper">
-                            <IonSegmentButton value="upper" className="SegmentButton">
-                                {/* <IonIcon icon={carOutline} /> */}
-                                <IonImg src={climateUpper} />
+                        <IonSegment
+                            value={selectedDirection}
+                            onIonChange={(e) => {
+                                setDirection(e.detail.value);
+                            }}
+                        >
+                            <IonSegmentButton value={Direction.Upper} className="SegmentButton">
+                                <img src={climateUpper} className="climateUpper" />
                             </IonSegmentButton>
-                            <IonSegmentButton value="lower" className="SegmentButton">
+                            <IonSegmentButton value={Direction.Lower} className="SegmentButton">
                                 <IonIcon name={flameOutline} />
                             </IonSegmentButton>
-                            <IonSegmentButton value="upperAndLower" className="SegmentButton">
+                            <IonSegmentButton value={Direction.UpperAndLower} className="SegmentButton">
                                 <IonIcon icon={carOutline} />
                             </IonSegmentButton>
-                            <IonSegmentButton value="front" className="SegmentButton">
+                            <IonSegmentButton value={Direction.Front} className="SegmentButton">
                                 <IonIcon icon={carOutline} />
                             </IonSegmentButton>
                         </IonSegment>

@@ -1,6 +1,6 @@
-.ClimateToolBar{
-    background: #D99648;
-    color:  #ffffff;
+.ClimateToolBar {
+    background: #d99648;
+    color: #ffffff;
     border-radius: 15px;
 }
 
@@ -31,7 +31,7 @@
 .SegmentButton {
     font-size: 200%;
     color: medium;
-    --color-checked: #D99648;
+    --color-checked: #d99648;
     --indicator-color: transparent !important;
 }
 
@@ -45,4 +45,9 @@
     padding-top: 3.5%;
     padding-left: 20px;
     font-size: 200%;
+}
+
+.climateUpper {
+    /* font-size: 5px; */
+    width: 25px;
 }
