@@ -4,6 +4,10 @@ import './ComponentModal.css';
 
 function formatTime(originalTime: string) {
     let updateTime = originalTime;
+<<<<<<< refs/remotes/origin/main
+=======
+
+>>>>>>> Added React hook for getting the current time to display on the home page, updating every second. Set CSS formatting to make the time appear in the middle of the screen with a color matching the theme. All code for the time hook is located in the home page, but could definitely be moved. CSS code might need to be moved to its own file - it is currently stored in the ComponentModal.css file.
     if (parseInt(originalTime.substring(0, 2)) > 12) {
         const oldHour = parseInt(originalTime.substring(0, 2));
         const newHour = oldHour - 12;
@@ -14,6 +18,7 @@ function formatTime(originalTime: string) {
     return updateTime;
 }
 
+<<<<<<< refs/remotes/origin/main
 function formatDate(originalDate: string) {
     let updateMonth = 'Error';
     let updateDate = 'Error';
@@ -77,17 +82,29 @@ function getDateTime() {
     useEffect(() => {
         const secTimer = setInterval(() => {
             setTime(formatTime(new Date().toLocaleTimeString())), setDate(formatDate(new Date().toLocaleDateString()));
+=======
+function getTime() {
+    const [currentTime, setTime] = useState(formatTime(new Date().toLocaleTimeString()));
+
+    useEffect(() => {
+        const secTimer = setInterval(() => {
+            setTime(formatTime(new Date().toLocaleTimeString()));
+>>>>>>> Added React hook for getting the current time to display on the home page, updating every second. Set CSS formatting to make the time appear in the middle of the screen with a color matching the theme. All code for the time hook is located in the home page, but could definitely be moved. CSS code might need to be moved to its own file - it is currently stored in the ComponentModal.css file.
         }, 1000);
 
         return () => clearInterval(secTimer);
     }, []);
 
+<<<<<<< refs/remotes/origin/main
     return (
         <div>
             <div className="time">{currentTime}</div>
             <div className="date">{currentDate}</div>
         </div>
     );
+=======
+    return currentTime;
+>>>>>>> Added React hook for getting the current time to display on the home page, updating every second. Set CSS formatting to make the time appear in the middle of the screen with a color matching the theme. All code for the time hook is located in the home page, but could definitely be moved. CSS code might need to be moved to its own file - it is currently stored in the ComponentModal.css file.
 }
 
 const Home: React.FC = () => {
@@ -104,7 +121,11 @@ const Home: React.FC = () => {
                         <IonTitle size="large">Home</IonTitle>
                     </IonToolbar>
                 </IonHeader>
+<<<<<<< refs/remotes/origin/main
                 <div>{getDateTime()}</div>
+=======
+                <div className="time">{getTime()}</div>
+>>>>>>> Added React hook for getting the current time to display on the home page, updating every second. Set CSS formatting to make the time appear in the middle of the screen with a color matching the theme. All code for the time hook is located in the home page, but could definitely be moved. CSS code might need to be moved to its own file - it is currently stored in the ComponentModal.css file.
             </IonContent>
         </IonPage>
     );
