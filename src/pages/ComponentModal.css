@@ -5,7 +5,7 @@
 
 .time {
     font-size: 58px;
-    color: #8c8c8c;
+    color: #565656;
     line-height: 26px;
     text-align: center;
     position: absolute;
@@ -13,4 +13,15 @@
     right: 0;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.date {
+    font-size: 28px;
+    color: #787878;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(+100%);
 }
