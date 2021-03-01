@@ -5,27 +5,25 @@
 }
 
 .DirectionCard {
-    transform: translateX(-50%) translateY(-250%);
+    transform: translateX(-50%) translateY(-180%);
     top: 50%;
     left: 50%;
     position: absolute;
     width: 60% !important;
-    height: 10%;
+    height: 15%;
     border-radius: 15px;
 
-    padding-top: 0.75%;
+    /*padding-top: 0.75%;*/
 }
 
 .IntensityCard {
-    transform: translateX(-50%) translateY(-20%);
+    transform: translateX(-50%) translateY(25%);
     top: 50%;
     left: 50%;
     position: absolute;
     width: 80% !important;
-    height: 10%;
+    height: 15%;
     border-radius: 15px;
-
-    padding-top: 1%;
 }
 
 .SegmentButton {
@@ -37,17 +35,27 @@
 
 .TempCard {
     display: flex;
-    transform: translateX(200%) translateY(710%);
+    transform: translateX(225%) translateY(540%);
     width: 35% !important;
-    height: 10%;
+    height: 15%;
     border-radius: 40px;
 
-    padding-top: 3.5%;
-    padding-left: 20px;
+    padding-top: 1.5%;
+    padding-left: 25px;
     font-size: 200%;
 }
 
-.climateUpper {
+.ClimateUpperButton{
+    width: 35px;
+}
+
+.DirectionButton {
     /* font-size: 5px; */
-    width: 25px;
+    width: 43px;
+}
+
+.Fan {
+    /* font-size: 5px; */
+    width: 35px;
+    height: 35px;
 }
