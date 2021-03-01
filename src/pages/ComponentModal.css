@@ -5,11 +5,7 @@
 
 .time {
     font-size: 58px;
-<<<<<<< refs/remotes/origin/main
-    color: #565656;
-=======
     color: #8c8c8c;
->>>>>>> Added React hook for getting the current time to display on the home page, updating every second. Set CSS formatting to make the time appear in the middle of the screen with a color matching the theme. All code for the time hook is located in the home page, but could definitely be moved. CSS code might need to be moved to its own file - it is currently stored in the ComponentModal.css file.
     line-height: 26px;
     text-align: center;
     position: absolute;
@@ -18,17 +14,3 @@
     top: 50%;
     transform: translateY(-50%);
 }
-<<<<<<< refs/remotes/origin/main
-
-.date {
-    font-size: 28px;
-    color: #787878;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(+100%);
-}
-=======
->>>>>>> Added React hook for getting the current time to display on the home page, updating every second. Set CSS formatting to make the time appear in the middle of the screen with a color matching the theme. All code for the time hook is located in the home page, but could definitely be moved. CSS code might need to be moved to its own file - it is currently stored in the ComponentModal.css file.
