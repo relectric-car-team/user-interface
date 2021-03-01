@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './ComponentModal.css';
+<<<<<<< HEAD
 
 function formatTime(originalTime: string) {
     let updateTime = originalTime;
@@ -89,6 +90,9 @@ function getDateTime() {
         </div>
     );
 }
+=======
+import DateTime from '../components/DateTime';
+>>>>>>> 4fdd7f51a1c4c3ab50ad80594df34576a75674c6
 
 const Home: React.FC = () => {
     return (
@@ -104,7 +108,11 @@ const Home: React.FC = () => {
                         <IonTitle size="large">Home</IonTitle>
                     </IonToolbar>
                 </IonHeader>
+<<<<<<< HEAD
                 <div>{getDateTime()}</div>
+=======
+                <DateTime />
+>>>>>>> 4fdd7f51a1c4c3ab50ad80594df34576a75674c6
             </IonContent>
         </IonPage>
     );
