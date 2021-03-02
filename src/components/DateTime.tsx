@@ -4,14 +4,19 @@ import './DateTime.css';
 
 const DateTime: React.FC = () => {
     const formatTime = (originalTime: string) => {
-        let updateTime = originalTime;
-        if (parseInt(originalTime.substring(0, 2)) > 12) {
-            const oldHour = parseInt(originalTime.substring(0, 2));
-            const newHour = oldHour - 12;
+        const regex = /([0-9]+):([0-9]+):([0-9]+) ([A-Z]+)/;
+        const searchResult = originalTime.match(regex);
+        let hour = 'Error';
+        let minute = 'Error';
+        let amPm = 'Error';
 
-            updateTime = originalTime.replace(oldHour.toString(), newHour.toString());
+        if (searchResult != null) {
+            hour = searchResult[1];
+            minute = searchResult[2];
+            amPm = searchResult[4];
         }
 
+        const updateTime = hour.concat(':' + minute + ' ' + amPm);
         return updateTime;
     };
 
