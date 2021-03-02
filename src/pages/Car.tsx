@@ -1,22 +1,23 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonImg } from '@ionic/react';
+import carAerial from '../assets/icons/car-aerial.png';
+import './Car.css';
 
 const Car: React.FC = () => {
     return (
         <IonPage>
             <IonHeader>
-                <IonToolbar>
-                    <IonTitle>Tab 2</IonTitle>
+                <IonToolbar color="#099648" className="CarToolBar">
+                    <IonTitle>Car View</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent fullscreen>
                 <IonHeader collapse="condense">
                     <IonToolbar>
-                        <IonTitle size="large">Tab 2 Elize says hi</IonTitle>
+                        <IonTitle size="large">Car Tab</IonTitle>
                     </IonToolbar>
                 </IonHeader>
-                <ExploreContainer name="Car Information Page" />
+                <IonImg className="AerialView" src={carAerial} />
             </IonContent>
         </IonPage>
     );
