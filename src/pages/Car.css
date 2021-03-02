@@ -1,0 +1,13 @@
+.CarToolBar {
+    background: #008080;
+    color: #ffffff;
+}
+
+.AerialView {
+    max-width: 100%;
+    height: 80%;
+    margin-top: 3%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
