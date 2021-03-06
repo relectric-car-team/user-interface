@@ -1,35 +1,33 @@
 import React, { useEffect, useState } from 'react';
-import {IonButton, 
-        IonCol, 
-        IonContent, 
-        IonGrid, 
-        IonHeader, 
-        IonIcon, 
-        IonImg, 
-        IonLabel, 
-        IonPage, 
-        IonRange, 
-        IonRow, 
-        IonText, 
-        IonThumbnail, 
-        IonTitle, 
-        IonToolbar } from '@ionic/react';
-import {playCircle,
-        playSkipBack,
-        playSkipForward,
-        pauseCircle } from 'ionicons/icons';
+import {
+    IonButton,
+    IonCol,
+    IonContent,
+    IonGrid,
+    IonHeader,
+    IonIcon,
+    IonImg,
+    IonLabel,
+    IonPage,
+    IonRange,
+    IonRow,
+    IonText,
+    IonThumbnail,
+    IonTitle,
+    IonToolbar,
+} from '@ionic/react';
+import { playCircle, playSkipBack, playSkipForward, pauseCircle } from 'ionicons/icons';
 import albumCover from '../assets/album_cover.jpg';
 import './Music.css';
 
 /**
  * The music tab manages the interaction between the driver
- * and their media player. This tab displays details of the song 
+ * and their media player. This tab displays details of the song
  * being played: title, artist, and album. The controls allow
  * for playing/pausing media, sliding to a specific timestamp,
  * and restarting/skipping the current song.
  */
 const Music: React.FC = () => {
-
     // dummy variable to represent the total time of the song in seconds
     const seconds = 167;
 
@@ -47,11 +45,11 @@ const Music: React.FC = () => {
     useEffect(() => {
         // exit early when we reach 0
         if (secPassed == seconds || !isPlaying) return;
-    
+
         // save intervalId to clear the interval when the
         // component re-renders
         const intervalId = setInterval(() => {
-          setSecPassed(secPassed + 1);
+            setSecPassed(secPassed + 1);
         }, 1000);
         // clear interval on re-render to avoid memory leaks
         return () => clearInterval(intervalId);
@@ -62,33 +60,32 @@ const Music: React.FC = () => {
     /**
      * dummy variables for the current song
      */
-    const title = "Sunset Blvd"
-    const artist = "Kam Prada"
-    const album = "Sunset Blvd"
+    const title = 'Sunset Blvd';
+    const artist = 'Kam Prada';
+    const album = 'Sunset Blvd';
 
     /**
-     * function that turns integer number of seconds into a string 
+     * function that turns integer number of seconds into a string
      * formatted as mm:ss or m:ss
      * @param sec integer number of seconds to turn into a string
      */
-    function getSecondsAsDigitalClock (sec: number) {
+    function getSecondsAsDigitalClock(sec: number) {
         const secNum = parseInt(sec.toString(), 10);
 
         // Note: hours included just in case but hrs not displayed (assumed to be 0)
         const hours = Math.floor(secNum / 3600);
-        const minutes = Math.floor((secNum - (hours * 3600)) / 60);
-        const seconds = secNum - (hours * 3600) - (minutes * 60);
+        const minutes = Math.floor((secNum - hours * 3600) / 60);
+        const seconds = secNum - hours * 3600 - minutes * 60;
         let minutesString = '';
         let secondsString = '';
         minutesString = minutes.toString();
-        secondsString = (seconds < 10) ? '0' + seconds : seconds.toString();
+        secondsString = seconds < 10 ? '0' + seconds : seconds.toString();
         return minutesString + ':' + secondsString;
     }
 
     return (
         <IonPage>
             <IonHeader>
-
                 {/**
                  * Purple toolbar with the title of the page: music
                  */}
@@ -109,13 +106,11 @@ const Music: React.FC = () => {
                  * the details/button section (top right) and the timebar section (bottom).
                  */}
                 <IonGrid className="MusicGrid">
-
                     {/**
                      * Upper row containing album cover, title, album, artist,
                      * play/pause button,  and skip forward/back buttons
                      */}
                     <IonRow className="InfoButtonRow">
-
                         {/**
                          * Left column containing album cover
                          */}
@@ -129,46 +124,49 @@ const Music: React.FC = () => {
                          * Right column containing song details and control buttons
                          */}
                         <IonCol size="5" className="InfoButtonCol">
-
                             {/** Upper sub-row containing song title, album, and artist */}
                             <IonRow>
                                 <IonLabel className="MediaDetailLabel">
                                     <IonTitle className="SongTitle">{title}</IonTitle>
-                                    <IonText>{album}</IonText> <br/>
-                                    <IonText>{artist}</IonText> <br/>
+                                    <IonText>{album}</IonText> <br />
+                                    <IonText>{artist}</IonText> <br />
                                 </IonLabel>
                             </IonRow>
 
                             {/** Lower sub-row containing control buttons */}
                             <IonRow className="ButtonRow">
-                                <IonButton 
-                                    className="SkipButtons" 
-                                    fill="clear" 
-                                    size="large" 
-                                    shape="round" 
+                                <IonButton
+                                    className="SkipButtons"
+                                    fill="clear"
+                                    size="large"
+                                    shape="round"
                                     color="medium"
-                                    onClick={() => setSecPassed(0)}>
-                                        <IonIcon icon={playSkipBack} />
+                                    onClick={() => setSecPassed(0)}
+                                >
+                                    <IonIcon icon={playSkipBack} />
                                 </IonButton>
-                                <IonButton className="PlayPauseButton" 
-                                    fill="clear" 
-                                    size="large" 
-                                    shape="round" 
+                                <IonButton
+                                    className="PlayPauseButton"
+                                    fill="clear"
+                                    size="large"
+                                    shape="round"
                                     color="medium"
-                                    onClick={() => setPlayingState(!isPlaying)}>
+                                    onClick={() => setPlayingState(!isPlaying)}
+                                >
                                     {isPlaying ? (
-                                         <IonIcon icon={pauseCircle} className="PlayPauseIcon"/>
+                                        <IonIcon icon={pauseCircle} className="PlayPauseIcon" />
                                     ) : (
-                                        <IonIcon icon={playCircle} className="PlayPauseIcon"/>
+                                        <IonIcon icon={playCircle} className="PlayPauseIcon" />
                                     )}
                                 </IonButton>
-                                <IonButton 
-                                    className="SkipButtons" 
-                                    fill="clear" 
-                                    size="large" 
-                                    shape="round" 
+                                <IonButton
+                                    className="SkipButtons"
+                                    fill="clear"
+                                    size="large"
+                                    shape="round"
                                     color="medium"
-                                    onClick={() => setSecPassed(seconds)}>
+                                    onClick={() => setSecPassed(seconds)}
+                                >
                                     <IonIcon icon={playSkipForward} />
                                 </IonButton>
                             </IonRow>
@@ -179,20 +177,20 @@ const Music: React.FC = () => {
                      * Bottom row containing timestamps and time bar
                      */}
                     <IonRow className="TimeRow">
-                        <IonText>{getSecondsAsDigitalClock (secPassed)}</IonText>
+                        <IonText>{getSecondsAsDigitalClock(secPassed)}</IonText>
                         {/** timerComponents.length ? timerComponents : <span>Time's up!</span> */}
                         <IonCol size="0.2"></IonCol>
-                        <IonRange 
-                            min={0} 
-                            max={seconds} 
-                            color="medium" 
-                            className="TimeBar" 
-
+                        <IonRange
+                            min={0}
+                            max={seconds}
+                            color="medium"
+                            className="TimeBar"
                             /* Allows for current time to update bar AND user sliding bar to update current time */
-                            value={secPassed} 
-                            onIonChange={e => setSecPassed(e.detail.value as number)} />
+                            value={secPassed}
+                            onIonChange={(e) => setSecPassed(e.detail.value as number)}
+                        />
                         <IonCol size="0.2"></IonCol>
-                        <IonText>{getSecondsAsDigitalClock(seconds)}</IonText> <br/>
+                        <IonText>{getSecondsAsDigitalClock(seconds)}</IonText> <br />
                     </IonRow>
                 </IonGrid>
             </IonContent>
