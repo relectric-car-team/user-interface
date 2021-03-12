@@ -36,7 +36,9 @@
         "lint-check": "eslint ./src --ext .js,.jsx,.ts,.tsx",
         "lint-fix": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
         "prettier-check": "prettier --check \"src/**/*.{js,ts,tsx}\"",
-        "prettier-fix": "prettier --write \"src/**/*.{js,ts,tsx}\""
+        "prettier-fix": "prettier --write \"src/**/*.{js,ts,tsx}\"",
+        "dev": "docker-compose up",
+        "dev-rebuild": "docker-compose up --build"
     },
     "eslintConfig": {
         "extends": "react-app"
