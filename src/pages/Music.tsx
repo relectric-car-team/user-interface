@@ -16,7 +16,7 @@ import {
     IonTitle,
     IonToolbar,
 } from '@ionic/react';
-import { playCircle, playSkipBack, playSkipForward, pauseCircle } from 'ionicons/icons';
+import { playCircle, playSkipBack, playSkipForward, pauseCircle, close } from 'ionicons/icons';
 import albumCover from '../assets/album_cover.jpg';
 import './Music.scss';
 import '../theme/Modal.scss';
@@ -91,7 +91,12 @@ const Music: React.FC = () => {
                  * Purple toolbar with the title of the page: music
                  */}
                 <IonToolbar color="#885c94" className="MusicToolBar">
-                    <IonTitle>Music</IonTitle>
+                    <IonRow>
+                        <IonButton fill="clear" color="white" shape="round">
+                            <IonIcon src={close} className="XButton" />
+                        </IonButton>
+                        <IonTitle>Music</IonTitle>
+                    </IonRow>
                 </IonToolbar>
             </IonHeader>
 

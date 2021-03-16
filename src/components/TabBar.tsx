@@ -69,7 +69,7 @@ const TabBar: React.FC<TabBarProps> = (props: TabBarProps) => {
     return (
         <IonToolbar className="TabBar">
             {/* Grid to arrange components */}
-            <IonGrid onClick={() => console.log('Yet')}>
+            <IonGrid>
                 <IonRow className="TabBarRow">
                     <IonCol size="4">
                         <IonRow className="TabBarCorner Left">
