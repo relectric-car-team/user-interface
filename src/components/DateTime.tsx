@@ -1,6 +1,6 @@
 import { IonContent, IonTitle } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
-import './DateTime.css';
+import './DateTime.scss';
 
 const DateTime: React.FC = () => {
     const formatTime = (originalTime: string) => {

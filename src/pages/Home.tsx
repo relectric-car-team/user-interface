@@ -1,6 +1,5 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import './ComponentModal.css';
 import DateTime from '../components/DateTime';
 
 const Home: React.FC = () => {

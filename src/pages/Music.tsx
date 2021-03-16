@@ -18,7 +18,7 @@ import {
 } from '@ionic/react';
 import { playCircle, playSkipBack, playSkipForward, pauseCircle } from 'ionicons/icons';
 import albumCover from '../assets/album_cover.jpg';
-import './Music.css';
+import './Music.scss';
 
 /**
  * The music tab manages the interaction between the driver

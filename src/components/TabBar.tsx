@@ -9,7 +9,7 @@ import {
 } from 'ionicons/icons';
 import React from 'react';
 import { Pages } from '../Models/Enums';
-import './TabBar.css';
+import './TabBar.scss';
 
 interface TabBarProps {
     pageCallback: CallableFunction;
