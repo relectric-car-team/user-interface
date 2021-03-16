@@ -14,8 +14,11 @@ import {
     IonRow,
     IonButton,
     IonIcon,
+    IonRange,
+    IonIcon,
 } from '@ionic/react';
 import { close } from 'ionicons/icons';
+import {thermometerOutline} from 'ionicons/icons';
 
 /**
  * Imports for all custom icons
@@ -45,16 +48,16 @@ enum Direction {
     Front = 'Front',
 }
 
-/**
- * Enums for consistent identification of the intensity mode selected
- */
-enum Intensity {
-    off = 'OFF',
-    one = '1',
-    two = '2',
-    three = '3',
-    four = '4',
-}
+// /**
+//  * Enums for consistent identification of the intensity mode selected
+//  */
+// enum Intensity {
+//     off = 'OFF',
+//     one = '1',
+//     two = '2',
+//     three = '3',
+//     four = '4',
+// }
 
 /**
  * The climate tab manages the selection choice of the user for intensity of airflow
@@ -64,10 +67,11 @@ enum Intensity {
 const Climate: React.FC = () => {
     const dispatch = useDispatch();
     const [selectedDirection, setSelectedDirection] = useState<Direction>();
-    const [selectedIntensity, setSelectedIntensity] = useState<Intensity>();
+    // const [selectedIntensity, setSelectedIntensity] = useState<Intensity>();
+    const [selectedTemp, setSelectedTemp] = useState("rgb(255, 0, 0)");
 
     // dummy varaible to represent interior temperature measurement
-    const temp = 22;
+    const currTemp = 22;
 
     return (
         <IonPage>
@@ -113,7 +117,7 @@ const Climate: React.FC = () => {
                                 className="SegmentButton"
                                 onClick={() => setSelectedDirection(Direction.Upper)}
                             >
-                                {selectedDirection == Direction.Upper && selectedIntensity != Intensity.off ? (
+                                {selectedDirection == Direction.Upper ? (
                                     <img src={climateUpperOn} className="ClimateUpperButton" />
                                 ) : (
                                     <img src={climateUpper} className="ClimateUpperButton" />
@@ -128,7 +132,7 @@ const Climate: React.FC = () => {
                                 className="SegmentButton"
                                 onClick={() => setSelectedDirection(Direction.Lower)}
                             >
-                                {selectedDirection == Direction.Lower && selectedIntensity != Intensity.off ? (
+                                {selectedDirection == Direction.Lower  ? (
                                     <img src={climateLowerOn} className="DirectionButton" />
                                 ) : (
                                     <img src={climateLower} className="DirectionButton" />
@@ -143,7 +147,8 @@ const Climate: React.FC = () => {
                                 className="SegmentButton"
                                 onClick={() => setSelectedDirection(Direction.UpperAndLower)}
                             >
-                                {selectedDirection == Direction.UpperAndLower && selectedIntensity != Intensity.off ? (
+                                {/* {selectedDirection == Direction.UpperAndLower && selectedIntensity != Intensity.off ? ( */}
+                                {selectedDirection == Direction.UpperAndLower ? (
                                     <img src={climateUpperAndLowerOn} className="DirectionButton" />
                                 ) : (
                                     <img src={climateUpperAndLower} className="DirectionButton" />
@@ -158,7 +163,7 @@ const Climate: React.FC = () => {
                                 className="SegmentButton"
                                 onClick={() => setSelectedDirection(Direction.Front)}
                             >
-                                {selectedDirection == Direction.Front && selectedIntensity != Intensity.off ? (
+                                {selectedDirection == Direction.Front ? (
                                     <img src={climateFrontOn} className="DirectionButton" />
                                 ) : (
                                     <img src={climateFront} className="DirectionButton" />
@@ -174,70 +179,12 @@ const Climate: React.FC = () => {
                 airflow while 4 is the most intense mose. Only one mode may be selected at 
                 a time.
                 */}
-                <IonCard className="IntensityCard" color="light">
-                    <IonCardContent>
-                        {/*
-                        Buttons on the same panel are contained within segments to only allow 
-                        one button to be selected at any given time.
-                        */}
-                        <IonSegment value={selectedIntensity}>
-                            {/*
-                            (Left) button indicating airflow is off
-                            */}
-                            <IonSegmentButton
-                                value={Intensity.off}
-                                className="SegmentButton"
-                                onClick={() => setSelectedIntensity(Intensity.off)}
-                            >
-                                <IonLabel>OFF</IonLabel>
-                            </IonSegmentButton>
-
-                            {/*
-                            (2nd from left) button indicating airflow is low; intensity = 1
-                            */}
-                            <IonSegmentButton
-                                value={Intensity.one}
-                                className="SegmentButton"
-                                onClick={() => setSelectedIntensity(Intensity.one)}
-                            >
-                                <IonLabel>1</IonLabel>
-                            </IonSegmentButton>
-
-                            {/*
-                            (Middle) button indicating airflow is medium; intensity = 2
-                            */}
-                            <IonSegmentButton
-                                value={Intensity.two}
-                                className="SegmentButton"
-                                onClick={() => setSelectedIntensity(Intensity.two)}
-                            >
-                                <IonLabel>2</IonLabel>
-                            </IonSegmentButton>
-
-                            {/*
-                            (2nd from right) button indicating airflow is med-high; intensity = 3
-                            */}
-                            <IonSegmentButton
-                                value={Intensity.three}
-                                className="SegmentButton"
-                                onClick={() => setSelectedIntensity(Intensity.three)}
-                            >
-                                <IonLabel>3</IonLabel>
-                            </IonSegmentButton>
-
-                            {/*
-                            (Right) button indicating airflow is high; intensity = 4
-                            */}
-                            <IonSegmentButton
-                                value={Intensity.four}
-                                className="SegmentButton"
-                                onClick={() => setSelectedIntensity(Intensity.four)}
-                            >
-                                <IonLabel>4</IonLabel>
-                            </IonSegmentButton>
-                        </IonSegment>
-                    </IonCardContent>
-                </IonCard>
+                <IonRange 
+                    min={0}
+                    max={255}
+                    className="TempRange"
+                    onIonChange={(e) => setSelectedTemp("rgb(" + (255 - (e.detail.value as number)) + ", 0, " + (e.detail.value as number) + ")")}>
+                </IonRange>
 
                 {/*
                 Bottom right panel displaying current interior temperature of the vehicle.
@@ -246,7 +193,7 @@ const Climate: React.FC = () => {
                     <IonLabel color="relectric-light">{temp}</IonLabel>
                     <IonLabel color="relectric-light">°C</IonLabel>
                     <IonCol size="1"> </IonCol>
-                    <img src={fan} className="Fan" />
+                    <IonIcon src={thermometerOutline} className="Thermometer" color="dark"/>
                 </IonCard>
             </IonContent>
         </IonPage>
