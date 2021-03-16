@@ -1,3 +1,5 @@
+@import '../theme/variables.scss';
+
 .ClimateToolBar {
     background: #d99648;
     color: #ffffff;
@@ -11,6 +13,11 @@
     width: 60% !important;
     height: 15%;
     border-radius: 15px;
+    background: $modal-light-inset;
+    box-shadow: none;
+}
+.DirectionSegment {
+    --background: #606060;
 }
 .IntensityCard {
     transform: translateX(-50%) translateY(25%);
@@ -20,6 +27,8 @@
     width: 80% !important;
     height: 15%;
     border-radius: 15px;
+    background: $modal-light-inset;
+    box-shadow: none;
 }
 .SegmentButton {
     font-size: 200%;
@@ -36,6 +45,8 @@
     padding-top: 1.5%;
     padding-left: 25px;
     font-size: 200%;
+    background: $modal-light-inset;
+    box-shadow: none;
 }
 .ClimateUpperButton {
     width: 35px;
