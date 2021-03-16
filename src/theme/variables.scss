@@ -1,3 +1,13 @@
+/**
+    colors.scss
+
+    @author - Ratik Kapoor
+    @description - Holds colours to use across app for consistency
+*/
+
+$light-text: #d3d3d3;
+$home-background: #2e3436;
+
 :root {
     --ion-color-primary: #3880ff;
     --ion-color-primary-rgb: 56, 128, 255;
@@ -143,8 +153,8 @@
     }
     .md {
         body {
-            --ion-background-color: #121212;
-            --ion-background-color-rgb: 18, 18, 18;
+            --ion-background-color: #2e3436;
+            // --ion-background-color-rgb: 18, 18, 18;
             --ion-text-color: #ffffff;
             --ion-text-color-rgb: 255, 255, 255;
             --ion-border-color: #222222;
@@ -263,8 +273,8 @@
     }
     .md {
         body {
-            --ion-background-color: #121212;
-            --ion-background-color-rgb: 18, 18, 18;
+            --ion-background-color: #2e3436;
+            // --ion-background-color-rgb: 18, 18, 18;
             --ion-text-color: #ffffff;
             --ion-text-color-rgb: 255, 255, 255;
             --ion-border-color: #222222;
