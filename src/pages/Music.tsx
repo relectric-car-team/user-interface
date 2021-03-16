@@ -191,7 +191,7 @@ const Music: React.FC = () => {
                             onIonChange={(e) => setSecPassed(e.detail.value as number)}
                         />
                         <IonCol size="0.2"></IonCol>
-                        <IonText>{getSecondsAsDigitalClock(seconds)}</IonText> <br />
+                        <IonText>{getSecondsAsDigitalClock(seconds)}</IonText>
                     </IonRow>
                 </IonGrid>
             </IonContent>

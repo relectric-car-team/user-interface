@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { IonContent, IonModal } from '@ionic/react';
 import { Pages } from '../Models/Enums';
 import Music from './Music';
@@ -14,6 +14,12 @@ interface ComponentModalProps {
 }
 
 const ComponentModal: React.FC<ComponentModalProps> = (props: ComponentModalProps) => {
+    const [savedPage, setSavedPage] = useState<Pages>(Pages.Home);
+
+    useEffect(() => {
+        if (props.page !== Pages.Home) setSavedPage(props.page);
+    }, [props.page]);
+
     return (
         <IonContent>
             {/* Default Ionic modal component */}
@@ -21,17 +27,18 @@ const ComponentModal: React.FC<ComponentModalProps> = (props: ComponentModalProp
                 isOpen={props.page === Pages.Home ? false : true}
                 onDidDismiss={() => {
                     props.pageCallback(Pages.Home);
+                    setSavedPage(Pages.Home);
                 }}
                 swipeToClose={true}
                 cssClass="ComponentModal"
                 showBackdrop={false}
             >
                 {/* Choose which page to render based on selected page */}
-                {props.page == Pages.Music && <Music />}
-                {props.page == Pages.Car && <Car />}
-                {props.page == Pages.Climate && <Climate />}
-                {props.page == Pages.Navigation && <Navigation />}
-                {props.page == Pages.Settings && <Settings />}
+                {savedPage == Pages.Music && <Music />}
+                {savedPage == Pages.Car && <Car />}
+                {savedPage == Pages.Climate && <Climate />}
+                {savedPage == Pages.Navigation && <Navigation />}
+                {savedPage == Pages.Settings && <Settings />}
             </IonModal>
         </IonContent>
     );
