@@ -11,7 +11,11 @@ import {
     IonSegmentButton,
     IonLabel,
     IonCol,
+    IonRow,
+    IonButton,
+    IonIcon,
 } from '@ionic/react';
+import { close } from 'ionicons/icons';
 
 /**
  * Imports for all custom icons
@@ -69,19 +73,16 @@ const Climate: React.FC = () => {
                 tab being views, i.e. Climate
                 */}
                 <IonToolbar color="#D99648" className="ClimateToolBar">
-                    <IonTitle size="large" color="white">
-                        Climate
-                    </IonTitle>
+                    <IonRow>
+                        <IonButton fill="clear" color="white" shape="round">
+                            <IonIcon src={close} className="XButton" />
+                        </IonButton>
+                        <IonTitle>Climate</IonTitle>
+                    </IonRow>
                 </IonToolbar>
             </IonHeader>
 
             <IonContent fullscreen className="ModalContent">
-                <IonHeader collapse="condense">
-                    <IonToolbar>
-                        <IonTitle>Climate</IonTitle>
-                    </IonToolbar>
-                </IonHeader>
-
                 {/*
                 DirectionCard is the uppermost button panel which accpets selection of choice 
                 of direction of airflow: upper passenger body, lower passenger body, both upper
