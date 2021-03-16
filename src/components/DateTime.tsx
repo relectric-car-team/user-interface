@@ -24,12 +24,12 @@ const DateTime: React.FC = () => {
         let updateMonth = 'Error';
         let updateDate = 'Error';
         let updateYear = 'Error';
-        const regexSearch = /([0-9]+)([0-9]+)([0-9]+)/;
+        const regexSearch = /([0-9]+)\/([0-9]+)\/([0-9]+)/;
         const searchResult = originalDate.match(regexSearch);
         if (searchResult != null) {
-            updateMonth = searchResult[2];
-            updateDate = searchResult[1];
-            updateYear = searchResult[0];
+            updateMonth = searchResult[1];
+            updateDate = searchResult[2];
+            updateYear = searchResult[3];
         }
 
         switch (parseInt(updateMonth)) {
@@ -71,8 +71,7 @@ const DateTime: React.FC = () => {
                 break;
         }
 
-        const returnDate = updateMonth.concat(' ' + updateDate + ', ' + updateYear);
-        return returnDate;
+        return updateMonth + ' ' + updateDate + ', ' + updateYear;
     };
 
     const [currentTime, setTime] = useState(formatTime(new Date().toLocaleTimeString()));
