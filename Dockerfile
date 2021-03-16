@@ -7,6 +7,8 @@ WORKDIR /app
 # add `/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
 
+RUN apk update && apk add alpine-sdk python
+
 # install app dependencies
 COPY package.json ./
 COPY yarn.lock ./
