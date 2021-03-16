@@ -30,7 +30,7 @@ const DateTime: React.FC = () => {
         setTime(
             `${
                 d.getHours() > 12 ? (d.getHours() - 12).toString() : d.getHours().toString()
-            }:${d.getMinutes().toString()} ${d.getHours() > 12 ? 'PM' : 'AM'}`,
+            }:${d.getMinutes().toString().padStart(2, '0')} ${d.getHours() > 12 ? 'PM' : 'AM'}`,
         );
     };
 
