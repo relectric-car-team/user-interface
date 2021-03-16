@@ -16,6 +16,7 @@ interface ComponentModalProps {
 const ComponentModal: React.FC<ComponentModalProps> = (props: ComponentModalProps) => {
     return (
         <IonContent>
+            {/* Default Ionic modal component */}
             <IonModal
                 isOpen={props.page === Pages.Home ? false : true}
                 onDidDismiss={() => {
@@ -25,6 +26,7 @@ const ComponentModal: React.FC<ComponentModalProps> = (props: ComponentModalProp
                 cssClass="ComponentModal"
                 showBackdrop={false}
             >
+                {/* Choose which page to render based on selected page */}
                 {props.page == Pages.Music && <Music />}
                 {props.page == Pages.Car && <Car />}
                 {props.page == Pages.Climate && <Climate />}
