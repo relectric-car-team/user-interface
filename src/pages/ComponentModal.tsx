@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { IonContent, IonModal } from '@ionic/react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Pages } from '../Models/Enums';
-import { selectRouter } from '../features/Routing/RouterStore';
+import { selectRouter, setPage } from '../features/Routing/RouterStore';
 import Music from './Music';
 import Car from './Car';
 import Climate from './Climate';
@@ -12,6 +12,7 @@ import './ComponentModal.scss';
 
 const ComponentModal: React.FC = () => {
     const page = useSelector(selectRouter);
+    const dispatch = useDispatch();
     const [savedPage, setSavedPage] = useState<Pages>(Pages.Home);
 
     useEffect(() => {
@@ -24,7 +25,7 @@ const ComponentModal: React.FC = () => {
             <IonModal
                 isOpen={page === Pages.Home ? false : true}
                 onDidDismiss={() => {
-                    // props.pageCallback(Pages.Home);
+                    dispatch(setPage(Pages.Home));
                     setSavedPage(Pages.Home);
                 }}
                 swipeToClose={true}

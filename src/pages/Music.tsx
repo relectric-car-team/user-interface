@@ -20,6 +20,9 @@ import { playCircle, playSkipBack, playSkipForward, pauseCircle, close } from 'i
 import albumCover from '../assets/album_cover.jpg';
 import './Music.scss';
 import '../theme/Modal.scss';
+import { Pages } from '../Models/Enums';
+import { useDispatch } from 'react-redux';
+import { setPage } from '../features/Routing/RouterStore';
 
 /**
  * The music tab manages the interaction between the driver
@@ -29,6 +32,7 @@ import '../theme/Modal.scss';
  * and restarting/skipping the current song.
  */
 const Music: React.FC = () => {
+    const dispatch = useDispatch();
     // dummy variable to represent the total time of the song in seconds
     const seconds = 167;
 
@@ -92,7 +96,12 @@ const Music: React.FC = () => {
                  */}
                 <IonToolbar color="#885c94" className="MusicToolBar">
                     <IonRow>
-                        <IonButton fill="clear" color="white" shape="round">
+                        <IonButton
+                            fill="clear"
+                            color="white"
+                            shape="round"
+                            onClick={() => dispatch(setPage(Pages.Home))}
+                        >
                             <IonIcon src={close} className="XButton" />
                         </IonButton>
                         <IonTitle>Music</IonTitle>

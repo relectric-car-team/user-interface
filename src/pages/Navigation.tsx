@@ -3,8 +3,13 @@ import { IonButton, IonContent, IonHeader, IonIcon, IonPage, IonRow, IonTitle, I
 import ExploreContainer from '../components/ExploreContainer';
 import { close } from 'ionicons/icons';
 import './Navigation.scss';
+import { Pages } from '../Models/Enums';
+import { setPage } from '../features/Routing/RouterStore';
+import { useDispatch } from 'react-redux';
 
 const Navigation: React.FC = () => {
+    const dispatch = useDispatch();
+
     return (
         <IonPage>
             <IonHeader>
@@ -14,7 +19,12 @@ const Navigation: React.FC = () => {
                 */}
                 <IonToolbar color="#608091" className="NavigationToolBar">
                     <IonRow>
-                        <IonButton fill="clear" color="white" shape="round">
+                        <IonButton
+                            fill="clear"
+                            color="white"
+                            shape="round"
+                            onClick={() => dispatch(setPage(Pages.Home))}
+                        >
                             <IonIcon src={close} className="XButton" />
                         </IonButton>
                         <IonTitle>Navigation</IonTitle>

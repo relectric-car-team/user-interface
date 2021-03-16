@@ -31,6 +31,9 @@ import climateFrontOn from '../assets/icons/climate-front-on.png';
 import fan from '../assets/icons/fan-on.png';
 import './Climate.scss';
 import '../theme/Modal.scss';
+import { useDispatch } from 'react-redux';
+import { setPage } from '../features/Routing/RouterStore';
+import { Pages } from '../Models/Enums';
 
 /**
  * Enums for consistent identification of the direction mode selected
@@ -59,6 +62,7 @@ enum Intensity {
  * on this tab.
  */
 const Climate: React.FC = () => {
+    const dispatch = useDispatch();
     const [selectedDirection, setSelectedDirection] = useState<Direction>();
     const [selectedIntensity, setSelectedIntensity] = useState<Intensity>();
 
@@ -74,7 +78,12 @@ const Climate: React.FC = () => {
                 */}
                 <IonToolbar color="#D99648" className="ClimateToolBar">
                     <IonRow>
-                        <IonButton fill="clear" color="white" shape="round">
+                        <IonButton
+                            fill="clear"
+                            color="white"
+                            shape="round"
+                            onClick={() => dispatch(setPage(Pages.Home))}
+                        >
                             <IonIcon src={close} className="XButton" />
                         </IonButton>
                         <IonTitle>Climate</IonTitle>
