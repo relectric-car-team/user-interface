@@ -16,7 +16,7 @@ const AppContainer: React.FC = () => {
         <>
             <ComponentModal page={currentPage} pageCallback={setPage} />
             <Home />
-            <TabBar pageCallback={setPage} />
+            <TabBar pageCallback={setPage} currentPage={currentPage} />
         </>
     );
 };
