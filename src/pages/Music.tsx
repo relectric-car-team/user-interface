@@ -125,7 +125,7 @@ const Music: React.FC = () => {
                          */}
                         <IonCol>
                             <IonThumbnail className="AlbumCover">
-                                <IonImg src={albumCover} />
+                                <IonImg src={albumCover} className="AlbumPic" />
                             </IonThumbnail>
                         </IonCol>
 
