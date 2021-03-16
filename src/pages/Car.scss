@@ -4,3 +4,33 @@
     background: $car;
     color: $white;
 }
+
+.AerialView {
+    pointer-events: none;
+    font-size: 400px;
+    text-align: center;
+}
+
+.ImagePreview {
+    pointer-events: none;
+}
+
+.BatteryStats {
+    float: right;
+    .BatteryIcon {
+        font-size: 5rem;
+        color: #008080;
+    }
+    .BatteryPercentage {
+        font-size: 3rem;
+        color: #008080;
+    }
+}
+
+.blur {
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+}
