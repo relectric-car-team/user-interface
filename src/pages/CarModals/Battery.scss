@@ -1,0 +1,16 @@
+.BatteryToolBar {
+    background: #5b5c5c;
+    color: #ffffff;
+}
+
+.DateSegmentButton {
+    font-size: 100%;
+    color: medium;
+    --color-checked: #008080;
+    --indicator-color: transparent !important; /* removes the bottom line of segment buttons*/
+}
+
+.TimeCard {
+    height: 10%;
+    border-radius: 5px;
+}
