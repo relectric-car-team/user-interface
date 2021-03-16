@@ -96,12 +96,6 @@ const Music: React.FC = () => {
             </IonHeader>
 
             <IonContent fullscreen className="ModalContent">
-                <IonHeader collapse="condense">
-                    <IonToolbar>
-                        <IonTitle size="large">Music</IonTitle>
-                    </IonToolbar>
-                </IonHeader>
-
                 {/**
                  * Create a grid to separate the album cover section (top left) from
                  * the details/button section (top right) and the timebar section (bottom).
