@@ -16,7 +16,7 @@ const Navigation: React.FC = () => {
                         <IonTitle size="large">Navigation</IonTitle>
                     </IonToolbar>
                 </IonHeader>
-                <ExploreContainer name="Navigation Page" />
+                <ExploreContainer />
             </IonContent>
         </IonPage>
     );

@@ -1,3 +1,5 @@
+@import '../theme/variables.scss';
+
 .TabBarRow {
     justify-content: space-around;
 }
@@ -10,4 +12,25 @@
 .TabBar {
     z-index: 999999;
     --background: none;
+}
+
+.TabBarIcon {
+    font-size: 35px;
+}
+
+.TabBarCorner {
+    background-color: $modal-background;
+    border-radius: 50px;
+}
+
+.Right {
+    padding-left: 15px;
+}
+.Left {
+    padding-right: 15px;
+}
+
+.Fan {
+    width: 35px;
+    height: 35px;
 }

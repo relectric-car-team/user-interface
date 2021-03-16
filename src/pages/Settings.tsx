@@ -16,7 +16,7 @@ const Settings: React.FC = () => {
                         <IonTitle size="large">Settings</IonTitle>
                     </IonToolbar>
                 </IonHeader>
-                <ExploreContainer name="Settings Page" />
+                <ExploreContainer />
             </IonContent>
         </IonPage>
     );

@@ -16,7 +16,7 @@ const Car: React.FC = () => {
                         <IonTitle size="large">Tab 2 Elize says hi</IonTitle>
                     </IonToolbar>
                 </IonHeader>
-                <ExploreContainer name="Car Information Page" />
+                <ExploreContainer />
             </IonContent>
         </IonPage>
     );
