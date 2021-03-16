@@ -1,4 +1,5 @@
 import { IonButton, IonCol, IonGrid, IonIcon, IonRange, IonRow, IonToolbar } from '@ionic/react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
     car,
     musicalNotes,
@@ -13,13 +14,11 @@ import React, { useState } from 'react';
 import { Pages } from '../Models/Enums';
 import './TabBar.scss';
 import fan from '../assets/icons/fan.png';
+import { selectRouter, setPage } from '../features/Routing/RouterStore';
 
-interface TabBarProps {
-    pageCallback: CallableFunction;
-    currentPage: Pages;
-}
-
-const TabBar: React.FC<TabBarProps> = (props: TabBarProps) => {
+const TabBar: React.FC = () => {
+    const page = useSelector(selectRouter);
+    const dispatch = useDispatch();
     const [isMuted, setIsMuted] = useState<boolean>(false);
     const [volume, setVolume] = useState<number>(20);
     const [oldVolume, setOldVolume] = useState<number>(0);
@@ -59,10 +58,10 @@ const TabBar: React.FC<TabBarProps> = (props: TabBarProps) => {
      */
     const handleClick = (button: Pages) => {
         console.log(button);
-        if (button === props.currentPage) {
-            props.pageCallback(Pages.Home);
+        if (button === page) {
+            dispatch(setPage(Pages.Home));
         } else {
-            props.pageCallback(button);
+            dispatch(setPage(button));
         }
     };
 
@@ -100,7 +99,7 @@ const TabBar: React.FC<TabBarProps> = (props: TabBarProps) => {
                             onClick={() => handleClick(Pages.Navigation)}
                             fill="clear"
                             size="large"
-                            color={props.currentPage === Pages.Navigation ? 'relectric-navigation' : 'relectric-light'}
+                            color={page === Pages.Navigation ? 'relectric-navigation' : 'relectric-light'}
                             shape="round"
                         >
                             <IonIcon icon={navigate} className="TabBarIcon" />
@@ -110,7 +109,7 @@ const TabBar: React.FC<TabBarProps> = (props: TabBarProps) => {
                             onClick={() => handleClick(Pages.Car)}
                             fill="clear"
                             size="large"
-                            color={props.currentPage === Pages.Car ? 'relectric-car' : 'relectric-light'}
+                            color={page === Pages.Car ? 'relectric-car' : 'relectric-light'}
                             shape="round"
                         >
                             <IonIcon icon={car} className="TabBarIcon" />
@@ -120,7 +119,7 @@ const TabBar: React.FC<TabBarProps> = (props: TabBarProps) => {
                             onClick={() => handleClick(Pages.Music)}
                             fill="clear"
                             size="large"
-                            color={props.currentPage === Pages.Music ? 'relectric-music' : 'relectric-light'}
+                            color={page === Pages.Music ? 'relectric-music' : 'relectric-light'}
                             shape="round"
                         >
                             <IonIcon icon={musicalNotes} className="TabBarIcon" />
@@ -134,7 +133,7 @@ const TabBar: React.FC<TabBarProps> = (props: TabBarProps) => {
                             <IonButton
                                 onClick={() => handleClick(Pages.Climate)}
                                 fill="clear"
-                                color={props.currentPage === Pages.Climate ? 'relectric-climate' : 'relectric-light'}
+                                color={page === Pages.Climate ? 'relectric-climate' : 'relectric-light'}
                                 size="large"
                                 shape="round"
                             >

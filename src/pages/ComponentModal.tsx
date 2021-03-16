@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { IonContent, IonModal } from '@ionic/react';
+import { useSelector } from 'react-redux';
 import { Pages } from '../Models/Enums';
+import { selectRouter } from '../features/Routing/RouterStore';
 import Music from './Music';
 import Car from './Car';
 import Climate from './Climate';
@@ -8,25 +10,21 @@ import Navigation from './Navigation';
 import Settings from './Settings';
 import './ComponentModal.scss';
 
-interface ComponentModalProps {
-    page: Pages;
-    pageCallback: CallableFunction;
-}
-
-const ComponentModal: React.FC<ComponentModalProps> = (props: ComponentModalProps) => {
+const ComponentModal: React.FC = () => {
+    const page = useSelector(selectRouter);
     const [savedPage, setSavedPage] = useState<Pages>(Pages.Home);
 
     useEffect(() => {
-        if (props.page !== Pages.Home) setSavedPage(props.page);
-    }, [props.page]);
+        if (page !== Pages.Home) setSavedPage(page);
+    }, [page]);
 
     return (
         <IonContent>
             {/* Default Ionic modal component */}
             <IonModal
-                isOpen={props.page === Pages.Home ? false : true}
+                isOpen={page === Pages.Home ? false : true}
                 onDidDismiss={() => {
-                    props.pageCallback(Pages.Home);
+                    // props.pageCallback(Pages.Home);
                     setSavedPage(Pages.Home);
                 }}
                 swipeToClose={true}
