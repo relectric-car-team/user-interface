@@ -3,85 +3,44 @@ import React, { useEffect, useState } from 'react';
 import './DateTime.scss';
 
 const DateTime: React.FC = () => {
-    const formatTime = (originalTime: string) => {
-        const regex = /([0-9]+):([0-9]+):([0-9]+) ([A-Z]+)/;
-        const searchResult = originalTime.match(regex);
-        let hour = 'Error';
-        let minute = 'Error';
-        let amPm = 'Error';
+    const [currentTime, setTime] = useState<string>();
+    const [currentDate, setDate] = useState<string>();
 
-        if (searchResult != null) {
-            hour = searchResult[1];
-            minute = searchResult[2];
-            amPm = searchResult[4];
-        }
+    const months = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+    ];
 
-        const updateTime = hour.concat(':' + minute + ' ' + amPm);
-        return updateTime;
+    const updateDateTime = () => {
+        // New Date object
+        const d = new Date();
+        // Set date using `d`
+        setDate(months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear());
+        // Format time using `d`
+        setTime(
+            `${
+                d.getHours() > 12 ? (d.getHours() - 12).toString() : d.getHours().toString()
+            }:${d.getMinutes().toString()} ${d.getHours() > 12 ? 'PM' : 'AM'}`,
+        );
     };
-
-    const formatDate = (originalDate: string) => {
-        let updateMonth = 'Error';
-        let updateDate = 'Error';
-        let updateYear = 'Error';
-        const regexSearch = /([0-9]+)\/([0-9]+)\/([0-9]+)/;
-        const searchResult = originalDate.match(regexSearch);
-        if (searchResult != null) {
-            updateMonth = searchResult[1];
-            updateDate = searchResult[2];
-            updateYear = searchResult[3];
-        }
-
-        switch (parseInt(updateMonth)) {
-            case 1:
-                updateMonth = 'January';
-                break;
-            case 2:
-                updateMonth = 'February';
-                break;
-            case 3:
-                updateMonth = 'March';
-                break;
-            case 4:
-                updateMonth = 'April';
-                break;
-            case 5:
-                updateMonth = 'May';
-                break;
-            case 6:
-                updateMonth = 'June';
-                break;
-            case 7:
-                updateMonth = 'July';
-                break;
-            case 8:
-                updateMonth = 'August';
-                break;
-            case 9:
-                updateMonth = 'September';
-                break;
-            case 10:
-                updateMonth = 'October';
-                break;
-            case 11:
-                updateMonth = 'November';
-                break;
-            case 12:
-                updateMonth = 'December';
-                break;
-        }
-
-        return updateMonth + ' ' + updateDate + ', ' + updateYear;
-    };
-
-    const [currentTime, setTime] = useState(formatTime(new Date().toLocaleTimeString()));
-    const [currentDate, setDate] = useState(formatDate(new Date().toLocaleDateString()));
 
     useEffect(() => {
+        // Update date and time every second
+        updateDateTime();
         const secTimer = setInterval(() => {
-            setTime(formatTime(new Date().toLocaleTimeString())), setDate(formatDate(new Date().toLocaleDateString()));
+            updateDateTime();
         }, 1000);
-
+        // When component is not rendered stop the timer
         return () => clearInterval(secTimer);
     }, []);
 
