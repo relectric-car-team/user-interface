@@ -13,8 +13,8 @@ import {
 import React, { useState } from 'react';
 import { Pages } from '../Models/Enums';
 import './TabBar.scss';
-import fan from '../assets/icons/fan.png';
 import { selectRouter, setPage } from '../features/Routing/RouterStore';
+import Fan from '../assets/icons/fan.svg';
 
 const TabBar: React.FC = () => {
     const page = useSelector(selectRouter);
@@ -137,8 +137,7 @@ const TabBar: React.FC = () => {
                                 size="large"
                                 shape="round"
                             >
-                                {/* TODO: Import custom Fan SVG */}
-                                <img src={fan} className="Fan" />
+                                <IonIcon icon={Fan} />
                             </IonButton>
                         </IonRow>
                     </IonCol>
