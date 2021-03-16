@@ -26,6 +26,7 @@ import climateFront from '../assets/icons/climate-front.png';
 import climateFrontOn from '../assets/icons/climate-front-on.png';
 import fan from '../assets/icons/fan-on.png';
 import './Climate.scss';
+import '../theme/Modal.scss';
 
 /**
  * Enums for consistent identification of the direction mode selected
@@ -74,7 +75,7 @@ const Climate: React.FC = () => {
                 </IonToolbar>
             </IonHeader>
 
-            <IonContent fullscreen>
+            <IonContent fullscreen className="ModalContent">
                 <IonHeader collapse="condense">
                     <IonToolbar>
                         <IonTitle>Climate</IonTitle>
@@ -88,12 +89,12 @@ const Climate: React.FC = () => {
                 a time.
                 */}
                 <IonCard className="DirectionCard" color="light">
-                    <IonCardContent>
+                    <IonCardContent className="DirectionSegment">
                         {/*
                         Buttons on the same panel are contained within segments to only allow 
                         one button to be selected at any given time.
                         */}
-                        <IonSegment value={selectedDirection}>
+                        <IonSegment value={selectedDirection} className="DirectionSegment">
                             {/*
                             (Left) button indicating airflow in the upper body direction
                             */}
@@ -232,8 +233,8 @@ const Climate: React.FC = () => {
                 Bottom right panel displaying current interior temperature of the vehicle.
                 */}
                 <IonCard className="TempCard" color="light">
-                    <IonLabel color="medium">{temp}</IonLabel>
-                    <IonLabel color="medium">°C</IonLabel>
+                    <IonLabel color="relectric-light">{temp}</IonLabel>
+                    <IonLabel color="relectric-light">°C</IonLabel>
                     <IonCol size="1"> </IonCol>
                     <img src={fan} className="Fan" />
                 </IonCard>

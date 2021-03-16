@@ -46,6 +46,7 @@
 .TimeBar {
     transform: translateY(-20px);
     color: 'medium';
+    --knob-size: 30px;
     border-radius: 40px;
 }
 .TimeRow {

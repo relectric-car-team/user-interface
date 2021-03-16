@@ -19,6 +19,7 @@ import {
 import { playCircle, playSkipBack, playSkipForward, pauseCircle } from 'ionicons/icons';
 import albumCover from '../assets/album_cover.jpg';
 import './Music.scss';
+import '../theme/Modal.scss';
 
 /**
  * The music tab manages the interaction between the driver
@@ -94,7 +95,7 @@ const Music: React.FC = () => {
                 </IonToolbar>
             </IonHeader>
 
-            <IonContent fullscreen>
+            <IonContent fullscreen className="ModalContent">
                 <IonHeader collapse="condense">
                     <IonToolbar>
                         <IonTitle size="large">Music</IonTitle>
@@ -140,7 +141,7 @@ const Music: React.FC = () => {
                                     fill="clear"
                                     size="large"
                                     shape="round"
-                                    color="medium"
+                                    color="relectric-light"
                                     onClick={() => setSecPassed(0)}
                                 >
                                     <IonIcon icon={playSkipBack} />
@@ -150,7 +151,7 @@ const Music: React.FC = () => {
                                     fill="clear"
                                     size="large"
                                     shape="round"
-                                    color="medium"
+                                    color="relectric-light"
                                     onClick={() => setPlayingState(!isPlaying)}
                                 >
                                     {isPlaying ? (
@@ -164,7 +165,7 @@ const Music: React.FC = () => {
                                     fill="clear"
                                     size="large"
                                     shape="round"
-                                    color="medium"
+                                    color="relectric-light"
                                     onClick={() => setSecPassed(seconds)}
                                 >
                                     <IonIcon icon={playSkipForward} />
