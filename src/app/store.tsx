@@ -1,8 +1,9 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-// import counterReducer from '../features/counter/counterSlice';
+import { configureStore, ThunkAction, Action, createImmutableStateInvariantMiddleware } from '@reduxjs/toolkit';
+import routerReducer from '../features/Routing/RouterStore';
 
 export const store = configureStore({
-    reducer: {},
+    reducer: { router: routerReducer },
+    middleware: [createImmutableStateInvariantMiddleware({ ignore: ['router'] })],
 });
 
 export type RootState = ReturnType<typeof store.getState>;
