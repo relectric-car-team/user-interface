@@ -5,9 +5,36 @@
 
 .AerialView {
     max-width: 100%;
-    height: 80%;
+    height: 50%;
     margin-top: 3%;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    pointer-events: none;
+}
+
+.ImagePreview {
+    pointer-events: none;
+}
+
+.BatteryStats {
+    float: right;
+}
+
+.BatteryStats .BatteryIcon {
+    font-size: 5rem;
+    color: #008080;
+}
+
+.BatteryStats .BatteryPercentage {
+    font-size: 3rem;
+    color: #008080;
+}
+
+.blur {
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
 }
