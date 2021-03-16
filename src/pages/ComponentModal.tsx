@@ -23,6 +23,7 @@ const ComponentModal: React.FC<ComponentModalProps> = (props: ComponentModalProp
                 }}
                 swipeToClose={true}
                 cssClass="ComponentModal"
+                showBackdrop={false}
             >
                 {props.page == Pages.Music && <Music />}
                 {props.page == Pages.Car && <Car />}
