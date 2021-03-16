@@ -6,7 +6,7 @@ import Car from './Car';
 import Climate from './Climate';
 import Navigation from './Navigation';
 import Settings from './Settings';
-import './ComponentModal.css';
+import './ComponentModal.scss';
 
 interface ComponentModalProps {
     page: Pages;

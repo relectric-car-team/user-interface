@@ -25,7 +25,7 @@ import climateUpperAndLowerOn from '../assets/icons/climate-upper-and-lower-on.p
 import climateFront from '../assets/icons/climate-front.png';
 import climateFrontOn from '../assets/icons/climate-front-on.png';
 import fan from '../assets/icons/fan-on.png';
-import './Climate.css';
+import './Climate.scss';
 
 /**
  * Enums for consistent identification of the direction mode selected
