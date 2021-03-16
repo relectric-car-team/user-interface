@@ -5,11 +5,6 @@ import DateTime from '../components/DateTime';
 const Home: React.FC = () => {
     return (
         <IonPage>
-            <IonHeader>
-                <IonToolbar>
-                    <IonTitle>Home</IonTitle>
-                </IonToolbar>
-            </IonHeader>
             <IonContent fullscreen>
                 <IonHeader collapse="condense">
                     <IonToolbar>
