@@ -21,7 +21,7 @@ interface TabBarProps {
 
 const TabBar: React.FC<TabBarProps> = (props: TabBarProps) => {
     const [isMuted, setIsMuted] = useState<boolean>(false);
-    const [volume, setVolume] = useState<number>(0);
+    const [volume, setVolume] = useState<number>(20);
     const [oldVolume, setOldVolume] = useState<number>(0);
 
     const handleVolumeMute = () => {
