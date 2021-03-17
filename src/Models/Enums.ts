@@ -20,3 +20,15 @@ export enum Pages {
     Navigation = 'Navigation',
     Settings = 'Settings',
 }
+
+/**
+ * Enum: ControllerTypes
+ *
+ * Used for type-checking data from Python systems
+ */
+export enum ControllerTypes {
+    BackupController = 'BackupController',
+    BatteryController = 'BatteryController',
+    ClimateController = 'ClimateController',
+    MotorController = 'MotorController',
+}
