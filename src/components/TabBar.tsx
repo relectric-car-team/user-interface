@@ -26,7 +26,7 @@ const TabBar: React.FC = () => {
     const handleVolumeMute = () => {
         if (isMuted) {
             setIsMuted(false);
-            setVolume(oldVolume);
+            if (volume === 0) setVolume(oldVolume);
         } else {
             setIsMuted(true);
             setOldVolume(volume);
