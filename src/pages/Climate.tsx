@@ -18,7 +18,7 @@ import {
 } from '@ionic/react';
 import { close } from 'ionicons/icons';
 import { thermometerOutline } from 'ionicons/icons';
-import styled from 'styled-componenets';
+import styled from 'styled-components';
 
 /**
  * Imports for all custom icons
@@ -31,7 +31,6 @@ import climateUpperAndLower from '../assets/icons/climate-upper-and-lower.png';
 import climateUpperAndLowerOn from '../assets/icons/climate-upper-and-lower-on.png';
 import climateFront from '../assets/icons/climate-front.png';
 import climateFrontOn from '../assets/icons/climate-front-on.png';
-import fan from '../assets/icons/fan-on.png';
 import './Climate.scss';
 import '../theme/Modal.scss';
 import { useDispatch } from 'react-redux';
@@ -59,6 +58,13 @@ enum Direction {
 //     four = '4',
 // }
 
+const StyledToolbar = styled(IonToolbar).attrs((props: { colour: string }) => ({
+    colour: props.colour,
+}))`
+    --background: ${(props) => props.colour};
+    color: #ffffff;
+`;
+
 /**
  * The climate tab manages the selection choice of the user for intensity of airflow
  * and direction of airflow. The temperature of the vehicle interior is also displayed
@@ -68,15 +74,10 @@ const Climate: React.FC = () => {
     const dispatch = useDispatch();
     const [selectedDirection, setSelectedDirection] = useState<Direction>();
     // const [selectedIntensity, setSelectedIntensity] = useState<Intensity>();
-    const [selectedTemp, setSelectedTemp] = useState('rgb(255, 0, 0)');
+    const [selectedTemp, setSelectedTemp] = useState('rgb(255,0,0)');
 
-    // dummy varaible to represent interior temperature measurement
+    // dummy variable to represent interior temperature measurement
     const currTemp = 22;
-
-    const StyledToolbar = styled(IonToolbar)`
-    background: ${selectedTemp};
-    color: #ffffff;
-`;
 
     return (
         <IonPage>
@@ -85,7 +86,7 @@ const Climate: React.FC = () => {
                 This toolbar is the at the tope of the modal and displays the name of the current
                 tab being views, i.e. Climate
                 */}
-                <StyledToolbar className="ClimateToolBar">
+                <StyledToolbar colour={selectedTemp}>
                     <IonRow>
                         <IonButton
                             fill="clear"
