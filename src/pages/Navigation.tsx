@@ -5,10 +5,17 @@ import { close } from 'ionicons/icons';
 import './Navigation.scss';
 import { Pages } from '../Models/Enums';
 import { setPage } from '../redux/Routing/RouterStore';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectDispatchSystemsAction } from '../redux/NetworkDispatch/NetworkDispatch';
 
 const Navigation: React.FC = () => {
     const dispatch = useDispatch();
+
+    const dispatchSystemsAction = useSelector(selectDispatchSystemsAction);
+
+    const handleClick = () => {
+        dispatchSystemsAction && dispatchSystemsAction('5');
+    };
 
     return (
         <IonPage>
@@ -32,7 +39,8 @@ const Navigation: React.FC = () => {
                 </IonToolbar>
             </IonHeader>
             <IonContent fullscreen>
-                <ExploreContainer />
+                {/* <ExploreContainer /> */}
+                <IonButton onClick={handleClick} />
             </IonContent>
         </IonPage>
     );
