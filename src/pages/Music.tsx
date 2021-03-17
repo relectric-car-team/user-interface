@@ -22,7 +22,7 @@ import './Music.scss';
 import '../theme/Modal.scss';
 import { Pages } from '../Models/Enums';
 import { useDispatch } from 'react-redux';
-import { setPage } from '../features/Routing/RouterStore';
+import { setPage } from '../redux/Routing/RouterStore';
 
 /**
  * The music tab manages the interaction between the driver

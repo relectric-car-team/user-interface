@@ -13,7 +13,7 @@ import {
 import React, { useState } from 'react';
 import { Pages } from '../Models/Enums';
 import './TabBar.scss';
-import { selectRouter, setPage } from '../features/Routing/RouterStore';
+import { selectRouter, setPage } from '../redux/Routing/RouterStore';
 import Fan from '../assets/icons/fan.svg';
 
 const TabBar: React.FC = () => {

@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action, createImmutableStateInvariantMiddleware } from '@reduxjs/toolkit';
-import routerReducer from '../features/Routing/RouterStore';
+import routerReducer from '../redux/Routing/RouterStore';
 
 export const store = configureStore({
     reducer: { router: routerReducer },

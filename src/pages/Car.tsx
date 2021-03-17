@@ -4,7 +4,7 @@ import ExploreContainer from '../components/ExploreContainer';
 import { close } from 'ionicons/icons';
 import './Car.scss';
 import { useDispatch } from 'react-redux';
-import { setPage } from '../features/Routing/RouterStore';
+import { setPage } from '../redux/Routing/RouterStore';
 import { Pages } from '../Models/Enums';
 
 const Car: React.FC = () => {

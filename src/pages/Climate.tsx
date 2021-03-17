@@ -32,7 +32,7 @@ import fan from '../assets/icons/fan-on.png';
 import './Climate.scss';
 import '../theme/Modal.scss';
 import { useDispatch } from 'react-redux';
-import { setPage } from '../features/Routing/RouterStore';
+import { setPage } from '../redux/Routing/RouterStore';
 import { Pages } from '../Models/Enums';
 
 /**

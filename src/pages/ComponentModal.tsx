@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { IonContent, IonModal } from '@ionic/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Pages } from '../Models/Enums';
-import { selectRouter, setPage } from '../features/Routing/RouterStore';
+import { selectRouter, setPage } from '../redux/Routing/RouterStore';
 import Music from './Music';
 import Car from './Car';
 import Climate from './Climate';
