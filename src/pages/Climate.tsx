@@ -15,10 +15,10 @@ import {
     IonButton,
     IonIcon,
     IonRange,
-    IonIcon,
 } from '@ionic/react';
 import { close } from 'ionicons/icons';
-import {thermometerOutline} from 'ionicons/icons';
+import { thermometerOutline } from 'ionicons/icons';
+import styled from 'styled-componenets';
 
 /**
  * Imports for all custom icons
@@ -68,10 +68,15 @@ const Climate: React.FC = () => {
     const dispatch = useDispatch();
     const [selectedDirection, setSelectedDirection] = useState<Direction>();
     // const [selectedIntensity, setSelectedIntensity] = useState<Intensity>();
-    const [selectedTemp, setSelectedTemp] = useState("rgb(255, 0, 0)");
+    const [selectedTemp, setSelectedTemp] = useState('rgb(255, 0, 0)');
 
     // dummy varaible to represent interior temperature measurement
     const currTemp = 22;
+
+    const StyledToolbar = styled(IonToolbar)`
+    background: ${selectedTemp};
+    color: #ffffff;
+`;
 
     return (
         <IonPage>
@@ -80,7 +85,7 @@ const Climate: React.FC = () => {
                 This toolbar is the at the tope of the modal and displays the name of the current
                 tab being views, i.e. Climate
                 */}
-                <IonToolbar color="#D99648" className="ClimateToolBar">
+                <StyledToolbar className="ClimateToolBar">
                     <IonRow>
                         <IonButton
                             fill="clear"
@@ -92,7 +97,7 @@ const Climate: React.FC = () => {
                         </IonButton>
                         <IonTitle>Climate</IonTitle>
                     </IonRow>
-                </IonToolbar>
+                </StyledToolbar>
             </IonHeader>
 
             <IonContent fullscreen className="ModalContent">
@@ -132,7 +137,7 @@ const Climate: React.FC = () => {
                                 className="SegmentButton"
                                 onClick={() => setSelectedDirection(Direction.Lower)}
                             >
-                                {selectedDirection == Direction.Lower  ? (
+                                {selectedDirection == Direction.Lower ? (
                                     <img src={climateLowerOn} className="DirectionButton" />
                                 ) : (
                                     <img src={climateLower} className="DirectionButton" />
@@ -179,21 +184,25 @@ const Climate: React.FC = () => {
                 airflow while 4 is the most intense mose. Only one mode may be selected at 
                 a time.
                 */}
-                <IonRange 
+                <IonRange
                     min={0}
                     max={255}
                     className="TempRange"
-                    onIonChange={(e) => setSelectedTemp("rgb(" + (255 - (e.detail.value as number)) + ", 0, " + (e.detail.value as number) + ")")}>
-                </IonRange>
+                    onIonChange={(e) =>
+                        setSelectedTemp(
+                            'rgb(' + (255 - (e.detail.value as number)) + ', 0, ' + (e.detail.value as number) + ')',
+                        )
+                    }
+                ></IonRange>
 
                 {/*
                 Bottom right panel displaying current interior temperature of the vehicle.
                 */}
                 <IonCard className="TempCard" color="light">
-                    <IonLabel color="relectric-light">{temp}</IonLabel>
+                    <IonLabel color="relectric-light">{currTemp}</IonLabel>
                     <IonLabel color="relectric-light">°C</IonLabel>
                     <IonCol size="1"> </IonCol>
-                    <IonIcon src={thermometerOutline} className="Thermometer" color="dark"/>
+                    <IonIcon src={thermometerOutline} className="Thermometer" color="dark" />
                 </IonCard>
             </IonContent>
         </IonPage>
