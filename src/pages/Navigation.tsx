@@ -1,8 +1,8 @@
 import React from 'react';
 import { IonButton, IonContent, IonHeader, IonIcon, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
 import { close } from 'ionicons/icons';
 import './Navigation.scss';
+import '../theme/Modal.scss';
 import { Pages } from '../Models/Enums';
 import { setPage } from '../redux/Routing/RouterStore';
 import { useDispatch, useSelector } from 'react-redux';
@@ -38,8 +38,7 @@ const Navigation: React.FC = () => {
                     </IonRow>
                 </IonToolbar>
             </IonHeader>
-            <IonContent fullscreen>
-                {/* <ExploreContainer /> */}
+            <IonContent fullscreen className="ModalContent">
                 <IonButton onClick={handleClick} />
             </IonContent>
         </IonPage>

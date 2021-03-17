@@ -20,12 +20,12 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.scss';
 import AppContainer from './pages/AppContainer';
-import NetworkManager from './net/NetworkManager';
+import CoreLogic from './features/CoreLogic';
 
 const App: React.FC = () => (
     <IonApp>
         <AppContainer />
-        <NetworkManager />
+        <CoreLogic />
     </IonApp>
 );
 
