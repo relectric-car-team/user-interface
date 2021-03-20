@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     IonContent,
     IonHeader,
@@ -23,14 +23,10 @@ import styled from 'styled-components';
 /**
  * Imports for all custom icons
  */
-import climateUpper from '../assets/icons/climate-upper.png';
-import climateUpperOn from '../assets/icons/climate-upper-on.png';
-import climateLower from '../assets/icons/climate-lower.png';
-import climateLowerOn from '../assets/icons/climate-lower-on.png';
-import climateUpperAndLower from '../assets/icons/climate-upper-and-lower.png';
-import climateUpperAndLowerOn from '../assets/icons/climate-upper-and-lower-on.png';
-import climateFront from '../assets/icons/climate-front.png';
-import climateFrontOn from '../assets/icons/climate-front-on.png';
+import climateUpper from '../assets/icons/climate-upper.svg';
+import climateLower from '../assets/icons/climate-lower.svg';
+import climateUpperAndLower from '../assets/icons/climate-upper-and-lower.svg';
+import climateFront from '../assets/icons/climate-windshield.svg';
 import './Climate.scss';
 import '../theme/Modal.scss';
 import { useDispatch } from 'react-redux';
@@ -65,6 +61,12 @@ const StyledToolbar = styled(IonToolbar).attrs((props: { colour: string }) => ({
     color: #ffffff;
 `;
 
+const StyledSegmentButton = styled(IonSegmentButton).attrs((props: { colourChecked: string }) => ({
+    colourChecked: props.colourChecked,
+}))`
+    --color-checked: ${(props) => props.colourChecked};
+`;
+
 /**
  * The climate tab manages the selection choice of the user for intensity of airflow
  * and direction of airflow. The temperature of the vehicle interior is also displayed
@@ -74,7 +76,22 @@ const Climate: React.FC = () => {
     const dispatch = useDispatch();
     const [selectedDirection, setSelectedDirection] = useState<Direction>();
     // const [selectedIntensity, setSelectedIntensity] = useState<Intensity>();
-    const [selectedTemp, setSelectedTemp] = useState('rgb(255,0,0)');
+    const [selectedTemp, setSelectedTemp] = useState(50);
+
+    const red = "cc374a";
+    const blue = "1184e8";
+
+    var tempToColour = "rgb(" +
+        Math.ceil(parseInt(blue.substring(0,2), 16) * selectedTemp/100 + parseInt(red.substring(0,2), 16) * (1-selectedTemp/100)) + "," +
+        Math.ceil(parseInt(blue.substring(2,4), 16) * selectedTemp/100 + parseInt(red.substring(2,4), 16) * (1-selectedTemp/100)) + "," +
+        Math.ceil(parseInt(blue.substring(4,6), 16) * selectedTemp/100 + parseInt(red.substring(4,6), 16) * (1-selectedTemp/100)) + ")";
+
+    useEffect(() => {
+        tempToColour = "rgb(" +
+            Math.ceil(parseInt(blue.substring(0,2), 16) * selectedTemp/100 + parseInt(red.substring(0,2), 16) * (1-selectedTemp/100)) + "," +
+            Math.ceil(parseInt(blue.substring(2,4), 16) * selectedTemp/100 + parseInt(red.substring(2,4), 16) * (1-selectedTemp/100)) + "," +
+            Math.ceil(parseInt(blue.substring(4,6), 16) * selectedTemp/100 + parseInt(red.substring(4,6), 16) * (1-selectedTemp/100)) + ")";
+    });
 
     // dummy variable to represent interior temperature measurement
     const currTemp = 22;
@@ -86,7 +103,7 @@ const Climate: React.FC = () => {
                 This toolbar is the at the tope of the modal and displays the name of the current
                 tab being views, i.e. Climate
                 */}
-                <StyledToolbar colour={selectedTemp}>
+                <StyledToolbar colour={tempToColour}>
                     <IonRow>
                         <IonButton
                             fill="clear"
@@ -118,63 +135,54 @@ const Climate: React.FC = () => {
                             {/*
                             (Left) button indicating airflow in the upper body direction
                             */}
-                            <IonSegmentButton
+                            <StyledSegmentButton
                                 value={Direction.Upper}
                                 className="SegmentButton"
                                 onClick={() => setSelectedDirection(Direction.Upper)}
+                                colourChecked={tempToColour}
                             >
-                                {selectedDirection == Direction.Upper ? (
-                                    <img src={climateUpperOn} className="ClimateUpperButton" />
-                                ) : (
-                                    <img src={climateUpper} className="ClimateUpperButton" />
-                                )}
-                            </IonSegmentButton>
+                                    <IonIcon icon={climateUpper} className="ClimateUpperButton" />
+                            </StyledSegmentButton>
 
                             {/*
                             (2nd from left) button indicating airflow in the lower body direction
                             */}
-                            <IonSegmentButton
+                            <StyledSegmentButton
                                 value={Direction.Lower}
                                 className="SegmentButton"
                                 onClick={() => setSelectedDirection(Direction.Lower)}
+                                colourChecked={tempToColour}
                             >
-                                {selectedDirection == Direction.Lower ? (
-                                    <img src={climateLowerOn} className="DirectionButton" />
-                                ) : (
-                                    <img src={climateLower} className="DirectionButton" />
-                                )}
-                            </IonSegmentButton>
+                                {/* {selectedDirection == Direction.Lower ? (
+                                    <StyledIcon icon={climateLower} className="DirectionButton" />
+                                ) : ( */}
+                                    <IonIcon icon={climateLower} className="DirectionButton" />
+                                {/* )} */}
+                            </StyledSegmentButton>
 
                             {/*
                             (2nd from right) button indicating airflow in the upper and lower body direction
                             */}
-                            <IonSegmentButton
+                            <StyledSegmentButton
                                 value={Direction.UpperAndLower}
                                 className="SegmentButton"
                                 onClick={() => setSelectedDirection(Direction.UpperAndLower)}
+                                colourChecked={tempToColour}
                             >
-                                {/* {selectedDirection == Direction.UpperAndLower && selectedIntensity != Intensity.off ? ( */}
-                                {selectedDirection == Direction.UpperAndLower ? (
-                                    <img src={climateUpperAndLowerOn} className="DirectionButton" />
-                                ) : (
-                                    <img src={climateUpperAndLower} className="DirectionButton" />
-                                )}
-                            </IonSegmentButton>
+                                    <IonIcon icon={climateUpperAndLower} className="DirectionButton" />
+                            </StyledSegmentButton>
 
                             {/*
                             (Right) button indicating airflow in the windshield's direction
                             */}
-                            <IonSegmentButton
+                            <StyledSegmentButton
                                 value={Direction.Front}
                                 className="SegmentButton"
                                 onClick={() => setSelectedDirection(Direction.Front)}
+                                colourChecked={tempToColour}
                             >
-                                {selectedDirection == Direction.Front ? (
-                                    <img src={climateFrontOn} className="DirectionButton" />
-                                ) : (
-                                    <img src={climateFront} className="DirectionButton" />
-                                )}
-                            </IonSegmentButton>
+                                    <IonIcon icon={climateFront} className="DirectionButton" />
+                            </StyledSegmentButton>
                         </IonSegment>
                     </IonCardContent>
                 </IonCard>
@@ -187,12 +195,10 @@ const Climate: React.FC = () => {
                 */}
                 <IonRange
                     min={0}
-                    max={255}
+                    max={100}
+                    value={selectedTemp}
                     className="TempRange"
-                    onIonChange={(e) =>
-                        setSelectedTemp(
-                            'rgb(' + (255 - (e.detail.value as number)) + ', 0, ' + (e.detail.value as number) + ')',
-                        )
+                    onIonChange={(e) =>setSelectedTemp(e.detail.value as number)
                     }
                 ></IonRange>
 
