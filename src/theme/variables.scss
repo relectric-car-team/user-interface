@@ -14,6 +14,7 @@ $navigation: #608091;
 $car: #65918a;
 $climate: #cf9856;
 $music: #835b8f;
+$settings: #4d5d84;
 
 :root {
     --ion-color-primary: #3880ff;
@@ -86,12 +87,17 @@ $music: #835b8f;
     .ion-color-relectric-music {
         --ion-color-base: #835b8f;
     }
+
+    .ion-color-relectric-settings {
+        --ion-color-base: #4d5d84;
+    }
     .ion-color-relectric-modal-background {
         --ion-color-base: #525252;
     }
     .ion-color-white {
         --ion-color-base: #ffffff;
     }
+
 }
 @media (prefers-color-scheme: light) {
     body {
