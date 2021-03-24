@@ -78,19 +78,45 @@ const Climate: React.FC = () => {
     // const [selectedIntensity, setSelectedIntensity] = useState<Intensity>();
     const [selectedTemp, setSelectedTemp] = useState(50);
 
-    const red = "cc374a";
-    const blue = "1184e8";
+    const red = 'cc374a';
+    const blue = '1184e8';
 
-    var tempToColour = "rgb(" +
-        Math.ceil(parseInt(blue.substring(0,2), 16) * selectedTemp/100 + parseInt(red.substring(0,2), 16) * (1-selectedTemp/100)) + "," +
-        Math.ceil(parseInt(blue.substring(2,4), 16) * selectedTemp/100 + parseInt(red.substring(2,4), 16) * (1-selectedTemp/100)) + "," +
-        Math.ceil(parseInt(blue.substring(4,6), 16) * selectedTemp/100 + parseInt(red.substring(4,6), 16) * (1-selectedTemp/100)) + ")";
+    let tempToColour =
+        'rgb(' +
+        Math.ceil(
+            (parseInt(blue.substring(0, 2), 16) * selectedTemp) / 100 +
+                parseInt(red.substring(0, 2), 16) * (1 - selectedTemp / 100),
+        ) +
+        ',' +
+        Math.ceil(
+            (parseInt(blue.substring(2, 4), 16) * selectedTemp) / 100 +
+                parseInt(red.substring(2, 4), 16) * (1 - selectedTemp / 100),
+        ) +
+        ',' +
+        Math.ceil(
+            (parseInt(blue.substring(4, 6), 16) * selectedTemp) / 100 +
+                parseInt(red.substring(4, 6), 16) * (1 - selectedTemp / 100),
+        ) +
+        ')';
 
     useEffect(() => {
-        tempToColour = "rgb(" +
-            Math.ceil(parseInt(blue.substring(0,2), 16) * selectedTemp/100 + parseInt(red.substring(0,2), 16) * (1-selectedTemp/100)) + "," +
-            Math.ceil(parseInt(blue.substring(2,4), 16) * selectedTemp/100 + parseInt(red.substring(2,4), 16) * (1-selectedTemp/100)) + "," +
-            Math.ceil(parseInt(blue.substring(4,6), 16) * selectedTemp/100 + parseInt(red.substring(4,6), 16) * (1-selectedTemp/100)) + ")";
+        tempToColour =
+            'rgb(' +
+            Math.ceil(
+                (parseInt(blue.substring(0, 2), 16) * selectedTemp) / 100 +
+                    parseInt(red.substring(0, 2), 16) * (1 - selectedTemp / 100),
+            ) +
+            ',' +
+            Math.ceil(
+                (parseInt(blue.substring(2, 4), 16) * selectedTemp) / 100 +
+                    parseInt(red.substring(2, 4), 16) * (1 - selectedTemp / 100),
+            ) +
+            ',' +
+            Math.ceil(
+                (parseInt(blue.substring(4, 6), 16) * selectedTemp) / 100 +
+                    parseInt(red.substring(4, 6), 16) * (1 - selectedTemp / 100),
+            ) +
+            ')';
     });
 
     // dummy variable to represent interior temperature measurement
@@ -141,7 +167,7 @@ const Climate: React.FC = () => {
                                 onClick={() => setSelectedDirection(Direction.Upper)}
                                 colourChecked={tempToColour}
                             >
-                                    <IonIcon icon={climateUpper} className="ClimateUpperButton" />
+                                <IonIcon icon={climateUpper} className="ClimateUpperButton" />
                             </StyledSegmentButton>
 
                             {/*
@@ -156,7 +182,7 @@ const Climate: React.FC = () => {
                                 {/* {selectedDirection == Direction.Lower ? (
                                     <StyledIcon icon={climateLower} className="DirectionButton" />
                                 ) : ( */}
-                                    <IonIcon icon={climateLower} className="DirectionButton" />
+                                <IonIcon icon={climateLower} className="DirectionButton" />
                                 {/* )} */}
                             </StyledSegmentButton>
 
@@ -169,7 +195,7 @@ const Climate: React.FC = () => {
                                 onClick={() => setSelectedDirection(Direction.UpperAndLower)}
                                 colourChecked={tempToColour}
                             >
-                                    <IonIcon icon={climateUpperAndLower} className="DirectionButton" />
+                                <IonIcon icon={climateUpperAndLower} className="DirectionButton" />
                             </StyledSegmentButton>
 
                             {/*
@@ -181,7 +207,7 @@ const Climate: React.FC = () => {
                                 onClick={() => setSelectedDirection(Direction.Front)}
                                 colourChecked={tempToColour}
                             >
-                                    <IonIcon icon={climateFront} className="DirectionButton" />
+                                <IonIcon icon={climateFront} className="DirectionButton" />
                             </StyledSegmentButton>
                         </IonSegment>
                     </IonCardContent>
@@ -198,8 +224,7 @@ const Climate: React.FC = () => {
                     max={100}
                     value={selectedTemp}
                     className="TempRange"
-                    onIonChange={(e) =>setSelectedTemp(e.detail.value as number)
-                    }
+                    onIonChange={(e) => setSelectedTemp(e.detail.value as number)}
                 ></IonRange>
 
                 {/*
