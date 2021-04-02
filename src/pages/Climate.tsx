@@ -84,18 +84,18 @@ const Climate: React.FC = () => {
     let tempToColour =
         'rgb(' +
         Math.ceil(
-            (parseInt(blue.substring(0, 2), 16) * selectedTemp) / 100 +
-                parseInt(red.substring(0, 2), 16) * (1 - selectedTemp / 100),
+            (parseInt(red.substring(0, 2), 16) * selectedTemp) / 100 +
+                parseInt(blue.substring(0, 2), 16) * (1 - selectedTemp / 100),
         ) +
         ',' +
         Math.ceil(
-            (parseInt(blue.substring(2, 4), 16) * selectedTemp) / 100 +
-                parseInt(red.substring(2, 4), 16) * (1 - selectedTemp / 100),
+            (parseInt(red.substring(2, 4), 16) * selectedTemp) / 100 +
+                parseInt(blue.substring(2, 4), 16) * (1 - selectedTemp / 100),
         ) +
         ',' +
         Math.ceil(
-            (parseInt(blue.substring(4, 6), 16) * selectedTemp) / 100 +
-                parseInt(red.substring(4, 6), 16) * (1 - selectedTemp / 100),
+            (parseInt(red.substring(4, 6), 16) * selectedTemp) / 100 +
+                parseInt(blue.substring(4, 6), 16) * (1 - selectedTemp / 100),
         ) +
         ')';
 
