@@ -31,6 +31,7 @@ jobs:
             - name: Build docs
               run: |
                   yarn docs
+                  mv ui/README.md temp.md
                   echo "---
                   title: User Interface API
                   description: User interface code documentation
@@ -40,9 +41,9 @@ jobs:
                   editor: markdown
                   dateCreated: 2021-04-20T01:53:00.734Z
                   ---
-                  " > ui/api.md
-                  cat ui/README.md >> ui/api.md
-                  rm -rf ui/README.md
+                  " > ui/README.md
+                  cat temp.md >> ui/README.md
+                  rm -rf temp.md
 
             - name: Push API Doc To Wiki
               uses: dmnemec/copy_file_to_another_repo_action@main
