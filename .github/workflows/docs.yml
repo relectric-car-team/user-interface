@@ -51,7 +51,7 @@ jobs:
               with:
                   source_file: 'ui'
                   destination_repo: 'relectric-car-team/wiki'
-                  destination_folder: 'software/ui'
+                  destination_folder: 'software'
                   user_email: 'ratikrk@gmail.com'
                   user_name: 'RatikKapoor'
                   commit_message: 'docs: update software/ui/*'
