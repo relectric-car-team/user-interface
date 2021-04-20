@@ -20,6 +20,7 @@
     "typedocOptions": {
         "entryPoints": ["src"],
         "out": "ui",
-        "name": "User Interface Code Documentation"
+        "name": "User Interface Code Documentation",
+        "exclude": "**/*+(colours|Enums).ts"
     }    
 }

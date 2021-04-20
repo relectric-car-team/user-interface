@@ -32,8 +32,8 @@ jobs:
             - name: Build docs
               run: |
                   yarn docs
-                  sed -i -e '/README/d' ui/*/**.md
-                  rm -rf ui/*/**.md-e
+                  sed -i -e '/README/d' ui/**.md ui/*/**.md
+                  rm -rf ui/*/**.md-e ui/**.md-e 
                   mv ui/modules.md temp.md
                   echo "---
                   title: User Interface API
