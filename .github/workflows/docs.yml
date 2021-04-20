@@ -5,6 +5,7 @@ on:
 
 jobs:
     build_docs:
+        if: "!contains(github.event.commits[0].message, '[Bot]')"
         runs-on: ubuntu-latest
         name: Builds documentation and publishes to GitHub Pages
         steps:
