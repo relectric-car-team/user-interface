@@ -20,7 +20,6 @@
     "typedocOptions": {
         "entryPoints": ["src"],
         "out": "ui",
-        "readme": "none",
         "name": "User Interface Code Documentation"
     }    
 }
