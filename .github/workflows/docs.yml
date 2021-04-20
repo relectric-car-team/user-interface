@@ -1,0 +1,56 @@
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    build_docs:
+        runs-on: ubuntu-latest
+        name: Builds documentation and publishes to GitHub Pages
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+              with:
+                  ref: ${{ github.head_ref }}
+
+            - name: Cache Node Modules
+              uses: actions/cache@v1
+              with:
+                  path: node_modules
+                  key: ${{ runner.OS }}-build-${{ hashFiles('**/yarn.lock') }}
+                  restore-keys: |
+                      ${{ runner.OS }}-build-${{ env.cache-name }}-
+                      ${{ runner.OS }}-build-
+                      ${{ runner.OS }}-
+
+            - name: Yarn install
+              run: yarn install
+
+            - name: Build docs
+              run: |
+                  yarn docs
+                  echo "---
+                  title: User Interface API
+                  description: User interface code documentation
+                  published: true
+                  date: 2021-04-20T02:40:26.857Z
+                  tags: ui, software, api
+                  editor: markdown
+                  dateCreated: 2021-04-20T01:53:00.734Z
+                  ---
+                  " > ui/api.md
+                  cat ui/README.md >> ui/api.md
+                  rm -rf ui/README.md
+
+            - name: Push API Doc To Wiki
+              uses: dmnemec/copy_file_to_another_repo_action@main
+              env:
+                  API_TOKEN_GITHUB: ${{ secrets.PUSH_TO_PROTECTED_BRANCH }}
+              with:
+                  source_file: 'ui'
+                  destination_repo: 'relectric-car-team/wiki'
+                  destination_folder: 'software/ui'
+                  user_email: 'ratikrk@gmail.com'
+                  user_name: 'RatikKapoor'
+                  commit_message: 'docs: update software/ui/*'
+                  destination_branch: master

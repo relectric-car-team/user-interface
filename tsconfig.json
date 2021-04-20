@@ -16,5 +16,11 @@
         "jsx": "react-jsx",
         "noFallthroughCasesInSwitch": true
     },
-    "include": ["src"]
+    "include": ["src"],
+    "typedocOptions": {
+        "entryPoints": ["src"],
+        "out": "ui",
+        "readme": "none",
+        "name": "User Interface Code Documentation"
+    }    
 }
