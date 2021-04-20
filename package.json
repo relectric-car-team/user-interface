@@ -40,7 +40,8 @@
         "prettier-check": "prettier --check \"src/**/*.{js,ts,tsx}\"",
         "prettier-fix": "prettier --write \"src/**/*.{js,ts,tsx}\"",
         "dev": "docker-compose up",
-        "dev-rebuild": "docker-compose up --build"
+        "dev-rebuild": "docker-compose up --build",
+        "docs": "typedoc"
     },
     "eslintConfig": {
         "extends": "react-app"
