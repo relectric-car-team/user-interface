@@ -32,7 +32,9 @@ jobs:
             - name: Build docs
               run: |
                   yarn docs
-                  mv ui/README.md temp.md
+                  sed -i -e '/README/d' ui/*/**.md
+                  rm -rf ui/*/**.md-e
+                  mv ui/modules.md temp.md
                   echo "---
                   title: User Interface API
                   description: User interface code documentation
@@ -42,8 +44,8 @@ jobs:
                   editor: markdown
                   dateCreated: 2021-04-20T01:53:00.734Z
                   ---
-                  " > ui/README.md
-                  cat temp.md >> ui/README.md
+                  " > ui/modules.md
+                  cat temp.md >> ui/modules.md
                   rm -rf temp.md
 
             - name: Push API Doc To Wiki
