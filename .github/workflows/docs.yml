@@ -36,7 +36,7 @@ jobs:
                   rm -rf ui/*/**.md-e ui/**.md-e 
                   mv ui/modules.md temp.md
                   echo "---
-                  title: User Interface API
+                  title: User Interface Modules
                   description: User interface code documentation
                   published: true
                   date: 2021-04-20T02:40:26.857Z
@@ -46,6 +46,7 @@ jobs:
                   ---
                   " > ui/modules.md
                   cat temp.md >> ui/modules.md
+                  echo "{.links-list}" >> ui/modules.md
                   rm -rf temp.md
                   rm -rf ui/README.md
 
