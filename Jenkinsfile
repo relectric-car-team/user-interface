@@ -9,7 +9,7 @@ pipeline {
             steps {
                 sh 'yarn' 
                 sh 'yarn build' 
-                stash(name: 'build', includes: 'build')
+                stash(name: 'build', includes: 'build/**')
             }
         }
     }
