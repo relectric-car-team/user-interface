@@ -1,6 +1,6 @@
 {
     "name": "UI-infotainment",
-    "version": "0.0.31",
+    "version": "0.0.32",
     "private": true,
     "dependencies": {
         "@ionic/react": "^5.5.0",
