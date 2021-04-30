@@ -1,11 +1,12 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:14.16.0-alpine'
-        }
-    }
+    agent none
     stages {
         stage('Build') { 
+            agent {
+                docker {
+                    image 'node:14.16.0-alpine'
+                }
+            }
             steps {
                 sh 'yarn' 
                 sh 'yarn build' 
