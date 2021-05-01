@@ -10,7 +10,8 @@ pipeline {
             steps {
                 sh 'yarn' 
                 sh 'yarn build' 
-                stash(name: 'build', includes: 'build/**')
+                zip zipFile: 'relectric_ui_dist_static.zip', archive: false, dir: 'build'
+                archiveArtifacts artifacts: 'relectric_ui_dist_static.zip', fingerprint: true
             }
         }
     }
