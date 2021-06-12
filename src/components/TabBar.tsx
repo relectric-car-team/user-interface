@@ -73,13 +73,7 @@ const TabBar: React.FC = () => {
                     <IonCol size="4">
                         <IonRow className="TabBarCorner Left">
                             {/* Volume icon */}
-                            <IonButton
-                                fill="clear"
-                                size="large"
-                                shape="round"
-                                color="relectric-light"
-                                onClick={handleVolumeMute}
-                            >
+                            <IonButton fill="clear" size="large" shape="round" color="dark" onClick={handleVolumeMute}>
                                 <IonIcon icon={calculateVolume()} className="TabBarIcon" />
                             </IonButton>
                             {/* Volume slider */}
@@ -99,7 +93,7 @@ const TabBar: React.FC = () => {
                             onClick={() => handleClick(Pages.Navigation)}
                             fill="clear"
                             size="large"
-                            color={page === Pages.Navigation ? 'relectric-navigation' : 'relectric-light'}
+                            color={page === Pages.Navigation ? 'relectric-navigation' : 'tertiary'}
                             shape="round"
                         >
                             <IonIcon icon={navigate} className="TabBarIcon" />
@@ -109,7 +103,7 @@ const TabBar: React.FC = () => {
                             onClick={() => handleClick(Pages.Car)}
                             fill="clear"
                             size="large"
-                            color={page === Pages.Car ? 'relectric-car' : 'relectric-light'}
+                            color={page === Pages.Car ? 'relectric-car' : 'tertiary'}
                             shape="round"
                         >
                             <IonIcon icon={car} className="TabBarIcon" />
@@ -119,7 +113,7 @@ const TabBar: React.FC = () => {
                             onClick={() => handleClick(Pages.Music)}
                             fill="clear"
                             size="large"
-                            color={page === Pages.Music ? 'relectric-music' : 'relectric-light'}
+                            color={page === Pages.Music ? 'relectric-music' : 'tertiary'}
                             shape="round"
                         >
                             <IonIcon icon={musicalNotes} className="TabBarIcon" />
@@ -133,7 +127,7 @@ const TabBar: React.FC = () => {
                             <IonButton
                                 onClick={() => handleClick(Pages.Climate)}
                                 fill="clear"
-                                color={page === Pages.Climate ? 'relectric-climate' : 'relectric-light'}
+                                color={page === Pages.Climate ? 'relectric-climate' : 'dark'}
                                 size="large"
                                 shape="round"
                             >

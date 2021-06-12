@@ -231,10 +231,10 @@ const Climate: React.FC = () => {
                 Bottom right panel displaying current interior temperature of the vehicle.
                 */}
                 <IonCard className="TempCard" color="light">
-                    <IonLabel color="relectric-light">{currTemp}</IonLabel>
-                    <IonLabel color="relectric-light">°C</IonLabel>
+                    <IonLabel color="dark">{currTemp}</IonLabel>
+                    <IonLabel color="dark">°C</IonLabel>
                     <IonCol size="1"> </IonCol>
-                    <IonIcon src={thermometerOutline} className="Thermometer" color="dark" />
+                    <IonIcon src={thermometerOutline} className="Thermometer" color="tertiary" />
                 </IonCard>
             </IonContent>
         </IonPage>

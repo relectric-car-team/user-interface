@@ -25,7 +25,7 @@ const SettingsFab: React.FC = () => {
                 <IonIcon
                     icon={menu}
                     className="TabBarIcon"
-                    color={page === Pages.Settings ? 'relectric-settings' : 'relectric-light'}
+                    color={page === Pages.Settings ? 'relectric-settings' : 'tertiary'}
                 />
             </IonFabButton>
         </IonFab>

@@ -1,6 +1,8 @@
+@import '../theme/variables.scss';
+
 .MusicToolBar {
-    background: #885c94;
-    color: #ffffff;
+    background: $music;
+    color: $white;
 }
 .MusicGrid {
     height: 100%;
@@ -35,17 +37,18 @@
 }
 .SongTitle {
     font-size: 30px;
+    color: $dark-text;
 }
 .MediaDetailLabel {
     font-size: 20px;
     transform: translateX(-30px);
+    color: $dark-text;
 }
 .ProgressRow {
     height: 20%;
 }
 .TimeBar {
     transform: translateY(-20px);
-    color: 'medium';
     --knob-size: 30px;
     border-radius: 40px;
 }
@@ -54,6 +57,7 @@
     justify-content: center;
     padding-left: 50px;
     padding-right: 50px;
+    color: $medium-dark-text;
 }
 
 .XButton {
