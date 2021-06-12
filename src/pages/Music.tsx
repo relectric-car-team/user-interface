@@ -94,7 +94,7 @@ const Music: React.FC = () => {
                 {/**
                  * Purple toolbar with the title of the page: music
                  */}
-                <IonToolbar color="#885c94" className="MusicToolBar">
+                <IonToolbar color="relectric-music" className="MusicToolBar">
                     <IonRow>
                         <IonButton
                             fill="clear"
@@ -149,7 +149,7 @@ const Music: React.FC = () => {
                                     fill="clear"
                                     size="large"
                                     shape="round"
-                                    color="relectric-light"
+                                    color="dark"
                                     onClick={() => setSecPassed(0)}
                                 >
                                     <IonIcon icon={playSkipBack} />
@@ -159,7 +159,7 @@ const Music: React.FC = () => {
                                     fill="clear"
                                     size="large"
                                     shape="round"
-                                    color="relectric-light"
+                                    color="dark"
                                     onClick={() => setPlayingState(!isPlaying)}
                                 >
                                     {isPlaying ? (
@@ -173,7 +173,7 @@ const Music: React.FC = () => {
                                     fill="clear"
                                     size="large"
                                     shape="round"
-                                    color="relectric-light"
+                                    color="dark"
                                     onClick={() => setSecPassed(seconds)}
                                 >
                                     <IonIcon icon={playSkipForward} />
@@ -192,7 +192,7 @@ const Music: React.FC = () => {
                         <IonRange
                             min={0}
                             max={seconds}
-                            color="medium"
+                            color="dark"
                             className="TimeBar"
                             /* Allows for current time to update bar AND user sliding bar to update current time */
                             value={secPassed}

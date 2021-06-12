@@ -17,7 +17,7 @@ const Car: React.FC = () => {
                 This toolbar is the at the tope of the modal and displays the name of the current
                 tab being views, i.e. Car
                 */}
-                <IonToolbar color="#65918A" className="CarToolBar">
+                <IonToolbar color="relectric-car" className="CarToolBar">
                     <IonRow>
                         <IonButton
                             fill="clear"

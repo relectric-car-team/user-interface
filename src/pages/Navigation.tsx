@@ -17,7 +17,7 @@ const Navigation: React.FC = () => {
                 This toolbar is the at the tope of the modal and displays the name of the current
                 tab being views, i.e. Navigation
                 */}
-                <IonToolbar color="#608091" className="NavigationToolBar">
+                <IonToolbar color="relectric-nagivation" className="NavigationToolBar">
                     <IonRow>
                         <IonButton
                             fill="clear"

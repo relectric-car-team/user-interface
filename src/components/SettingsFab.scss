@@ -1,9 +1,9 @@
 .FabButton{
     --box-shadow: #2e3436;
-    //--color: #d3d3d3;
+    --color: var(--ion-color-dark);
     --background: none;
-    --background-hover: #d3d3d3;
-    --background-hover-opacity: 5%;
+    --background-hover: var(--ion-color-dark);
+    --background-hover-opacity: 10%;
     --background-activated-color: none;
     --ripple-color: #4d5d84;
     

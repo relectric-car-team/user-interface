@@ -1,6 +1,8 @@
+@import '../theme/variables.scss';
+
 .SettingsToolBar {
-    background: #4d5d84;
-    color: #ffffff;
+    background: $settings;
+    color: $white;
 }
 
 .XButton {
@@ -10,6 +12,7 @@
 .ToggleLabel {
     font-size:x-large;
     text-align: left;
+    color: $dark-text;
 }
 
 .ToggleButton{
@@ -17,25 +20,16 @@
     width: 50px;
     height: 20px;
     --handle-border-radius:  15px;
-    --handle-background-checked: #b6c8f8;
-    --background-checked: #527ce6;
-
-    
+    --handle-background-checked: #9fb0db;
+    --background-checked: #455b92;
 }
 
-.ToggleItem{
-    --background: #606060;
-}
-
-.SettingsDivider{
-    --background: #1e1e1e;
-    font-size:x-large;
-    color: #ffffff;
-}
 
 .PageTitle{
     font-size: xx-large;
-    color:#ffffff;
+    color:$white;
     text-align: center;
     padding-top: 18%;
 }
+
+

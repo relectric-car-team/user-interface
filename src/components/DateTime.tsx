@@ -45,7 +45,7 @@ const DateTime: React.FC = () => {
     }, []);
 
     return (
-        <IonContent>
+        <IonContent fullscreen={true} color="light">
             <IonTitle className="time" size="large">
                 {currentTime}
             </IonTitle>
