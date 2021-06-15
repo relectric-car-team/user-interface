@@ -11,7 +11,6 @@ const SettingsFab: React.FC = () => {
     const page = useSelector(selectRouter);
 
     const handleClick = (button: Pages) => {
-        console.log(button);
         if (button === page) {
             dispatch(setPage(Pages.Settings));
         } else {

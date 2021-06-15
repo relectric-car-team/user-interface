@@ -53,25 +53,6 @@ const Settings: React.FC = () => {
                     <DarkMode />
                 </IonList>
             </IonContent>
-
-            {/* <IonContent className="ModalContent" fullscreen={false}>
-                <IonSplitPane disabled={false}>
-                    <IonMenu side="start" className="ModalContent">
-                        <IonList lines="none">
-                            <IonItem className="ToggleItem">
-                                <IonLabel className="ToggleLabel">Menu Selection One</IonLabel>
-                            </IonItem>
-                            <IonItem className="ToggleItem">
-                                <IonLabel className="ToggleLabel">Menu Selection Two</IonLabel>
-                            </IonItem>
-                            <IonItem className="ToggleItem">
-                                <IonLabel className="ToggleLabel">Menu Selection Three</IonLabel>
-                            </IonItem>
-                        </IonList>
-                    </IonMenu>
-                    <DarkMode />
-                </IonSplitPane>
-            </IonContent> */}
         </IonPage>
     );
 };
