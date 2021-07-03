@@ -7,7 +7,8 @@
 
 .AerialView {
     pointer-events: none;
-    font-size: 400px;
+    height: 130%;
+    width: 100%;
     text-align: center;
 }
 
@@ -33,4 +34,12 @@
     -moz-filter: blur(5px);
     -o-filter: blur(5px);
     -ms-filter: blur(5px);
+}
+
+.CenterStats {
+    text-align: center;
+}
+
+.AerialView {
+   fill: #550541;
 }
