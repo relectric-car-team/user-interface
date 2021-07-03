@@ -25,7 +25,8 @@ import './InnerModal.scss';
 import { useDispatch } from 'react-redux';
 import { setPage } from '../features/Routing/RouterStore';
 import { Pages } from '../Models/Enums';
-import carAerial from '../assets/car-aerial/car-aerial.svg';
+import carAerialDarkMode from '../assets/car-aerial/car-aerial-dark-mode.svg';
+import carAerialLightMode from '../assets/car-aerial/car-aerial-light-mode.svg';
 import energyGraph from '../assets/graphs/Energy.jpg';
 import batteryGraph from '../assets/graphs/Battery.jpg';
 import Energy from './CarModals/Energy';
@@ -36,6 +37,7 @@ const Car: React.FC = () => {
 
     const [showEnergy, setShowEnergy] = useState(false);
     const [showBattery, setShowBattery] = useState(false);
+    const [darkMode, setDarkMode] = useState(document.body.classList.contains('dark'));
 
     const openEnergyModal = function () {
         setShowEnergy(true);
@@ -75,7 +77,7 @@ const Car: React.FC = () => {
                             <Energy />
                         </IonModal>
                         {/* Left Side: Statistics Fuel efficiency/Energy Consumption */}
-                        <IonCol className="LeftStats" size="4">
+                        <IonCol className="LeftStats" size="3.5">
                             <IonCard className="FuelEfficiency" button={true} onClick={openEnergyModal}>
                                 <IonImg src={energyGraph} className="ImagePreview" />
                                 <IonCardHeader>
@@ -87,15 +89,19 @@ const Car: React.FC = () => {
                             </IonCard>
                         </IonCol>
                         {/* Middle Section: Car View */}
-                        <IonCol size="4">
-                            <IonIcon className="AerialView" icon={carAerial} />
+                        <IonCol className="CenterStats" size="5">
+                            {darkMode ? (
+                                <IonIcon className="AerialView" icon={carAerialDarkMode} />
+                            ) : (
+                                <IonIcon className="AerialView" icon={carAerialLightMode} />
+                            )}
                         </IonCol>
                         {/* Modal to display the battery on click*/}
                         <IonModal isOpen={showBattery} onDidDismiss={() => setShowBattery(false)} cssClass="InnerModal">
                             <Battery />
                         </IonModal>
                         {/* Right Side: Statistics Battery */}
-                        <IonCol className="RightStats" size="4">
+                        <IonCol className="RightStats" size="3.5">
                             <IonCard className="Battery" button={true} onClick={openBatteryModal}>
                                 <IonImg src={batteryGraph} className="ImagePreview" />
                                 <IonCardHeader>
