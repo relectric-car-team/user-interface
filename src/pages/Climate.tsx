@@ -67,6 +67,12 @@ const StyledSegmentButton = styled(IonSegmentButton).attrs((props: { colourCheck
     --color-checked: ${(props) => props.colourChecked};
 `;
 
+const StyledCard = styled(IonCard).attrs((props: { colour: string }) => ({
+    colour: props.colour,
+}))`
+    --color: ${(props) => props.colour};
+`;
+
 /**
  * The climate tab manages the selection choice of the user for intensity of airflow
  * and direction of airflow. The temperature of the vehicle interior is also displayed
@@ -76,7 +82,7 @@ const Climate: React.FC = () => {
     const dispatch = useDispatch();
     const [selectedDirection, setSelectedDirection] = useState<Direction>();
     // const [selectedIntensity, setSelectedIntensity] = useState<Intensity>();
-    const [selectedTemp, setSelectedTemp] = useState(50);
+    const [selectedTemp, setSelectedTemp] = useState(38);
 
     const red = 'cc374a';
     const blue = '1184e8';
@@ -120,7 +126,11 @@ const Climate: React.FC = () => {
     });
 
     // dummy variable to represent interior temperature measurement
-    const currTemp = 22;
+    let currTemp = Math.ceil(selectedTemp / 6 + 15);
+
+    useEffect(() => {
+        currTemp = Math.ceil(selectedTemp / 6 + 15);
+    });
 
     return (
         <IonPage>
@@ -230,12 +240,12 @@ const Climate: React.FC = () => {
                 {/*
                 Bottom right panel displaying current interior temperature of the vehicle.
                 */}
-                <IonCard className="TempCard" color="light">
+                <StyledCard className="TempCard" colour={tempToColour}>
                     <IonLabel color="dark">{currTemp}</IonLabel>
                     <IonLabel color="dark">°C</IonLabel>
                     <IonCol size="1"> </IonCol>
-                    <IonIcon src={thermometerOutline} className="Thermometer" color="tertiary" />
-                </IonCard>
+                    <IonIcon src={thermometerOutline} className="Thermometer" />
+                </StyledCard>
             </IonContent>
         </IonPage>
     );
