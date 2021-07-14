@@ -18,6 +18,8 @@ import {
     IonTitle,
     IonToolbar,
 } from '@ionic/react';
+
+import styled from 'styled-components';
 import { batteryHalfOutline, close } from 'ionicons/icons';
 import './Car.scss';
 import '../theme/Modal.scss';
@@ -25,19 +27,24 @@ import './InnerModal.scss';
 import { useDispatch } from 'react-redux';
 import { setPage } from '../features/Routing/RouterStore';
 import { Pages } from '../Models/Enums';
-import carAerialDarkMode from '../assets/car-aerial/car-aerial-dark-mode.svg';
-import carAerialLightMode from '../assets/car-aerial/car-aerial-light-mode.svg';
+import carAerial from '../assets/car-aerial/car-aerial.svg';
 import energyGraph from '../assets/graphs/Energy.jpg';
 import batteryGraph from '../assets/graphs/Battery.jpg';
 import Energy from './CarModals/Energy';
 import Battery from './CarModals/Battery';
+
+const StyledIcon = styled(IonIcon).attrs((props: { colour: string }) => ({
+    colour: props.colour,
+}))`
+    stroke: ${(props) => props.colour};
+`;
 
 const Car: React.FC = () => {
     const dispatch = useDispatch();
 
     const [showEnergy, setShowEnergy] = useState(false);
     const [showBattery, setShowBattery] = useState(false);
-    const [darkMode, setDarkMode] = useState(document.body.classList.contains('dark'));
+    const [darkMode] = useState(document.body.classList.contains('dark'));
 
     const openEnergyModal = function () {
         setShowEnergy(true);
@@ -90,11 +97,7 @@ const Car: React.FC = () => {
                         </IonCol>
                         {/* Middle Section: Car View */}
                         <IonCol className="CenterStats" size="5">
-                            {darkMode ? (
-                                <IonIcon className="AerialView" icon={carAerialDarkMode} />
-                            ) : (
-                                <IonIcon className="AerialView" icon={carAerialLightMode} />
-                            )}
+                            <StyledIcon className="AerialView" icon={carAerial} colour={darkMode ? 'white' : 'black'} />
                         </IonCol>
                         {/* Modal to display the battery on click*/}
                         <IonModal isOpen={showBattery} onDidDismiss={() => setShowBattery(false)} cssClass="InnerModal">
