@@ -5,7 +5,7 @@
 	<style type="text/css">
 		.st0 {
 			fill: none;
-			stroke: #FFFFFF;
+			.st0{stroke:current;}
 			stroke-miterlimit: 10;
 		}
 	</style>
