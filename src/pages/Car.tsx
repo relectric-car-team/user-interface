@@ -19,7 +19,6 @@ import {
     IonToolbar,
 } from '@ionic/react';
 
-
 import styled from 'styled-components';
 import { batteryHalfOutline, close } from 'ionicons/icons';
 import './Car.scss';
