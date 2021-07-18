@@ -44,7 +44,7 @@ const Car: React.FC = () => {
 
     const [showEnergy, setShowEnergy] = useState(false);
     const [showBattery, setShowBattery] = useState(false);
-    const [darkMode, setDarkMode] = useState(document.body.classList.contains('dark'));
+    const [darkMode] = useState(document.body.classList.contains('dark'));
 
     const openEnergyModal = function () {
         setShowEnergy(true);
