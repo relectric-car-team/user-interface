@@ -4,7 +4,8 @@ import { menu } from 'ionicons/icons';
 import { Pages } from '../Models/Enums';
 import './TabBar.scss';
 import './SettingsFab.scss';
-import { selectRouter, setPage } from '../features/Routing/RouterStore';
+import { setPage } from '../features/Routing/RouterStore';
+import { selectRouter } from '../app/reducersindex';
 import React from 'react';
 const SettingsFab: React.FC = () => {
     const dispatch = useDispatch();
