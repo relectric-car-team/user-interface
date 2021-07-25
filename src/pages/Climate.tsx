@@ -29,9 +29,11 @@ import climateUpperAndLower from '../assets/icons/climate-upper-and-lower.svg';
 import climateFront from '../assets/icons/climate-windshield.svg';
 import './Climate.scss';
 import '../theme/Modal.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setPage } from '../features/Routing/RouterStore';
 import { Pages } from '../Models/Enums';
+import { selectClimateColour, selectSliderValue } from '../app/reducersindex';
+import { updateTemperature } from '../features/Climate/ClimateStore';
 
 /**
  * Enums for consistent identification of the direction mode selected
@@ -82,11 +84,13 @@ const Climate: React.FC = () => {
     const dispatch = useDispatch();
     const [selectedDirection, setSelectedDirection] = useState<Direction>();
     // const [selectedIntensity, setSelectedIntensity] = useState<Intensity>();
-    const [selectedTemp, setSelectedTemp] = useState(38);
+    const selectedTemp = useSelector(selectSliderValue);
+    const tempToColour = useSelector(selectClimateColour);
 
     const red = 'cc374a';
     const blue = '1184e8';
 
+    /** 
     let tempToColour =
         'rgb(' +
         Math.ceil(
@@ -124,6 +128,8 @@ const Climate: React.FC = () => {
             ) +
             ')';
     });
+
+    */
 
     // dummy variable to represent interior temperature measurement
     let currTemp = Math.ceil(selectedTemp / 6 + 15);
@@ -234,7 +240,7 @@ const Climate: React.FC = () => {
                     max={100}
                     value={selectedTemp}
                     className="TempRange"
-                    onIonChange={(e) => setSelectedTemp(e.detail.value as number)}
+                    onIonChange={(e) => dispatch(updateTemperature(e.detail.value as number))}
                 ></IonRange>
 
                 {/*
