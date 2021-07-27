@@ -23,6 +23,7 @@ import { useDispatch } from 'react-redux';
 import { setPage } from '../features/Routing/RouterStore';
 import { Pages } from '../Models/Enums';
 import DarkMode from './SettingsPages/DarkMode';
+import TempSystemSegment from './SettingsPages/ClimateScale';
 
 const Settings: React.FC = () => {
     const dispatch = useDispatch();
@@ -51,6 +52,7 @@ const Settings: React.FC = () => {
             <IonContent fullscreen={false} className="ModalContent">
                 <IonList lines="inset">
                     <DarkMode />
+                    <TempSystemSegment />
                 </IonList>
             </IonContent>
         </IonPage>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
     IonContent,
     IonHeader,
@@ -32,7 +32,7 @@ import '../theme/Modal.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPage } from '../features/Routing/RouterStore';
 import { Pages } from '../Models/Enums';
-import { selectClimateColour, selectSliderValue } from '../app/reducersindex';
+import { selectClimateColour, selectDisplayedTemp, selectSliderValue, selectTempSymbol } from '../app/reducersindex';
 import { updateTemperature } from '../features/Climate/ClimateStore';
 
 /**
@@ -86,57 +86,8 @@ const Climate: React.FC = () => {
     // const [selectedIntensity, setSelectedIntensity] = useState<Intensity>();
     const selectedTemp = useSelector(selectSliderValue);
     const tempToColour = useSelector(selectClimateColour);
-
-    const red = 'cc374a';
-    const blue = '1184e8';
-
-    /** 
-    let tempToColour =
-        'rgb(' +
-        Math.ceil(
-            (parseInt(red.substring(0, 2), 16) * selectedTemp) / 100 +
-                parseInt(blue.substring(0, 2), 16) * (1 - selectedTemp / 100),
-        ) +
-        ',' +
-        Math.ceil(
-            (parseInt(red.substring(2, 4), 16) * selectedTemp) / 100 +
-                parseInt(blue.substring(2, 4), 16) * (1 - selectedTemp / 100),
-        ) +
-        ',' +
-        Math.ceil(
-            (parseInt(red.substring(4, 6), 16) * selectedTemp) / 100 +
-                parseInt(blue.substring(4, 6), 16) * (1 - selectedTemp / 100),
-        ) +
-        ')';
-
-    useEffect(() => {
-        tempToColour =
-            'rgb(' +
-            Math.ceil(
-                (parseInt(blue.substring(0, 2), 16) * selectedTemp) / 100 +
-                    parseInt(red.substring(0, 2), 16) * (1 - selectedTemp / 100),
-            ) +
-            ',' +
-            Math.ceil(
-                (parseInt(blue.substring(2, 4), 16) * selectedTemp) / 100 +
-                    parseInt(red.substring(2, 4), 16) * (1 - selectedTemp / 100),
-            ) +
-            ',' +
-            Math.ceil(
-                (parseInt(blue.substring(4, 6), 16) * selectedTemp) / 100 +
-                    parseInt(red.substring(4, 6), 16) * (1 - selectedTemp / 100),
-            ) +
-            ')';
-    });
-
-    */
-
-    // dummy variable to represent interior temperature measurement
-    let currTemp = Math.ceil(selectedTemp / 6 + 15);
-
-    useEffect(() => {
-        currTemp = Math.ceil(selectedTemp / 6 + 15);
-    });
+    const temperatureSymbol = useSelector(selectTempSymbol);
+    const displayedTemp = useSelector(selectDisplayedTemp);
 
     return (
         <IonPage>
@@ -247,8 +198,8 @@ const Climate: React.FC = () => {
                 Bottom right panel displaying current interior temperature of the vehicle.
                 */}
                 <StyledCard className="TempCard" colour={tempToColour}>
-                    <IonLabel color="dark">{currTemp}</IonLabel>
-                    <IonLabel color="dark">°C</IonLabel>
+                    <IonLabel color="dark">{displayedTemp}</IonLabel>
+                    <IonLabel color="dark">{temperatureSymbol}</IonLabel>
                     <IonCol size="1"> </IonCol>
                     <IonIcon src={thermometerOutline} className="Thermometer" />
                 </StyledCard>

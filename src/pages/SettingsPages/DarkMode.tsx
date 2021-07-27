@@ -1,21 +1,21 @@
 import { IonItem, IonLabel, IonToggle } from '@ionic/react';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectDarkModeActive } from '../../app/reducersindex';
+import { updateDarkMode } from '../../features/DarkMode/DarkModeStore';
 
 const DarkMode: React.FC = () => {
-    {
-        /* Used to check the user default setting for dark mode.  */
-    }
-    const darkModeDefault = window.matchMedia('(prefers-color-scheme)').media == 'dark';
+    const dispatch = useDispatch();
+    const darkModeActive = useSelector(selectDarkModeActive);
 
-    {
-        /* Used to turn dark mode on and off manually with the dark mode toggle */
-    }
-
-    const darkModeHandler = () => document.body.classList.toggle('dark');
     return (
         <IonItem className="ToggleItem">
             <IonLabel className="ToggleLabel">Dark Mode</IonLabel>
-            <IonToggle className="ToggleButton" onIonChange={darkModeHandler} defaultChecked={darkModeDefault} />
+            <IonToggle
+                className="ToggleButton"
+                onIonChange={() => dispatch(updateDarkMode())}
+                checked={darkModeActive}
+            />
         </IonItem>
     );
 };

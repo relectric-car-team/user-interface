@@ -28,6 +28,7 @@ interface ClimateState {
     climateColour: string;
     fanIntensity: number;
     fanDirection: Direction;
+    temperatureSymbol: string;
 }
 
 const initialState: ClimateState = {
@@ -37,6 +38,7 @@ const initialState: ClimateState = {
     climateColour: sliderValueToColour(38),
     fanIntensity: 2,
     fanDirection: Direction.Upper,
+    temperatureSymbol: '°C',
 };
 
 function sliderValueToCelsius(sliderValue: number) {
@@ -46,7 +48,7 @@ function sliderValueToCelsius(sliderValue: number) {
 
 function sliderValueToFahrenheit(sliderValue: number) {
     let farhrenTemp = Math.ceil(sliderValue / 6 + 15);
-    farhrenTemp = Math.ceil((farhrenTemp - 32) * (5 / 9));
+    farhrenTemp = Math.ceil((farhrenTemp + 32) * (5 / 9));
     return farhrenTemp;
 }
 
@@ -89,10 +91,14 @@ export const slice = createSlice({
         },
         switchMeasurement: (state, action) => {
             state.isCelsius = action.payload;
-            if (action.payload) {
+            if (action.payload == true) {
+                state.temperatureSymbol = '°C';
                 state.displayedTemp = sliderValueToCelsius(action.payload);
-            } else {
+            } else if (action.payload == false) {
                 state.displayedTemp = sliderValueToFahrenheit(action.payload);
+                state.temperatureSymbol = '°F';
+            } else {
+                state.temperatureSymbol = 'N/A';
             }
         },
         updateDirection: (state, action) => {
