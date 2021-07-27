@@ -24,6 +24,27 @@
     --background-checked: #455b92;
 }
 
+.ClimateSymbolSegment{
+    top: 2%;
+    text-align: center;
+    bottom: 2%;
+    width: 15%;
+    height: 60%;
+    --background:var(--ion-color-light);
+    
+}
+
+.ClimateSymbolSegmentButton{
+    
+    font-size: large;
+    --color: var(--ion-color-medium);
+    --background-checked: #455b92;
+    --color-checked: #b5c2e4;
+    --background-hover: var(--ion-color-medium);
+    --color-hover:var(--ion-color-tertiary);
+    --background-hover-opacity:15%;
+
+}
 
 .PageTitle{
     font-size: xx-large;
@@ -32,4 +53,6 @@
     padding-top: 18%;
 }
 
-
+.ToggleItem{
+--min-height: 48px;
+}
