@@ -33,28 +33,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setPage } from '../features/Routing/RouterStore';
 import { Pages } from '../Models/Enums';
 import { selectClimateColour, selectDisplayedTemp, selectSliderValue, selectTempSymbol } from '../app/reducersindex';
-import { updateTemperature } from '../features/Climate/ClimateStore';
-
-/**
- * Enums for consistent identification of the direction mode selected
- */
-enum Direction {
-    Upper = 'Upper',
-    Lower = 'Lower',
-    UpperAndLower = 'UpperAndLower',
-    Front = 'Front',
-}
-
-// /**
-//  * Enums for consistent identification of the intensity mode selected
-//  */
-// enum Intensity {
-//     off = 'OFF',
-//     one = '1',
-//     two = '2',
-//     three = '3',
-//     four = '4',
-// }
+import { Direction, updateTemperature } from '../features/Climate/ClimateStore';
 
 const StyledToolbar = styled(IonToolbar).attrs((props: { colour: string }) => ({
     colour: props.colour,

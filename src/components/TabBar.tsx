@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */ //Needed to disable the ESLint problem "no props declaration" that occurs on line 76 and 79 otherwise.
 import { IonButton, IonCol, IonGrid, IonIcon, IonRange, IonRow, IonToolbar } from '@ionic/react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -14,8 +15,9 @@ import React, { useState } from 'react';
 import { Pages } from '../Models/Enums';
 import './TabBar.scss';
 import { setPage } from '../features/Routing/RouterStore';
-import { selectRouter } from '../app/reducersindex';
+import { selectClimateColour, selectRouter } from '../app/reducersindex';
 import Fan from '../assets/icons/fan.svg';
+import styled from 'styled-components'; // Needed to have fan icon, AKA climate button, change colour.
 
 const TabBar: React.FC = () => {
     const page = useSelector(selectRouter);
@@ -23,6 +25,12 @@ const TabBar: React.FC = () => {
     const [isMuted, setIsMuted] = useState<boolean>(false);
     const [volume, setVolume] = useState<number>(20);
     const [oldVolume, setOldVolume] = useState<number>(0);
+
+    /**  Selector to get the currently set climate   colour.
+     * Currently causes the fan icon to flicker whenever the temperature is adjusted, regardless of if 'fanColour' is being used anywhere else or not.
+     * Needs to have an async function made for it to allow it to only call 'useSelector' when the climate page is closed, not every time the climate slider is moved.
+     */
+    const fanColour = useSelector(selectClimateColour);
 
     const handleVolumeMute = () => {
         if (isMuted) {
@@ -65,6 +73,13 @@ const TabBar: React.FC = () => {
             dispatch(setPage(button));
         }
     };
+
+    // Set up for allowing the fan icon to change colour dynamically.
+    const StyledButton = styled(IonButton).attrs((props: { color: string }) => ({
+        color: props.color,
+    }))`
+        --color: ${(props) => props.color};
+    `;
 
     return (
         <IonToolbar className="TabBar">
@@ -125,15 +140,15 @@ const TabBar: React.FC = () => {
                             {/* Fan speed selector */}
                             <IonRange min={0} max={4} snaps={true} className="IntensityRange" color="dark" />
                             {/* Climate control icon */}
-                            <IonButton
+                            <StyledButton
                                 onClick={() => handleClick(Pages.Climate)}
                                 fill="clear"
-                                color={page === Pages.Climate ? 'relectric-climate' : 'dark'}
+                                color={page === Pages.Climate ? 'tertiary' : fanColour}
                                 size="large"
                                 shape="round"
                             >
-                                <IonIcon icon={Fan} />
-                            </IonButton>
+                                <IonIcon src={Fan} />
+                            </StyledButton>
                         </IonRow>
                     </IonCol>
                 </IonRow>
