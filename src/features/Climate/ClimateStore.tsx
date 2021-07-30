@@ -10,17 +10,6 @@ export enum Direction {
     Front = 'Front',
 }
 
-// /**
-//  * Enums for consistent identification of the intensity mode selected
-//  */
-// enum Intensity {
-//     off = 'OFF',
-//     one = '1',
-//     two = '2',
-//     three = '3',
-//     four = '4',
-// }
-
 interface ClimateState {
     sliderValue: number;
     displayedTemp: number;

@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux';
 import routerReducer from '../features/Routing/RouterStore';
-import climateReducer from '../features/Climate/ClimateStore';
+import climateReducer, { Direction } from '../features/Climate/ClimateStore';
 import darkModeReducer from '../features/DarkMode/DarkModeStore';
 import { RootState } from './store';
 import { Pages } from '../Models/Enums';
-//import { Direction } from '../features/Climate/ClimateStore';
 
 export default combineReducers({
     routerReducer,
@@ -25,3 +24,5 @@ export const selectTempSymbol = (state: RootState): string => state.climateReduc
 export const selectIsCelsius = (state: RootState): boolean => state.climateReducer.isCelsius;
 
 export const selectDarkModeActive = (state: RootState): boolean => state.darkModeReducer.darkModeActive;
+
+export const selectFanDirection = (state: RootState): Direction => state.climateReducer.fanDirection;

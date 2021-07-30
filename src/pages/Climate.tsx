@@ -32,8 +32,14 @@ import '../theme/Modal.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPage } from '../features/Routing/RouterStore';
 import { Pages } from '../Models/Enums';
-import { selectClimateColour, selectDisplayedTemp, selectSliderValue, selectTempSymbol } from '../app/reducersindex';
-import { Direction, updateTemperature } from '../features/Climate/ClimateStore';
+import {
+    selectClimateColour,
+    selectDisplayedTemp,
+    selectFanDirection,
+    selectSliderValue,
+    selectTempSymbol,
+} from '../app/reducersindex';
+import { Direction, updateDirection, updateTemperature } from '../features/Climate/ClimateStore';
 
 const StyledToolbar = styled(IonToolbar).attrs((props: { colour: string }) => ({
     colour: props.colour,
@@ -61,12 +67,11 @@ const StyledCard = styled(IonCard).attrs((props: { colour: string }) => ({
  */
 const Climate: React.FC = () => {
     const dispatch = useDispatch();
-    const [selectedDirection, setSelectedDirection] = useState<Direction>();
-    // const [selectedIntensity, setSelectedIntensity] = useState<Intensity>();
     const selectedTemp = useSelector(selectSliderValue);
     const tempToColour = useSelector(selectClimateColour);
     const temperatureSymbol = useSelector(selectTempSymbol);
     const displayedTemp = useSelector(selectDisplayedTemp);
+    const fanDirection = useSelector(selectFanDirection);
 
     return (
         <IonPage>
@@ -103,14 +108,14 @@ const Climate: React.FC = () => {
                         Buttons on the same panel are contained within segments to only allow 
                         one button to be selected at any given time.
                         */}
-                        <IonSegment value={selectedDirection} className="DirectionSegment">
+                        <IonSegment value={fanDirection} className="DirectionSegment">
                             {/*
                             (Left) button indicating airflow in the upper body direction
                             */}
                             <StyledSegmentButton
                                 value={Direction.Upper}
                                 className="SegmentButton"
-                                onClick={() => setSelectedDirection(Direction.Upper)}
+                                onClick={() => dispatch(updateDirection(Direction.Upper))}
                                 colourChecked={tempToColour}
                             >
                                 <IonIcon icon={climateUpper} className="ClimateUpperButton" />
@@ -122,10 +127,10 @@ const Climate: React.FC = () => {
                             <StyledSegmentButton
                                 value={Direction.Lower}
                                 className="SegmentButton"
-                                onClick={() => setSelectedDirection(Direction.Lower)}
+                                onClick={() => dispatch(updateDirection(Direction.Lower))}
                                 colourChecked={tempToColour}
                             >
-                                {/* {selectedDirection == Direction.Lower ? (
+                                {/* {fanDirection == Direction.Lower ? (
                                     <StyledIcon icon={climateLower} className="DirectionButton" />
                                 ) : ( */}
                                 <IonIcon icon={climateLower} className="DirectionButton" />
@@ -138,7 +143,7 @@ const Climate: React.FC = () => {
                             <StyledSegmentButton
                                 value={Direction.UpperAndLower}
                                 className="SegmentButton"
-                                onClick={() => setSelectedDirection(Direction.UpperAndLower)}
+                                onClick={() => dispatch(updateDirection(Direction.UpperAndLower))}
                                 colourChecked={tempToColour}
                             >
                                 <IonIcon icon={climateUpperAndLower} className="DirectionButton" />
@@ -150,7 +155,7 @@ const Climate: React.FC = () => {
                             <StyledSegmentButton
                                 value={Direction.Front}
                                 className="SegmentButton"
-                                onClick={() => setSelectedDirection(Direction.Front)}
+                                onClick={() => dispatch(updateDirection(Direction.Front))}
                                 colourChecked={tempToColour}
                             >
                                 <IonIcon icon={climateFront} className="DirectionButton" />
