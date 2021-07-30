@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     IonContent,
     IonHeader,
@@ -16,19 +16,28 @@ import {
     IonIcon,
     IonRange,
 } from '@ionic/react';
-import { close } from 'ionicons/icons';
-import { thermometerOutline } from 'ionicons/icons';
+
 import styled from 'styled-components';
 
 /**
  * Imports for all custom icons
  */
+import { close } from 'ionicons/icons';
+import { thermometerOutline } from 'ionicons/icons';
 import climateUpper from '../assets/icons/climate-upper.svg';
 import climateLower from '../assets/icons/climate-lower.svg';
 import climateUpperAndLower from '../assets/icons/climate-upper-and-lower.svg';
 import climateFront from '../assets/icons/climate-windshield.svg';
+
+/**
+ * .scss imports for components
+ */
 import './Climate.scss';
 import '../theme/Modal.scss';
+
+/**
+ * Imports for Redux
+ */
 import { useDispatch, useSelector } from 'react-redux';
 import { setPage } from '../features/Routing/RouterStore';
 import { Pages } from '../Models/Enums';
@@ -41,6 +50,9 @@ import {
 } from '../app/reducersindex';
 import { Direction, updateDirection, updateTemperature } from '../features/Climate/ClimateStore';
 
+/**
+ * Variables for allowing implementation of dynamic colour in various page components.
+ */
 const StyledToolbar = styled(IonToolbar).attrs((props: { colour: string }) => ({
     colour: props.colour,
 }))`
@@ -67,6 +79,8 @@ const StyledCard = styled(IonCard).attrs((props: { colour: string }) => ({
  */
 const Climate: React.FC = () => {
     const dispatch = useDispatch();
+
+    // Selectors for getting current state of each climate variable from the Redux store
     const selectedTemp = useSelector(selectSliderValue);
     const tempToColour = useSelector(selectClimateColour);
     const temperatureSymbol = useSelector(selectTempSymbol);
