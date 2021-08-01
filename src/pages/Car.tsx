@@ -66,6 +66,11 @@ const Car: React.FC = () => {
         setShowBattery(true);
     };
 
+    {
+        /*
+    These functions are here to allow for easier implementation of IonToast notifications in the future
+    */
+    }
     const openDriverDoor = function () {
         setDriverDoorOpen(true);
     };
@@ -125,6 +130,10 @@ const Car: React.FC = () => {
                         </IonCol>
                         {/* Middle Section: Car View */}
                         <IonCol className="CenterStats" size="5">
+                            {/*
+                                Three Icons where the doors lay ontop of the car frame, when doors open, the door models
+                                rotate and move to give the apperence of an open door.
+                            */}
                             <StyledIcon className="AerialView" icon={carAerial} colour={darkMode ? 'white' : 'black'} />
                             <StyledDoor
                                 className="AerialViewDriverDoor"
