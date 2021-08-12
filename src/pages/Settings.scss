@@ -25,14 +25,11 @@
 }
 
 .ClimateSymbolSegment{
-    top: 2%;
-    text-align: center;
-    bottom: 2%;
-    width: 15%;
-    height: 60%;
+    text-align: end;
+    width: 20%;
+    height: 100%;
     --background:var(--ion-color-light);
-    
-}
+right: 0px;}
 
 .ClimateSymbolSegmentButton{
     
@@ -43,6 +40,8 @@
     --background-hover: var(--ion-color-medium);
     --color-hover:var(--ion-color-tertiary);
     --background-hover-opacity:15%;
+    --indicator-color: #b5c2e4;
+    
 
 }
 
@@ -54,5 +53,5 @@
 }
 
 .ToggleItem{
---min-height: 48px;
+--min-height: 100%;
 }
