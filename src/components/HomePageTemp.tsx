@@ -1,6 +1,6 @@
-import { IonContent, IonText, IonTitle } from '@ionic/react';
+import { IonContent, IonTitle } from '@ionic/react';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectDisplayedTemp, selectTempSymbol } from '../app/reducersindex';
 
