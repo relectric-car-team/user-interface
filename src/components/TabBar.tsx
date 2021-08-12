@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */ //Needed to disable the ESLint problem "no props declaration" that occurs on line 76 and 79 otherwise.
 import { IonButton, IonCol, IonGrid, IonIcon, IonRange, IonRow, IonToolbar } from '@ionic/react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -18,6 +17,13 @@ import { setPage } from '../features/Routing/RouterStore';
 import { selectClimateColour, selectRouter } from '../app/reducersindex';
 import Fan from '../assets/icons/fan.svg';
 import styled from 'styled-components'; // Needed to have fan icon, AKA climate button, change colour.
+
+// Set up for allowing the fan icon to change colour dynamically.
+const StyledButton = styled(IonButton).attrs((props: { color: string }) => ({
+    color: props.color,
+}))`
+    --color: ${(props) => props.color};
+`;
 
 const TabBar: React.FC = () => {
     const page = useSelector(selectRouter);
@@ -73,13 +79,6 @@ const TabBar: React.FC = () => {
             dispatch(setPage(button));
         }
     };
-
-    // Set up for allowing the fan icon to change colour dynamically.
-    const StyledButton = styled(IonButton).attrs((props: { color: string }) => ({
-        color: props.color,
-    }))`
-        --color: ${(props) => props.color};
-    `;
 
     return (
         <IonToolbar className="TabBar">
@@ -143,7 +142,7 @@ const TabBar: React.FC = () => {
                             <StyledButton
                                 onClick={() => handleClick(Pages.Climate)}
                                 fill="clear"
-                                color={page === Pages.Climate ? 'tertiary' : fanColour}
+                                color={fanColour}
                                 size="large"
                                 shape="round"
                             >
