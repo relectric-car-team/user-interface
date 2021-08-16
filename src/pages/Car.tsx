@@ -67,7 +67,7 @@ const Car: React.FC = () => {
     };
 
     {
-    /*
+        /*
     These functions are here to allow for easier implementation of IonToast notifications in the future
     
     }
@@ -87,6 +87,7 @@ const Car: React.FC = () => {
         setPassengerDoorOpen(false);
     };
     */
+    }
 
     return (
         <IonPage className="CarPage">
