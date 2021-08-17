@@ -20,6 +20,7 @@ import {
 } from '@ionic/react';
 
 import styled from 'styled-components';
+import ThreeDimensionCar from '../components/ThreeDimensionCar';
 import { batteryHalfOutline, close } from 'ionicons/icons';
 import './Car.scss';
 import '../theme/Modal.scss';
@@ -27,7 +28,6 @@ import './InnerModal.scss';
 import { useDispatch } from 'react-redux';
 import { setPage } from '../features/Routing/RouterStore';
 import { Pages } from '../Models/Enums';
-import carAerial from '../assets/car-aerial/car-aerial.svg';
 import energyGraph from '../assets/graphs/Energy.jpg';
 import batteryGraph from '../assets/graphs/Battery.jpg';
 import Energy from './CarModals/Energy';
@@ -97,7 +97,7 @@ const Car: React.FC = () => {
                         </IonCol>
                         {/* Middle Section: Car View */}
                         <IonCol className="CenterStats" size="5">
-                            <StyledIcon className="AerialView" icon={carAerial} colour={darkMode ? 'white' : 'black'} />
+                            <ThreeDimensionCar />
                         </IonCol>
                         {/* Modal to display the battery on click*/}
                         <IonModal isOpen={showBattery} onDidDismiss={() => setShowBattery(false)} cssClass="InnerModal">
