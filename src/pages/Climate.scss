@@ -7,12 +7,14 @@
     position: absolute;
     width: 60% !important;
     height: 14%;
-    border-radius: 15px;
+    border-radius: 10px;
     background: var(--ion-color-secondary);
     box-shadow: none;
     padding-top: 0px;
 }
 .DirectionSegment {
+    text-align: center;
+    height: 100%;
     --background:var(--ion-color-light);
 }
 .TempRange {
@@ -38,7 +40,7 @@
     --background-checked: var(ion-color-secondary);
     --background:var(--ion-color-light);
     --indicator-color: transparent !important;
-    transform: translateY(-11px);
+    transform: translateY(-4%);
 }
 .TempCard {
     display: flex;
