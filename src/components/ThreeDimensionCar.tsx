@@ -46,17 +46,19 @@ const ThreeDimensionCar: React.FC = () => {
             }}
         >
             <Canvas
+                style={{ background: 'transparent' }}
                 camera={{
                     near: 0.1,
-                    far: 1000,
+                    far: 100,
                     zoom: 1,
                 }}
                 onCreated={({ gl }) => {
                     gl.setClearColor('#252934');
                 }}
             >
+                <color attach="background" args={['null']} />
                 <Stats />
-                <OrbitControls />
+                <OrbitControls enableZoom={false} enablePan={false} />
                 <Suspense fallback={null}>
                     <Scene />
                 </Suspense>
