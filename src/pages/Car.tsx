@@ -56,7 +56,7 @@ const Car: React.FC = () => {
     const [showEnergy, setShowEnergy] = useState(false);
     const [showBattery, setShowBattery] = useState(false);
     const [darkMode] = useState(document.body.classList.contains('dark'));
-    const [PassengerDoorOpen, setPassengerDoorOpen] = useState(true);
+    const [PassengerDoorOpen, setPassengerDoorOpen] = useState(false);
     const [DriverDoorOpen, setDriverDoorOpen] = useState(false);
 
     const openEnergyModal = function () {
@@ -138,6 +138,7 @@ const Car: React.FC = () => {
                                 icon={driverDoor}
                                 colour={darkMode ? 'white' : 'black'}
                                 open={DriverDoorOpen ? 'rotate(32deg) translate(-37px)' : 'rotate(0deg) translate(0)'}
+                                onClick={DriverDoorOpen ? closeDriverDoor : openDriverDoor}
                             />
                             <StyledDoor
                                 className="AerialViewPassengerDoor"
@@ -146,6 +147,7 @@ const Car: React.FC = () => {
                                 open={
                                     PassengerDoorOpen ? 'rotate(-32deg) translate(37px)' : 'rotate(0deg) translate(0)'
                                 }
+                                onClick={PassengerDoorOpen ? closePassengerDoor : openPassengerDoor}
                             />
                         </IonCol>
                         {/* Modal to display the battery on click*/}
