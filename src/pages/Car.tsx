@@ -46,6 +46,7 @@ const StyledDoor = styled(IonIcon).attrs((props: { colour: string; open: string 
     open: props.open,
 }))`
     stroke: ${(props) => props.colour};
+    fill: ${(props) => (props.colour === 'white' ? '#121317' : 'white')};
     transform: ${(props) => props.open};
 `;
 
@@ -55,8 +56,8 @@ const Car: React.FC = () => {
     const [showEnergy, setShowEnergy] = useState(false);
     const [showBattery, setShowBattery] = useState(false);
     const [darkMode] = useState(document.body.classList.contains('dark'));
-    const [PassengerDoorOpen] = useState(false);
-    const [DriverDoorOpen] = useState(false);
+    const [PassengerDoorOpen, setPassengerDoorOpen] = useState(true);
+    const [DriverDoorOpen, setDriverDoorOpen] = useState(false);
 
     const openEnergyModal = function () {
         setShowEnergy(true);
@@ -66,11 +67,8 @@ const Car: React.FC = () => {
         setShowBattery(true);
     };
 
-    {
-        /*
-    These functions are here to allow for easier implementation of IonToast notifications in the future
-    
-    }
+    //These functions are here to allow for easier implementation of IonToast notifications in the future
+
     const openDriverDoor = function () {
         setDriverDoorOpen(true);
     };
@@ -86,8 +84,6 @@ const Car: React.FC = () => {
     const closePassengerDoor = function () {
         setPassengerDoorOpen(false);
     };
-    */
-    }
 
     return (
         <IonPage className="CarPage">
