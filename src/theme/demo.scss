@@ -1,0 +1,29 @@
+.date {
+    transform: none;
+}
+
+.location {
+    position: relative;
+}
+
+.temperature {
+    position: relative;
+    top: -308px;
+    left: 0px;
+}
+
+.AerialViewDriverDoor {
+    position: absolute;
+    top: 114px;
+    left: 75px;
+    font-size: 168px;
+}
+
+.AerialViewPassengerDoor {
+    position: absolute;
+    top: 116px;
+    left: 264px;
+    font-size: 168px;
+}
+
+.segment-button-indicator-background {background: transparent !important;background-color: transparent !important;}
