@@ -52,7 +52,7 @@ const ThreeDimensionCar: React.FC = () => {
                     zoom: 1,
                 }}
                 onCreated={({ gl }) => {
-                    gl.setClearColor('#252934');
+                    gl.setClearColor('#000000');
                 }}
             >
                 <Stats />
