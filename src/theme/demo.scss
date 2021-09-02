@@ -1,22 +1,74 @@
 .time {
-    top: 48% !important;
+    font-size: 70px;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 50%;
+    padding-bottom: 30px;
+    transform: translateY(-92%);
 }
-
 .date {
-    top: 48% !important;
+    font-size: 28px;
+    text-align: center;
+    position: fixed;
+    top: 0%;
+    left: 0;
+    right: 0;
+    transform: translateY(+6%);
 }
 
 .location {
-    position: relative;
-    font-size: 28px;
-    top: 100px;
+    font-size: x-large;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    top: 29%;
+    left: 38%;
 }
 
 .temperature {
-    position: relative;
-    top: 100px;
-    left: 0px;
-    font-size: 38px;
+    font-size: x-large;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    top: 32%;
+    left: 38%;
+}
+
+.TempCard {
+    display: flex;
+    transform: translateX(225%) translateY(540%);
+    width: 35% !important;
+    height: 15%;
+    border-radius: 40px;
+    padding-top: 2.8%;
+    padding-left: 4%;
+    font-size: 200%;
+    background: var(--ion-color-light-shade);
+    box-shadow: none;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.content {
+    text-align:  center;
+    --background: transparent;
+}
+
+.ClimateSymbolSegmentButton{
+    
+    font-size: large;
+    --color: var(--ion-color-medium);
+    --background-checked: #455b92;
+    --color-checked: #b5c2e4;
+    --background-hover: var(--ion-color-medium);
+    --color-hover:var(--ion-color-tertiary);
+    --background-hover-opacity:15%;
+    --indicator-color: transparent !important;
+    --indicator-opacity: 50%;
+    
+
 }
 
 .AerialViewDriverDoor {
