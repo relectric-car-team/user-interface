@@ -138,7 +138,7 @@ const Car: React.FC = () => {
                                 className="AerialViewDriverDoor"
                                 icon={driverDoor}
                                 colour={darkMode ? 'white' : 'black'}
-                                open={DriverDoorOpen ? 'rotate(32deg) translate(-37px)' : 'rotate(0deg) translate(0)'}
+                                open={DriverDoorOpen ? 'rotate(32deg) translate(-45px)' : 'rotate(0deg) translate(0)'}
                                 onClick={DriverDoorOpen ? closeDriverDoor : openDriverDoor}
                             />
                             <StyledDoor
@@ -146,7 +146,7 @@ const Car: React.FC = () => {
                                 icon={passengerDoor}
                                 colour={darkMode ? 'white' : 'black'}
                                 open={
-                                    PassengerDoorOpen ? 'rotate(-32deg) translate(37px)' : 'rotate(0deg) translate(0)'
+                                    PassengerDoorOpen ? 'rotate(-32deg) translate(45px)' : 'rotate(0deg) translate(0)'
                                 }
                                 onClick={PassengerDoorOpen ? closePassengerDoor : openPassengerDoor}
                             />

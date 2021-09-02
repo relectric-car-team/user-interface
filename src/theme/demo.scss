@@ -21,16 +21,30 @@
 
 .AerialViewDriverDoor {
     position: absolute;
-    top: 114px;
-    left: 75px;
+    top: 147px;
+    left: 44px;
     font-size: 168px;
 }
 
 .AerialViewPassengerDoor {
     position: absolute;
-    top: 116px;
-    left: 264px;
+    top: 147px;
+    left: 231px;
     font-size: 168px;
+}
+
+.AerialView {
+    margin-top: 8%;
+    height: 120%;
+    width: 100%;
+}
+
+.TabBarIcon {
+    font-size: 45px !important;
+}
+
+.modal-wrapper {
+    min-height: 78% !important;
 }
 
 .segment-button-indicator-background {background: transparent !important;background-color: transparent !important;}
