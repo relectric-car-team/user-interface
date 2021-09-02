@@ -48,6 +48,7 @@ const StyledDoor = styled(IonIcon).attrs((props: { colour: string; open: string 
     stroke: ${(props) => props.colour};
     fill: ${(props) => (props.colour === 'white' ? '#121317' : 'white')};
     transform: ${(props) => props.open};
+    transition: 0.6s;
 `;
 
 const Car: React.FC = () => {
