@@ -1,15 +1,22 @@
+.time {
+    top: 48% !important;
+}
+
 .date {
-    transform: none;
+    top: 48% !important;
 }
 
 .location {
     position: relative;
+    font-size: 28px;
+    top: 100px;
 }
 
 .temperature {
     position: relative;
-    top: -308px;
+    top: 100px;
     left: 0px;
+    font-size: 38px;
 }
 
 .AerialViewDriverDoor {
