@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     IonButton,
     IonCard,
@@ -34,7 +34,8 @@ import energyGraph from '../assets/graphs/Energy.jpg';
 import batteryGraph from '../assets/graphs/Battery.jpg';
 import Energy from './CarModals/Energy';
 import Battery from './CarModals/Battery';
-
+import Chart from './Line';
+import './styles.scss';
 const StyledIcon = styled(IonIcon).attrs((props: { colour: string }) => ({
     colour: props.colour,
 }))`
@@ -53,13 +54,27 @@ const StyledDoor = styled(IonIcon).attrs((props: { colour: string; open: string 
 
 const Car: React.FC = () => {
     const dispatch = useDispatch();
-
     const [showEnergy, setShowEnergy] = useState(false);
     const [showBattery, setShowBattery] = useState(false);
     const [darkMode] = useState(document.body.classList.contains('dark'));
     const [PassengerDoorOpen, setPassengerDoorOpen] = useState(false);
     const [DriverDoorOpen, setDriverDoorOpen] = useState(false);
-
+    const [battery, setBattery] = useState(56);
+    useEffect(() => {
+        const func = async () => {
+            const response = await fetch('http://localhost:4000/api/batteryValue');
+            const data = await response.json();
+            console.log(data);
+            const id = data['value'];
+            console.log(id);
+            setBattery(id);
+        };
+        func();
+        const secTimer = setInterval(() => {
+            func();
+        }, 1000);
+        return () => clearInterval(secTimer);
+    }, []);
     const openEnergyModal = function () {
         setShowEnergy(true);
     };
@@ -158,12 +173,13 @@ const Car: React.FC = () => {
                         {/* Right Side: Statistics Battery */}
                         <IonCol className="RightStats" size="3.5">
                             <IonCard className="Battery" button={true} onClick={openBatteryModal}>
-                                <IonImg src={batteryGraph} className="ImagePreview" />
+                                {/* <IonImg src={batteryGraph} className="ImagePreview" /> */}
+                                <Chart />
                                 <IonCardHeader>
                                     <IonCardTitle>Battery</IonCardTitle>
                                 </IonCardHeader>
                                 <IonCardContent className="BatteryStats">
-                                    <IonCardTitle className="BatteryPercentage">56%</IonCardTitle>
+                                    <IonCardTitle className="BatteryPercentage">{battery}%</IonCardTitle>
                                     <IonIcon src={batteryHalfOutline} className="BatteryIcon"></IonIcon>
                                 </IonCardContent>
                             </IonCard>
