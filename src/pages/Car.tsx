@@ -35,7 +35,6 @@ import batteryGraph from '../assets/graphs/Battery.jpg';
 import Energy from './CarModals/Energy';
 import Battery from './CarModals/Battery';
 import Chart from './Line';
-import './styles.scss';
 const StyledIcon = styled(IonIcon).attrs((props: { colour: string }) => ({
     colour: props.colour,
 }))`
