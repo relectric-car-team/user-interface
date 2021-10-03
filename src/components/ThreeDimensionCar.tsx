@@ -1,4 +1,4 @@
-import React, { Suspense, useLayoutEffect } from 'react';
+import React, { Suspense } from 'react';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { Stats, OrbitControls, PerspectiveCamera } from '@react-three/drei';
 import { Canvas, useLoader } from 'react-three-fiber';
@@ -25,7 +25,7 @@ const Scene = () => {
             <pointLight intensity={5.0} position={[20, 20, 20]} />
             <pointLight intensity={5.0} position={[-20, -20, 20]} />
             <Car />
-            <PerspectiveCamera makeDefault position={[-4.2, 0, 0]} near={0.1} far={100} zoom={1} />
+            <PerspectiveCamera makeDefault position={[2, 4.2, 2]} near={0.1} far={100} zoom={1.2} />
         </>
     );
 };
