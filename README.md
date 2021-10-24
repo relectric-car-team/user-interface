@@ -2,9 +2,6 @@
 
 # Relectric Car Team User Interface
 
-This repository contains the code for the user interface (UI) including the dashboard and the infotainment system.
-This program is to be run on a Raspberry Pi and 2 displays simultaneously that will interact with each other.
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ebee7910-a3d7-41f5-a26d-5afe81e579e0/deploy-status)](https://app.netlify.com/sites/relectric-ui/deploys)
 
 Link to live demo: [ui.teamrelectric.ca](https://ui.teamrelectric.ca)
