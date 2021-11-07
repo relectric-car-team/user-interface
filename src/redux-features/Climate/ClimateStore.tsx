@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 /**
  * Enums for consistent identification of the direction mode selected.
- * Used in this redux slice, as well as Cliamte.tsx
+ * Used in this redux slice, as well as Climate.tsx
  */
 export enum Direction {
     Upper = 'Upper',
