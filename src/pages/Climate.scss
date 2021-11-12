@@ -1,78 +1,68 @@
 @import '../theme/variables.scss';
 
 .DirectionCard {
-    transform: translateX(-50%) translateY(-180%);
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    width: 60% !important;
-    height: 14%;
-    border-radius: 10px;
-    background: var(--ion-color-secondary);
-    box-shadow: none;
-    padding-top: 0px;
 }
 
 .DirectionSegment {
-    text-align: center;
-    height: 100%;
-    --background:var(--ion-color-light);
 }
 
 .TempRange {
-    transform: translateX(-50%) translateY(65%);
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    width: 80% !important;
-    --bar-height: 155%;
-    --bar-border-radius: 15px;
-    --bar-background: linear-gradient(to right, #1184e8, #cc374a);
-    //--bar-background: linear-gradient(to right, red, blue);
-    --bar-background-active: rgba(0,0,0,0);
-    // --knob-background: url('../assets/icons/slider70.png');
-    // --knob-size: 70px;
-    --knob-background: url('../assets/icons/slider100.png');
-    --knob-size: 100px;
-    --knob-box-shadow: none;
+    
 }
 
 .SegmentButton {
-    font-size: 200%;
-    --color: var(--ion-color-tertiary);
-    --background-checked: var(ion-color-secondary);
-    --background:var(--ion-color-light);
-    --indicator-color: transparent !important;
-    transform: translateY(-4%);
+   
 }
 
 .TempCard {
-    display: flex;
-    transform: translateX(225%) translateY(540%);
-    width: 35% !important;
-    height: 15%;
-    border-radius: 40px;
-    padding-top: 1.5%;
-    padding-left: 25px;
-    font-size: 200%;
-    background: var(--ion-color-light-shade);
-    box-shadow: none;
-    vertical-align: middle;
-    display: inline-block;
+    
 }
 
 .ClimateUpperButton {
-    width: 50px;
-    height: 50px;
+
 }
 
 .DirectionButton {
-    width: 50px;
-    height: 50px;
+   
 }
 
 .Thermometer {
-    transform: translateX(5px) translateY(5px);
+    
+}
+
+.High {
+    width: 49px;
+    height: 25.2px;
+    flex-grow: 0;
+    // font-family: Poppins;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 19.2px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: var(--re-lc-white);
+}
+
+.OFF {
+    width: 49px;
+    height: 25.2px;
+    flex-grow: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 19.2px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: var(--re-lc-white);
+}
+
+.FanIntensityRange {
+    transform: rotate(-90deg);
 }
 
 .Temperature {
