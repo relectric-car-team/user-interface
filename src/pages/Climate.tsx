@@ -15,6 +15,7 @@ import {
     IonButton,
     IonIcon,
     IonRange,
+    IonCardTitle,
 } from '@ionic/react';
 
 import styled from 'styled-components';
@@ -24,11 +25,12 @@ import styled from 'styled-components';
  */
 import { close } from 'ionicons/icons';
 import { thermometerOutline } from 'ionicons/icons';
+import { chevronUpOutline } from 'ionicons/icons';
+import { chevronDownOutline } from 'ionicons/icons';
 import climateUpper from '../assets/icons/climate-upper.svg';
 import climateLower from '../assets/icons/climate-lower.svg';
 import climateUpperAndLower from '../assets/icons/climate-upper-and-lower.svg';
 import climateFront from '../assets/icons/climate-windshield.svg';
-import { chevronDownOutline } from 'ionicons/icons';
 
 /**
  * .scss imports for components
@@ -52,55 +54,73 @@ import {
 import { Direction, updateDirection, updateTemperature } from '../redux-features/Climate/ClimateStore';
 
 const Climate: React.FC = () => {
+    const selectedTemp = useSelector(selectSliderValue);
+
     return (
-        <IonPage>
-            <IonContent>
-                <IonRow>
-                    <IonCol>
-                        <IonCard className="Intensity">
-                            <IonRange
-                                min={0}
-                                max={100}
-                                value={50}
-                                className="TempRange"
-                                onIonChange={(e: any) => console.log('Chagnes')}
-                            ></IonRange>
-                        </IonCard>
-                    </IonCol>
-                    <IonCol>
-                        <IonCard className="Temperature">
-                            <IonButton>
-                                <IonIcon icon={climateUpper} />
-                            </IonButton>
-                        </IonCard>
-                    </IonCol>
-                    <IonCol>
-                        <IonCard className="Fan-Buttons">
-                            <IonRow>
-                                <IonButton>
-                                    <IonIcon icon={chevronDownOutline} />
-                                </IonButton>
-                            </IonRow>
-                            <IonRow>
-                                <IonButton>
-                                    <IonIcon icon={climateUpper} />
-                                </IonButton>
-                            </IonRow>
-                            <IonRow>
-                                <IonButton>
-                                    <IonIcon icon={climateLower} />
-                                </IonButton>
-                            </IonRow>
-                            <IonRow>
-                                <IonButton>
-                                    <IonIcon icon={climateFront} />
-                                </IonButton>
-                            </IonRow>
-                        </IonCard>
-                    </IonCol>
-                </IonRow>
-            </IonContent>
-        </IonPage>
+        <IonRow>
+            <IonCol>
+                <IonCard className="Intensity">
+                    <IonRow>
+                        <IonCardTitle className="High">High</IonCardTitle>
+                    </IonRow>
+                    <IonRow>
+                        <IonRange
+                            min={0}
+                            max={4}
+                            value={0} // fan intensity
+                            snaps={true}
+                            className="FanIntensityRange"
+                            onIonChange={(e: any) => console.log('Chagnes')}
+                        ></IonRange>
+                    </IonRow>
+                    <IonRow>
+                        <IonCardTitle className="OFF">OFF</IonCardTitle>
+                    </IonRow>
+                </IonCard>
+            </IonCol>
+            <IonCol>
+                <IonCard className="Temperature">
+                    <IonRow>
+                        <IonButton>
+                            <IonIcon icon={chevronUpOutline} />
+                        </IonButton>
+                    </IonRow>
+                    <IonRow>
+                        <IonIcon icon={thermometerOutline} />
+                        {selectedTemp}
+                    </IonRow>
+                    <IonRow>
+                        <IonButton>
+                            <IonIcon icon={chevronDownOutline} />
+                        </IonButton>
+                    </IonRow>
+                </IonCard>
+            </IonCol>
+            <IonCol>
+                <IonCard className="Fan-Buttons">
+                    <IonRow>
+                        <IonButton>
+                            <IonIcon icon={climateUpperAndLower} />
+                        </IonButton>
+                    </IonRow>
+                    <IonRow>
+                        <IonButton>
+                            <IonIcon icon={climateUpper} />
+                        </IonButton>
+                    </IonRow>
+                    <IonRow>
+                        <IonButton>
+                            <IonIcon icon={climateLower} />
+                        </IonButton>
+                    </IonRow>
+                    <IonRow>
+                        <IonButton>
+                            <IonIcon icon={climateFront} />
+                        </IonButton>
+                    </IonRow>
+                </IonCard>
+            </IonCol>
+        </IonRow>
     );
 };
 
