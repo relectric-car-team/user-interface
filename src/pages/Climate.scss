@@ -74,3 +74,31 @@
 .Thermometer {
     transform: translateX(5px) translateY(5px);
 }
+
+.Temperature {
+    width: 275px;   // i shrunk to make fit
+    height: 426px;
+    flex-grow: 0;
+    padding: 0 0 54.1px;
+    border-radius: 27.8px;
+    background-color: #1c1d23;
+}
+
+.Intensity {
+    width: 275px;   // i shrunk to make fit
+    height: 426px;
+    flex-grow: 0;
+    padding: 23px 53px 22.7px;
+    border-radius: 26.5px;
+    background-color: #1c1d23;
+}
+
+.Fan-Buttons {
+    width: 275px;   // i shrunk to make fit
+    height: 426px;
+    flex-grow: 0;
+    padding: 31.6px 16px 30.6px 14px;
+    border-radius: 26.5px;
+    background-color: #1c1d23;
+}
+
