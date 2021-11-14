@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import {
     IonButton,
+    IonCard,
     IonCol,
     IonContent,
+    IonFooter,
     IonGrid,
     IonHeader,
     IonIcon,
     IonImg,
+    IonInfiniteScroll,
+    IonInfiniteScrollContent,
+    IonItem,
     IonLabel,
+    IonList,
     IonPage,
     IonRange,
     IonRow,
@@ -15,6 +21,7 @@ import {
     IonThumbnail,
     IonTitle,
     IonToolbar,
+    useIonViewWillEnter,
 } from '@ionic/react';
 import { playCircle, playSkipBack, playSkipForward, pauseCircle, close } from 'ionicons/icons';
 import albumCover from '../assets/album_cover.jpg';
@@ -68,7 +75,6 @@ const Music: React.FC = () => {
     const title = 'Sunset Blvd';
     const artist = 'Kam Prada';
     const album = 'Sunset Blvd';
-
     /**
      * function that turns integer number of seconds into a string
      * formatted as mm:ss or m:ss
@@ -90,59 +96,147 @@ const Music: React.FC = () => {
 
     return (
         <IonPage>
-            <IonHeader>
-                {/**
-                 * Purple toolbar with the title of the page: music
-                 */}
-                <IonToolbar color="relectric-music" className="MusicToolBar">
+            <IonContent>
+                <IonGrid>
                     <IonRow>
-                        <IonButton
-                            fill="clear"
-                            color="white"
-                            shape="round"
-                            onClick={() => dispatch(setPage(Pages.Home))}
-                        >
-                            <IonIcon src={close} className="XButton" />
-                        </IonButton>
-                        <IonTitle>Music</IonTitle>
-                    </IonRow>
-                </IonToolbar>
-            </IonHeader>
-
-            <IonContent fullscreen className="ModalContent">
-                {/**
-                 * Create a grid to separate the album cover section (top left) from
-                 * the details/button section (top right) and the timebar section (bottom).
-                 */}
-                <IonGrid className="MusicGrid">
-                    {/**
-                     * Upper row containing album cover, title, album, artist,
-                     * play/pause button,  and skip forward/back buttons
-                     */}
-                    <IonRow className="InfoButtonRow">
-                        {/**
-                         * Left column containing album cover
-                         */}
-                        <IonCol>
-                            <IonThumbnail className="AlbumCover">
-                                <IonImg src={albumCover} className="AlbumPic" />
-                            </IonThumbnail>
+                        <IonCol size="6">
+                            <IonContent className="songStyling">
+                                <IonList className="songListStyling" lines="none">
+                                    <IonItem>
+                                        <IonButton expand="block" size="large" fill="solid" color="dark">
+                                            <IonHeader className="songNameStyling">
+                                                {title}
+                                                <IonTitle>{artist}</IonTitle>
+                                            </IonHeader>
+                                            <IonThumbnail>
+                                                <IonImg src={albumCover} className="songListPic" />
+                                            </IonThumbnail>
+                                            <IonTitle>{getSecondsAsDigitalClock(seconds)}</IonTitle>
+                                        </IonButton>
+                                    </IonItem>
+                                    <IonItem>
+                                        <IonButton expand="block" size="large" fill="solid" color="dark">
+                                            <IonHeader className="songNameStyling">
+                                                {title}
+                                                <IonTitle>{artist}</IonTitle>
+                                            </IonHeader>
+                                            <IonThumbnail>
+                                                <IonImg src={albumCover} className="songListPic" />
+                                            </IonThumbnail>
+                                            <IonTitle>{getSecondsAsDigitalClock(seconds)}</IonTitle>
+                                        </IonButton>
+                                    </IonItem>
+                                    <IonItem>
+                                        <IonButton expand="block" size="large" fill="solid" color="dark">
+                                            <IonHeader className="songNameStyling">
+                                                {title}
+                                                <IonTitle>{artist}</IonTitle>
+                                            </IonHeader>
+                                            <IonThumbnail>
+                                                <IonImg src={albumCover} className="songListPic" />
+                                            </IonThumbnail>
+                                            <IonTitle>{getSecondsAsDigitalClock(seconds)}</IonTitle>
+                                        </IonButton>
+                                    </IonItem>
+                                    <IonItem>
+                                        <IonButton expand="block" size="large" fill="solid" color="dark">
+                                            <IonHeader className="songNameStyling">
+                                                {title}
+                                                <IonTitle>{artist}</IonTitle>
+                                            </IonHeader>
+                                            <IonThumbnail>
+                                                <IonImg src={albumCover} className="songListPic" />
+                                            </IonThumbnail>
+                                            <IonTitle>{getSecondsAsDigitalClock(seconds)}</IonTitle>
+                                        </IonButton>
+                                    </IonItem>
+                                    <IonItem>
+                                        <IonButton expand="block" size="large" fill="solid" color="dark">
+                                            <IonHeader className="songNameStyling">
+                                                {title}
+                                                <IonTitle>{artist}</IonTitle>
+                                            </IonHeader>
+                                            <IonThumbnail>
+                                                <IonImg src={albumCover} className="songListPic" />
+                                            </IonThumbnail>
+                                            <IonTitle>{getSecondsAsDigitalClock(seconds)}</IonTitle>
+                                        </IonButton>
+                                    </IonItem>
+                                    <IonItem>
+                                        <IonButton expand="block" size="large" fill="solid" color="dark">
+                                            <IonHeader className="songNameStyling">
+                                                {title}
+                                                <IonTitle>{artist}</IonTitle>
+                                            </IonHeader>
+                                            <IonThumbnail>
+                                                <IonImg src={albumCover} className="songListPic" />
+                                            </IonThumbnail>
+                                            <IonTitle>{getSecondsAsDigitalClock(seconds)}</IonTitle>
+                                        </IonButton>
+                                    </IonItem>
+                                    <IonItem>
+                                        <IonButton expand="block" size="large" fill="solid" color="dark">
+                                            <IonHeader className="songNameStyling">
+                                                {title}
+                                                <IonTitle>{artist}</IonTitle>
+                                            </IonHeader>
+                                            <IonThumbnail>
+                                                <IonImg src={albumCover} className="songListPic" />
+                                            </IonThumbnail>
+                                            <IonTitle>{getSecondsAsDigitalClock(seconds)}</IonTitle>
+                                        </IonButton>
+                                    </IonItem>
+                                    <IonItem>
+                                        <IonButton expand="block" size="large" fill="solid" color="dark">
+                                            <IonHeader className="songNameStyling">
+                                                {title}
+                                                <IonTitle>{artist}</IonTitle>
+                                            </IonHeader>
+                                            <IonThumbnail>
+                                                <IonImg src={albumCover} className="songListPic" />
+                                            </IonThumbnail>
+                                            <IonTitle>{getSecondsAsDigitalClock(seconds)}</IonTitle>
+                                        </IonButton>
+                                    </IonItem>
+                                    <IonItem>
+                                        <IonButton expand="block" size="large" fill="solid" color="dark">
+                                            <IonHeader className="songNameStyling">
+                                                {title}
+                                                <IonTitle>{artist}</IonTitle>
+                                            </IonHeader>
+                                            <IonThumbnail>
+                                                <IonImg src={albumCover} className="songListPic" />
+                                            </IonThumbnail>
+                                            <IonTitle>{getSecondsAsDigitalClock(seconds)}</IonTitle>
+                                        </IonButton>
+                                    </IonItem>
+                                </IonList>
+                            </IonContent>
                         </IonCol>
-
-                        {/**
-                         * Right column containing song details and control buttons
-                         */}
-                        <IonCol size="5" className="InfoButtonCol">
-                            {/** Upper sub-row containing song title, album, and artist */}
+                        <IonCol size="6" className="dimensionControl">
                             <IonRow>
                                 <IonLabel className="MediaDetailLabel">
                                     <IonTitle className="SongTitle">{title}</IonTitle>
-                                    <IonText>{album}</IonText> <br />
-                                    <IonText>{artist}</IonText> <br />
                                 </IonLabel>
                             </IonRow>
-
-                            {/** Lower sub-row containing control buttons */}
+                            <IonRow>
+                                <IonThumbnail className="AlbumCover">
+                                    <IonImg src={albumCover} className="AlbumPic" />
+                                </IonThumbnail>
+                            </IonRow>
+                            <IonRow className="TimeRow">
+                                <IonCol size="0.2"></IonCol>
+                                <IonRange
+                                    min={0}
+                                    max={seconds}
+                                    color="dark"
+                                    className="TimeBar"
+                                    value={secPassed}
+                                    onIonChange={(e) => setSecPassed(e.detail.value as number)}
+                                />
+                                <IonCol size="0.2"></IonCol>
+                                <IonText>{getSecondsAsDigitalClock(seconds)}</IonText>
+                            </IonRow>
                             <IonRow className="ButtonRow">
                                 <IonButton
                                     className="SkipButtons"
@@ -169,7 +263,7 @@ const Music: React.FC = () => {
                                     )}
                                 </IonButton>
                                 <IonButton
-                                    className="SkipButtons"
+                                    className="SkipButtons2"
                                     fill="clear"
                                     size="large"
                                     shape="round"
@@ -180,26 +274,6 @@ const Music: React.FC = () => {
                                 </IonButton>
                             </IonRow>
                         </IonCol>
-                    </IonRow>
-
-                    {/**
-                     * Bottom row containing timestamps and time bar
-                     */}
-                    <IonRow className="TimeRow">
-                        <IonText>{getSecondsAsDigitalClock(secPassed)}</IonText>
-                        {/** timerComponents.length ? timerComponents : <span>Time's up!</span> */}
-                        <IonCol size="0.2"></IonCol>
-                        <IonRange
-                            min={0}
-                            max={seconds}
-                            color="dark"
-                            className="TimeBar"
-                            /* Allows for current time to update bar AND user sliding bar to update current time */
-                            value={secPassed}
-                            onIonChange={(e) => setSecPassed(e.detail.value as number)}
-                        />
-                        <IonCol size="0.2"></IonCol>
-                        <IonText>{getSecondsAsDigitalClock(seconds)}</IonText>
                     </IonRow>
                 </IonGrid>
             </IonContent>

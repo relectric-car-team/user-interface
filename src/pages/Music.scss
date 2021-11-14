@@ -8,9 +8,13 @@
     height: 100%;
 }
 .AlbumCover {
-    transform: translateX(16%) translateY(10%);
-    width: 270px;
-    height: 270px;
+    height: 199.4px;
+    width: 205.2px;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(80px);
+    border-radius: 15% !important;
+    overflow: hidden;
 }
 .InfoButtonRow {
     height: 80%;
@@ -21,15 +25,19 @@
 }
 .ButtonRow {
     padding-top: 30%;
-    justify-items: center;
+    transform: translateY(-90px) translateX(50px);
 }
 .SkipButtons {
-    transform: translateX(-50px);
+    transform: translateX(90px);
+}
+
+.SkipButtons2 {
+    transform: translateX(10px);
 }
 .PlayPauseButton {
     width: 105px;
     height: 105px;
-    transform: translateY(-25px) translateX(-50px);
+    transform: translateY(-25px) translateX(50px);
 }
 .PlayPauseIcon {
     width: 105px;
@@ -40,26 +48,66 @@
     color: $dark-text;
 }
 .MediaDetailLabel {
-    font-size: 20px;
-    transform: translateX(-30px);
+    font-size: 22.8px;
     color: $dark-text;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(75px);
+
 }
 .ProgressRow {
     height: 20%;
 }
 .TimeBar {
     transform: translateY(-20px);
-    --knob-size: 30px;
+    --knob-size: 15px;
     border-radius: 40px;
 }
 .TimeRow {
     vertical-align: middle;
     justify-content: center;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 55px;
+    padding-right: 30px;
     color: $medium-dark-text;
+    transform: translateY(90px);
 }
 
 .XButton {
     font-size: 30px;
 }
+
+.backgroundStyling {
+    background-image: url('../assets/album_cover.jpg');
+    width: 300px;
+    height: 300px;
+    -webkit-filter: blur(30px);
+    filter: blur(30px);
+    transform: translateY(-350px);
+  }
+
+  .dimensionControl {
+    transform: translateY(20px) translateX(-2.5px);
+    border-radius: 25px;
+    background: #000000;
+    height: 450px;
+  }
+
+  .songStyling {
+    transform: translateY(5px);
+
+  }
+
+  .songNameStyling {
+      transform: translateX(30px);
+
+  }
+
+
+  .songListPic {
+      transform: translateX(-175px);
+  }
+
+  .songListStyling {
+      justify-content: center;
+      transform: translateX(45px);
+  }

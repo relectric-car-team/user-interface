@@ -70,7 +70,7 @@
         "lint-staged": ">=10",
         "pinst": "^2.1.1",
         "prettier": "^2.2.0",
-        "react-scripts": "^4.0.1",
+        "react-scripts": "4.0.3",
         "typedoc": "^0.20.35",
         "typedoc-plugin-markdown": "^3.7.1"
     },
