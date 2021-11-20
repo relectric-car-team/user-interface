@@ -2,11 +2,12 @@ import React from 'react';
 import Home from './Home';
 import TabBar from '../components/TabBar';
 import ComponentModal from './ComponentModal';
-import SettingsFab from '../components/SettingsFab';
+import TopBar from '../components/TopBar';
 
 const AppContainer: React.FC = () => {
     return (
         <>
+            <TopBar />
             {/* Overlaying modal component */}
             <ComponentModal />
             {/* Home page */}
@@ -14,7 +15,6 @@ const AppContainer: React.FC = () => {
             {/* Lower tab bar with icon */}
             <TabBar />
             {/* Settings floating action button*/}
-            <SettingsFab />
         </>
     );
 };
