@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+// import { StaticRouter } from 'react-router';
 
 /**
  * Enums for consistent identification of the direction mode selected.
@@ -106,14 +107,11 @@ export const slice = createSlice({
     name: 'climate',
     initialState,
     reducers: {
-        // Reducer used to update the currently stored temperature value, based on the temperature slider value.
         updateTemperature: (state, action) => {
-            state.sliderValue = action.payload;
-            state.climateColour = sliderValueToColour(action.payload);
-            if (state.isCelsius == false) {
-                state.displayedTemp = sliderValueToFahrenheit(action.payload);
+            if (action.payload === 'increase') {
+                state.displayedTemp = state.displayedTemp + 1;
             } else {
-                state.displayedTemp = sliderValueToCelsius(action.payload);
+                state.displayedTemp = state.displayedTemp - 1;
             }
         },
         // Reducer to toggle the current temperature scale between Celsius and Fahrenheit

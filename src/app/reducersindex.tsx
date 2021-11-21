@@ -43,6 +43,8 @@ export const selectDisplayedTemp = (state: RootState): number => state.climateRe
 
 export const selectTempSymbol = (state: RootState): string => state.climateReducer.temperatureSymbol;
 
+export const selectTempValue = (state: RootState): number => state.climateReducer.displayedTemp;
+
 export const selectIsCelsius = (state: RootState): boolean => state.climateReducer.isCelsius;
 
 export const selectDarkModeActive = (state: RootState): boolean => state.darkModeReducer.darkModeActive;
@@ -85,3 +87,4 @@ export const powerDraw = (state: RootState): number[] => state.carReducer.powerD
 export const averagePowerDraw = (state: RootState): number => state.carReducer.averagePowerDraw;
 
 export const currentSpeed = (state: RootState): number => state.carReducer.currentSpeed;
+export const selectFanIntensity = (state: RootState): number => state.climateReducer.fanIntensity;

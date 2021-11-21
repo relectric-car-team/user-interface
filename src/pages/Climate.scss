@@ -1,94 +1,100 @@
 @import '../theme/variables.scss';
 
-.DirectionCard {
-}
-
-.DirectionSegment {
-}
-
-.TempRange {
-    
-}
-
-.SegmentButton {
-   
-}
-
-.TempCard {
-    
-}
-
-.ClimateUpperButton {
-
-}
-
-.DirectionButton {
-   
-}
-
-.Thermometer {
-    
+.Thermometer-Icon {
+    font-size: 50px;
+    transform: translateY(12%);
+    color: $medium-text;
 }
 
 .High {
     width: 49px;
     height: 25.2px;
-    flex-grow: 0;
     // font-family: Poppins;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 19.2px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
     text-align: center;
-    color: var(--re-lc-white);
 }
 
 .OFF {
     width: 49px;
     height: 25.2px;
-    flex-grow: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 19.2px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
     text-align: center;
-    color: var(--re-lc-white);
 }
 
-.FanIntensityRange {
+.Fan-Intensity-Row {
     transform: rotate(-90deg);
 }
 
-.Temperature {
-    width: 275px;   // i shrunk to make fit
-    height: 426px;
-    flex-grow: 0;
-    padding: 0 0 54.1px;
+.Fan-Intensity-Range {
+    -webkit-appearance: none;
+    border-radius: 15px;
+    height: 17px;
+    width: 300px;
+    margin-top: 170px;
+    margin-bottom: 170px;
+    // background-color: blue;
+    // background-image: url('../assets/climate_slider_background.jpg');
+}
+
+.Fan-Intensity-Range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 200px;
+    background: white;
+    border-radius: 14px;
+}
+
+.Card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
     border-radius: 27.8px;
-    background-color: #1c1d23;
+    margin: 0px;
+    --background: #1c1d23;
 }
 
-.Intensity {
-    width: 275px;   // i shrunk to make fit
-    height: 426px;
-    flex-grow: 0;
-    padding: 23px 53px 22.7px;
-    border-radius: 26.5px;
-    background-color: #1c1d23;
+.Fan-Button {
+    height: 114px;
+    width: 100%;
+    --border-radius: 25px;
+    --background: #1c1d23;
+    --color-activated: #1c1d23;
 }
 
-.Fan-Buttons {
-    width: 275px;   // i shrunk to make fit
-    height: 426px;
-    flex-grow: 0;
-    padding: 31.6px 16px 30.6px 14px;
-    border-radius: 26.5px;
-    background-color: #1c1d23;
+.Fan-Button-Selected {
+    --color-activated: #1c1d23;
+    height: 114px;
+    width: 100%;
+    --border-radius: 25px;
+    --background: #c1c1c1;
+    .Fan-Direction-Icon {
+        color: #1c1d23;
+        font-size: 70px;
+    }
 }
 
+.Temperature-Button {
+    font-size: 64px;
+    width: 100%;
+    height: 100%;
+}
+
+.Temperature-Button-Icon {
+    color: $medium-light-text;
+}
+
+.Fan-Direction-Icon {
+    color: $medium-text;
+    font-size: 70px;
+}
+
+.Temperature {
+    font-size: 50px;
+    color: var(--re-lc-white);
+    align-self: center;
+}
