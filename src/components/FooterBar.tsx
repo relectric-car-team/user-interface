@@ -1,6 +1,6 @@
 import { IonButton, IonCol, IonGrid, IonIcon, IonRow, IonToolbar } from '@ionic/react';
 import { useDispatch, useSelector } from 'react-redux';
-import { car, home, musicalNotes, navigate, call } from 'ionicons/icons';
+import { car, home, musicalNotes, navigate, call, settings } from 'ionicons/icons';
 import React from 'react';
 import { selectRouter } from '../app/reducersindex';
 import Fan from '../assets/icons/fan.svg';
@@ -75,8 +75,13 @@ const FooterBar: React.FC = () => {
                     </IonCol>
                     <IonCol size="2" className="FooterBarColumn">
                         <IonRow>
-                            <IonButton fill="clear" size="large" shape="round" onClick={() => handleClick(Pages.Home)}>
-                                <IonIcon className="FooterBarIcon" icon={call} color="tertiary"></IonIcon>
+                            <IonButton
+                                fill="clear"
+                                size="large"
+                                shape="round"
+                                onClick={() => handleClick(Pages.Settings)}
+                            >
+                                <IonIcon className="FooterBarIcon" icon={settings} color="tertiary"></IonIcon>
                             </IonButton>
                         </IonRow>
                     </IonCol>
