@@ -1,7 +1,8 @@
-import { IonGrid, IonRow, IonToolbar, IonCol, IonTitle } from '@ionic/react';
+import { IonGrid, IonRow, IonToolbar, IonCol, IonTitle, IonIcon, IonText } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import './TopBar.scss';
 import './DateTime';
+import { batteryHalfOutline, bluetoothOutline } from 'ionicons/icons';
 
 const TopBar: React.FC = () => {
     const [currentTime, setTime] = useState<string>();
@@ -24,20 +25,27 @@ const TopBar: React.FC = () => {
         return () => clearInterval(secTimer);
     }, []);
 
+    const batteryPercentage = 52;
+
     return (
-        <IonToolbar>
+        <IonToolbar className="TopToolbar">
             <IonGrid>
-                <IonRow>
+                <IonRow className="TopBarRow">
                     <IonCol size="4">
-                        <IonRow></IonRow>
+                        <IonRow>
+                            <IonIcon icon={batteryHalfOutline} className="BatteryIcon"></IonIcon>
+                            <IonText className="BatteryText">{batteryPercentage}%</IonText>
+                        </IonRow>
                     </IonCol>
-                    <IonCol size="4" className="TimeCol">
-                        <IonRow className="TimeCol">
+                    <IonCol size="4">
+                        <IonRow>
                             <IonTitle className="Time">{currentTime}</IonTitle>
                         </IonRow>
                     </IonCol>
                     <IonCol size="4">
-                        <IonRow></IonRow>
+                        <IonRow className="BluetoothRow">
+                            <IonIcon icon={bluetoothOutline} className="BluetoothIcon"></IonIcon>
+                        </IonRow>
                     </IonCol>
                 </IonRow>
             </IonGrid>
