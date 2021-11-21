@@ -35,8 +35,6 @@ export default combineReducers({
 
 export const selectRouter = (state: RootState): Pages => state.routerReducer.page;
 
-export const selectSliderValue = (state: RootState): number => state.climateReducer.sliderValue;
-
 export const selectDisplayedTemp = (state: RootState): number => state.climateReducer.displayedTemp;
 
 export const selectTempSymbol = (state: RootState): string => state.climateReducer.temperatureSymbol;

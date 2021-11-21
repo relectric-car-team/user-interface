@@ -2,22 +2,19 @@ import { IonItem, IonLabel, IonSegment, IonSegmentButton } from '@ionic/react';
 import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsCelsius, selectSliderValue } from '../../app/reducersindex';
+import { selectIsCelsius } from '../../app/reducersindex';
 import { switchMeasurement, updateTemperature } from '../../redux-features/Climate/ClimateStore';
 
 const TempSystemSegment: React.FC = () => {
     const dispatch = useDispatch();
 
     const isCelsius = useSelector(selectIsCelsius);
-    const climateSliderVal = useSelector(selectSliderValue);
 
     function updateTemperatureScale(segmentValue: string) {
         if (segmentValue != 'celsius') {
             dispatch(switchMeasurement(false));
-            dispatch(updateTemperature(climateSliderVal));
         } else {
             dispatch(switchMeasurement(true));
-            dispatch(updateTemperature(climateSliderVal));
         }
     }
 
