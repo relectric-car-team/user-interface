@@ -17,7 +17,7 @@ export enum Direction {
  * to save for the climate page to render correctly and store set information.
  */
 interface ClimateState {
-    sliderValue: number;
+    celsiusTemp: number;
     displayedTemp: number;
     isCelsius: boolean;
     fanIntensity: number;
@@ -35,8 +35,8 @@ interface ClimateState {
  * from the current vehicle conditions.
  */
 const initialState: ClimateState = {
-    sliderValue: 38,
-    displayedTemp: sliderValueToCelsius(38),
+    celsiusTemp: 15,
+    displayedTemp: 15,
     isCelsius: true,
     fanIntensity: 2,
     fanDirection: Direction.Upper,
@@ -44,52 +44,21 @@ const initialState: ClimateState = {
 };
 
 /**
- * Function for converting the value of the temperature slider (which is on a scale of 0-100),
- * to a Celsius scale ranging from 15 to 32 degrees Celsius.
- * @param sliderValue Current value of the temperature slider.
- * @returns Value of the temperature slider, converted to degrees Celsius.
+ * Function for converting a Fahrenheit temperature to Celsius
+ * @param fahrenTemp A temperature in Fahrenheit
+ * @returns the celsius equivalent of fahrenTemp
  */
-function sliderValueToCelsius(sliderValue: number) {
-    const celsiusTemp = Math.ceil(sliderValue / 6 + 15);
-    return celsiusTemp;
+function fahrenheitToCelcius(fahrenTemp: number) {
+    return ((fahrenTemp - 32) * 5) / 9;
 }
 
 /**
- * Function for converting the value of the temperature slider (which is on a scale of 0-100),
- * to a Fahrenheit scale ranging from 60 to 90 degrees Fahrenheit
- * @param sliderValue Current value of the temperature slider
- * @returns Value of the temperature slider, converted to degrees Fahrenheit
+ * Function for converting a Celsius temperature to Fahrentheit
+ * @param celsiusTemp A temperature in Celsius
+ * @returns the Fahrenheit equivalent of celsiusTemp
  */
-
-/**
- * Function for converting the value of the temperature slider to a colour ranging
- * from blue (for lowest values) to red (for the highest values).
- * @param sliderValue Current value of the temperature slider
- * @returns RGB code as a string for a colour ranging from red to
- * blue that reflects the selected temperature value.
- */
-function sliderValueToColour(sliderValue: number) {
-    const red = 'cc374a';
-    const blue = '1184e8';
-
-    const sliderValToColour =
-        'rgb(' +
-        Math.ceil(
-            (parseInt(red.substring(0, 2), 16) * sliderValue) / 100 +
-                parseInt(blue.substring(0, 2), 16) * (1 - sliderValue / 100),
-        ) +
-        ',' +
-        Math.ceil(
-            (parseInt(red.substring(2, 4), 16) * sliderValue) / 100 +
-                parseInt(blue.substring(2, 4), 16) * (1 - sliderValue / 100),
-        ) +
-        ',' +
-        Math.ceil(
-            (parseInt(red.substring(4, 6), 16) * sliderValue) / 100 +
-                parseInt(blue.substring(4, 6), 16) * (1 - sliderValue / 100),
-        ) +
-        ')';
-    return sliderValToColour;
+function celsuisToFahrenheit(celsiusTemp: number) {
+    return (celsiusTemp * 9) / 5 + 32;
 }
 
 /**
@@ -103,8 +72,14 @@ export const slice = createSlice({
         updateTemperature: (state, action) => {
             if (action.payload === 'increase') {
                 state.displayedTemp = state.displayedTemp + 1;
+                state.isCelsius
+                    ? (state.celsiusTemp = state.displayedTemp)
+                    : (state.celsiusTemp = fahrenheitToCelcius(state.displayedTemp));
             } else {
                 state.displayedTemp = state.displayedTemp - 1;
+                state.isCelsius
+                    ? (state.celsiusTemp = state.displayedTemp)
+                    : (state.celsiusTemp = fahrenheitToCelcius(state.displayedTemp));
             }
         },
         // Reducer to toggle the current temperature scale between Celsius and Fahrenheit
@@ -112,11 +87,9 @@ export const slice = createSlice({
             state.isCelsius = action.payload;
             if (action.payload == true) {
                 state.temperatureSymbol = '°C';
-                state.displayedTemp = 7;
-                // state.displayedTemp = sliderValueToCelsius(action.payload);
+                state.displayedTemp = state.celsiusTemp;
             } else if (action.payload == false) {
-                state.displayedTemp = 69;
-                // state.displayedTemp = sliderValueToFahrenheit(action.payload);
+                state.displayedTemp = celsuisToFahrenheit(state.celsiusTemp);
                 state.temperatureSymbol = '°F';
             } else {
                 state.temperatureSymbol = 'N/A';

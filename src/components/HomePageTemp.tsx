@@ -14,7 +14,7 @@ const HomePageTemp: React.FC = () => {
         <IonContent fullscreen={true} className="content" slot="fixed" scrollY={false}>
             <IonTitle className="location">Inside</IonTitle>
             <IonTitle className="temperature">
-                {temperatureValue}
+                {Math.round(temperatureValue)}
                 {temperatureSymbol}
             </IonTitle>
         </IonContent>
