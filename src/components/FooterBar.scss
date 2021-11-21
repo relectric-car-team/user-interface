@@ -1,27 +1,54 @@
 .FooterToolbar {
     width: 1024px;
 
-    height: 93px;
+    height: 94px;
+
+    background-color: #000;
+
+    //text-align: center;
+
+    //vertical-align: middle;
 }
 
 .FooterBarRow {
-    width: 1024px;
-    justify-content: center;
-    justify-self: center;
-    display: row;
-    flex-direction: row;
+    width: 800px;
 
     vertical-align: middle;
-    align-items: center;
-    //padding: 0px 55px;
+
+    /* padding-right: 110px; */
+    //padding-right: 110px;
+
+    row-gap: 93px;
+}
+
+.FooterBarGrid {
+    /* height: 94px;
+    width: 800px; */
+
+    text-align: center;
+    //transform: translateX(120px);
+    //padding-right: 110px;
+
+    //padding: auto;
+
+    padding-left: 110px;
+    padding-right: 110px;
 }
 
 .FooterBarIcon {
-    font-size: 35px;
+    //align-self: center;
+    font-size: 40px;
 }
 
 .FooterBarColumn {
+    //align-items: center;
+    padding-left: 27px;
+
+    //   padding-left: 26px;
 }
 
 .FooterButtonRow {
+}
+
+.colTest {
 }
