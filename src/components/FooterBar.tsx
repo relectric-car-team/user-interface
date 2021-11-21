@@ -26,57 +26,57 @@ const FooterBar: React.FC = () => {
     };
     return (
         <IonToolbar>
-            <IonGrid>
+            <IonGrid className="FooterBarGrid">
                 <IonRow className="FooterBarRow">
                     <IonCol size="2" className="FooterBarColumn">
                         <IonRow>
-                            <IonButton fill="solid" size="large" shape="round" onClick={() => handleClick(Pages.Home)}>
-                                <IonIcon className="FooterBarIcon" icon={home}></IonIcon>
+                            <IonButton fill="clear" size="large" shape="round" onClick={() => handleClick(Pages.Home)}>
+                                <IonIcon className="FooterBarIcon" icon={home} color="tertiary"></IonIcon>
                             </IonButton>
                         </IonRow>
                     </IonCol>
                     <IonCol size="2" className="FooterBarColumn">
                         <IonRow>
-                            <IonButton fill="solid" size="large" shape="round" onClick={() => handleClick(Pages.Car)}>
-                                <IonIcon className="FooterBarIcon" icon={car}></IonIcon>
+                            <IonButton fill="clear" size="large" shape="round" onClick={() => handleClick(Pages.Car)}>
+                                <IonIcon className="FooterBarIcon" icon={car} color="tertiary"></IonIcon>
                             </IonButton>
                         </IonRow>
                     </IonCol>
                     <IonCol size="2" className="FooterBarColumn">
                         <IonRow>
                             <IonButton
-                                fill="solid"
+                                fill="clear"
                                 size="large"
                                 shape="round"
                                 onClick={() => handleClick(Pages.Climate)}
                             >
-                                <IonIcon className="FooterBarIcon" icon={Fan}></IonIcon>
+                                <IonIcon className="FooterBarIcon" icon={Fan} color="tertiary"></IonIcon>
                             </IonButton>
                         </IonRow>
                     </IonCol>
                     <IonCol size="2" className="FooterBarColumn">
                         <IonRow>
                             <IonButton
-                                fill="solid"
+                                fill="clear"
                                 size="large"
                                 shape="round"
                                 onClick={() => handleClick(Pages.Navigation)}
                             >
-                                <IonIcon className="FooterBarIcon" icon={navigate}></IonIcon>
+                                <IonIcon className="FooterBarIcon" icon={navigate} color="tertiary"></IonIcon>
                             </IonButton>
                         </IonRow>
                     </IonCol>
                     <IonCol size="2" className="FooterBarColumn">
                         <IonRow>
-                            <IonButton fill="solid" size="large" shape="round" onClick={() => handleClick(Pages.Music)}>
-                                <IonIcon className="FooterBarIcon" icon={musicalNotes}></IonIcon>
+                            <IonButton fill="clear" size="large" shape="round" onClick={() => handleClick(Pages.Music)}>
+                                <IonIcon className="FooterBarIcon" icon={musicalNotes} color="tertiary"></IonIcon>
                             </IonButton>
                         </IonRow>
                     </IonCol>
                     <IonCol size="2" className="FooterBarColumn">
                         <IonRow>
-                            <IonButton fill="solid" size="large" shape="round" onClick={() => handleClick(Pages.Home)}>
-                                <IonIcon className="FooterBarIcon" icon={call}></IonIcon>
+                            <IonButton fill="clear" size="large" shape="round" onClick={() => handleClick(Pages.Home)}>
+                                <IonIcon className="FooterBarIcon" icon={call} color="tertiary"></IonIcon>
                             </IonButton>
                         </IonRow>
                     </IonCol>
