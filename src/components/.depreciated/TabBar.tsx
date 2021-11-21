@@ -14,7 +14,7 @@ import React, { useState } from 'react';
 import { Pages } from '../Models/Enums';
 import './TabBar.scss';
 import { setPage } from '../features/Routing/RouterStore';
-import { selectClimateColour, selectRouter } from '../app/reducersindex';
+import { selectRouter } from '../app/reducersindex';
 import Fan from '../assets/icons/fan.svg';
 import styled from 'styled-components'; // Needed to have fan icon, AKA climate button, change colour.
 
@@ -36,7 +36,6 @@ const TabBar: React.FC = () => {
      * Currently causes the fan icon to flicker whenever the temperature is adjusted, regardless of if 'fanColour' is being used anywhere else or not.
      * Needs to have an async function made for it to allow it to only call 'useSelector' when the climate page is closed, not every time the climate slider is moved.
      */
-    const fanColour = useSelector(selectClimateColour);
 
     const handleVolumeMute = () => {
         if (isMuted) {
@@ -142,7 +141,7 @@ const TabBar: React.FC = () => {
                             <StyledButton
                                 onClick={() => handleClick(Pages.Climate)}
                                 fill="clear"
-                                color={fanColour}
+                                // color={fanColour}
                                 size="large"
                                 shape="round"
                             >
