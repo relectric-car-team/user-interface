@@ -1,6 +1,7 @@
 import React from 'react';
 import Home from './Home';
 import TabBar from '../components/TabBar';
+import FooterBar from '../components/FooterBar';
 import ComponentModal from './ComponentModal';
 import TopBar from '../components/TopBar';
 
@@ -13,7 +14,7 @@ const AppContainer: React.FC = () => {
             {/* Home page */}
             <Home />
             {/* Lower tab bar with icon */}
-            <TabBar />
+            <FooterBar />
             {/* Settings floating action button*/}
         </>
     );
