@@ -37,8 +37,6 @@ export const selectRouter = (state: RootState): Pages => state.routerReducer.pag
 
 export const selectSliderValue = (state: RootState): number => state.climateReducer.sliderValue;
 
-export const selectClimateColour = (state: RootState): string => state.climateReducer.climateColour;
-
 export const selectDisplayedTemp = (state: RootState): number => state.climateReducer.displayedTemp;
 
 export const selectTempSymbol = (state: RootState): string => state.climateReducer.temperatureSymbol;

@@ -20,7 +20,6 @@ interface ClimateState {
     sliderValue: number;
     displayedTemp: number;
     isCelsius: boolean;
-    climateColour: string;
     fanIntensity: number;
     fanDirection: Direction;
     temperatureSymbol: string;
@@ -39,7 +38,6 @@ const initialState: ClimateState = {
     sliderValue: 38,
     displayedTemp: sliderValueToCelsius(38),
     isCelsius: true,
-    climateColour: sliderValueToColour(38),
     fanIntensity: 2,
     fanDirection: Direction.Upper,
     temperatureSymbol: '°C',
@@ -62,11 +60,6 @@ function sliderValueToCelsius(sliderValue: number) {
  * @param sliderValue Current value of the temperature slider
  * @returns Value of the temperature slider, converted to degrees Fahrenheit
  */
-function sliderValueToFahrenheit(sliderValue: number) {
-    let farhrenTemp = sliderValue / 6 + 15;
-    farhrenTemp = Math.ceil(farhrenTemp * (9 / 5) + 33);
-    return farhrenTemp;
-}
 
 /**
  * Function for converting the value of the temperature slider to a colour ranging
@@ -119,9 +112,11 @@ export const slice = createSlice({
             state.isCelsius = action.payload;
             if (action.payload == true) {
                 state.temperatureSymbol = '°C';
-                state.displayedTemp = sliderValueToCelsius(action.payload);
+                state.displayedTemp = 7;
+                // state.displayedTemp = sliderValueToCelsius(action.payload);
             } else if (action.payload == false) {
-                state.displayedTemp = sliderValueToFahrenheit(action.payload);
+                state.displayedTemp = 69;
+                // state.displayedTemp = sliderValueToFahrenheit(action.payload);
                 state.temperatureSymbol = '°F';
             } else {
                 state.temperatureSymbol = 'N/A';
