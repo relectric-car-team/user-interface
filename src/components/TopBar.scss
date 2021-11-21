@@ -1,26 +1,107 @@
-.Time{
-  width: 63px;
+.TopBarGrid {
+    width: 954px;
 
-  height: 17.4px;
+    height: 18.7px;
 
- // flex-grow: 0;
+    display: grid;
 
-  font-family: Poppins;
+    justify-content: center;
 
-  font-size: 14.7px;
+    align-items: center;
 
-  font-weight: 600;
+    gap: 419px;
 
-  font-stretch: normal;
+    margin: 0 0 0.3px;
 
-  font-style: normal;
+    padding: 0;
 
-  line-height: normal;
-
-  letter-spacing: normal;
-
-  text-align: center;
+    text-align: center;
 }
-.TimeCol{
-	text-align: center;
+
+.TopBarRow {
+    width: 954px;
+
+    height: 18.7px;
+
+    vertical-align: middle;
+
+    justify-content: space-evenly;
+
+    align-items: center;
+
+    padding: 0;
+}
+
+.TopToolbar {
+    width: 1024px;
+
+    height: 62px;
+
+    padding: 0px 35px;
+}
+
+.Time {
+    width: 63px;
+
+    height: 17.4px;
+
+    font-family: Poppins;
+
+    font-size: 14.7px;
+
+    font-weight: 600;
+
+    font-stretch: normal;
+
+    font-style: normal;
+
+    line-height: normal;
+
+    letter-spacing: normal;
+
+    text-align: center;
+    vertical-align: middle;
+}
+.TimeCol {
+    background-color: green;
+}
+
+.BatteryCol {
+    background-color: blue;
+}
+
+.BluetoothRow {
+    padding-left: 94%;
+}
+
+.BatteryIcon {
+    vertical-align: middle;
+    transform: scale(1.8);
+    transform: rotate(-90deg);
+}
+.BatteryText {
+    width: 34px;
+
+    height: 19px;
+
+    font-family: Poppins;
+
+    font-size: 14.4px;
+
+    font-weight: 600;
+
+    font-stretch: normal;
+
+    font-style: normal;
+
+    line-height: normal;
+
+    letter-spacing: normal;
+
+    text-align: center;
+    vertical-align: middle;
+}
+
+.BluetoothIcon {
+    transform: scale(1.15);
 }
