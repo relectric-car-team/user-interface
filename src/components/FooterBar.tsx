@@ -1,6 +1,6 @@
 import { IonButton, IonCol, IonGrid, IonIcon, IonRow, IonToolbar } from '@ionic/react';
 import { useDispatch, useSelector } from 'react-redux';
-import { car, home, musicalNotes, navigate, call, settings } from 'ionicons/icons';
+import { car, home, musicalNotes, navigate, settings } from 'ionicons/icons';
 import React from 'react';
 import { selectRouter } from '../app/reducersindex';
 import Fan from '../assets/icons/fan.svg';
