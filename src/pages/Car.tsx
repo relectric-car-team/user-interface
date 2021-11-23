@@ -97,7 +97,7 @@ const Car: React.FC = () => {
                         </IonCol>
                         {/* Middle Section: Car View */}
                         <IonCol className="CenterStats" size="5">
-                            <ThreeDimensionCar />
+                           
                         </IonCol>
                         {/* Modal to display the battery on click*/}
                         <IonModal isOpen={showBattery} onDidDismiss={() => setShowBattery(false)} cssClass="InnerModal">

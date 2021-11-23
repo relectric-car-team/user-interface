@@ -36,6 +36,7 @@ const ThreeDimensionCar: React.FC = () => {
             style={{
                 height: '100%',
                 width: '100%',
+                zIndex: 2000,
             }}
         >
             <Canvas
