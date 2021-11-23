@@ -2,16 +2,15 @@
 
 .ComponentModal {
     .modal-wrapper {
-        width: 980px;
-        height: 434px;
+        min-width: 96%;
+        max-height: 72%;
         border-radius: 27px;
         position: absolute;
         @media only screen and (max-height: 800px) {
             top: 5%;
         }
         @media only screen and (max-height: 600px) {
-            top: 72px;
-            left: 22px;
+            top: 10%;
         }
         box-shadow: none;
     }
