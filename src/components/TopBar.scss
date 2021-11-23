@@ -1,15 +1,17 @@
 .TopToolbar {
-    width: 1024px;
+    min-width: 100%;
 
-    height: 62px;
+    min-height: 12%;
+    max-height: 12%;
 
-    padding: 0px 35px;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+    padding-bottom: 0%;
 }
 
 .TopBarRow {
-    width: 954px;
-
-    height: 18.7px;
+    height: 5%;
 
     vertical-align: middle;
 
@@ -17,13 +19,13 @@
 
     align-items: center;
 
-    padding: 0;
+    //padding-top: 1%;
 }
 
 .Time {
-    width: 63px;
+    width: 6%;
 
-    height: 17.4px;
+    height: 6%;
 
     font-family: Poppins;
 
@@ -40,7 +42,7 @@
     letter-spacing: normal;
 
     text-align: center;
-    vertical-align: middle;
+    //vertical-align: middle;
 }
 .TimeCol {
     background-color: green;
@@ -51,18 +53,18 @@
 }
 
 .BluetoothRow {
-    padding-left: 94%;
+    padding-left: 92%;
 }
 
 .BatteryIcon {
-    vertical-align: middle;
-    transform: scale(1.8);
+    // vertical-align: middle;
+    transform: scale(200%);
     transform: rotate(-90deg);
 }
 .BatteryText {
-    width: 34px;
+    //width: 12%;
 
-    height: 19px;
+    height: 3.2%;
 
     font-family: Poppins;
 
@@ -83,5 +85,5 @@
 }
 
 .BluetoothIcon {
-    transform: scale(1.15);
+    transform: scale(125%);
 }
