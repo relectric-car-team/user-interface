@@ -3,14 +3,14 @@
 .ComponentModal {
     .modal-wrapper {
         min-width: 96%;
-        max-height: 72%;
+        max-height: 70%;
         border-radius: 27px;
         position: absolute;
         @media only screen and (max-height: 800px) {
-            top: 5%;
+            top: 14%;
         }
         @media only screen and (max-height: 600px) {
-            top: 10%;
+            top: 14%;
         }
         box-shadow: none;
     }
