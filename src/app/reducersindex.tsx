@@ -4,6 +4,7 @@ import climateReducer, { Direction } from '../redux-features/Climate/ClimateStor
 import batteryReducer, { BatteryStatus } from '../redux-features/Battery/BatteryStore';
 import bluetoothReducer from '../redux-features/Bluetooth/BluetoothStore';
 import darkModeReducer from '../redux-features/DarkMode/DarkModeStore';
+import notifReducer, { Notification } from '../components/Notification/NotificationSlice';
 import { RootState } from './store';
 import { Pages } from '../Models/Enums';
 
@@ -21,6 +22,7 @@ export default combineReducers({
     darkModeReducer,
     batteryReducer,
     bluetoothReducer,
+    notifReducer,
 });
 
 /**  Selectors for various redux states used throughout the UI.
@@ -52,3 +54,5 @@ export const batteryPercent = (state: RootState): number => state.batteryReducer
 export const isBatteryCharging = (state: RootState): boolean => state.batteryReducer.isCharging;
 
 export const isBluetoothOn = (state: RootState): boolean => state.bluetoothReducer.bluetoothOn;
+
+export const notifications = (state: RootState): Array<Notification> => state.notifReducer.notifs;
