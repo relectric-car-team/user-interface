@@ -4,7 +4,7 @@ import climateReducer, { Direction } from '../redux-features/Climate/ClimateStor
 import batteryReducer, { BatteryStatus } from '../redux-features/Battery/BatteryStore';
 import bluetoothReducer from '../redux-features/Bluetooth/BluetoothStore';
 import darkModeReducer from '../redux-features/DarkMode/DarkModeStore';
-import notifReducer, { Notification } from '../components/Notification/NotificationSlice';
+import notifReducer, { Notification } from '../components/Notification/NotificationStore';
 import { RootState } from './store';
 import { Pages } from '../Models/Enums';
 

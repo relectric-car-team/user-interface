@@ -7,6 +7,7 @@ import {
     IonHeader,
     IonIcon,
     IonImg,
+    IonItem,
     IonLabel,
     IonPage,
     IonRange,
@@ -14,18 +15,16 @@ import {
     IonText,
     IonThumbnail,
     IonTitle,
-    IonToolbar,
 } from '@ionic/react';
 import { playCircle, playSkipBack, playSkipForward, pauseCircle, close } from 'ionicons/icons';
 import albumCover from '../assets/album_cover.jpg';
 import './Music.scss';
 import '../theme/Modal.scss';
-import { Pages } from '../Models/Enums';
 import { useDispatch } from 'react-redux';
 import { setPage } from '../redux-features/Routing/RouterStore';
 
 import { MusicNotif } from '../components/Notification/Notification';
-import { notifActions } from '../components/Notification/NotificationSlice';
+import { notifActions } from '../components/Notification/NotificationStore';
 /**
  * The music tab manages the interaction between the driver
  * and their media player. This tab displays details of the song
@@ -164,10 +163,14 @@ const Music: React.FC = () => {
                                     color="dark"
                                     onClick={() => {
                                         setPlayingState(!isPlaying);
+                                        let playing = false;
+                                        if (isPlaying === true) {
+                                            playing = true;
+                                        }
                                         dispatch(
                                             notifActions.spawnNotification({
                                                 message: 'It works!',
-                                                child: new MusicNotif(albumCover, title, artist),
+                                                child: new MusicNotif(albumCover, title, artist, !playing),
                                             }),
                                         );
                                     }}

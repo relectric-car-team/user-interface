@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { action } from 'typesafe-actions';
 import { Notif } from './Notification';
 
 /**
