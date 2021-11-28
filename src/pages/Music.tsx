@@ -24,6 +24,8 @@ import { Pages } from '../Models/Enums';
 import { useDispatch } from 'react-redux';
 import { setPage } from '../redux-features/Routing/RouterStore';
 
+import { MusicNotif } from '../components/Notification/Notification';
+import { notifActions } from '../components/Notification/NotificationSlice';
 /**
  * The music tab manages the interaction between the driver
  * and their media player. This tab displays details of the song
@@ -160,7 +162,15 @@ const Music: React.FC = () => {
                                     size="large"
                                     shape="round"
                                     color="dark"
-                                    onClick={() => setPlayingState(!isPlaying)}
+                                    onClick={() => {
+                                        setPlayingState(!isPlaying);
+                                        dispatch(
+                                            notifActions.spawnNotification({
+                                                message: 'It works!',
+                                                child: new MusicNotif(albumCover, title, artist),
+                                            }),
+                                        );
+                                    }}
                                 >
                                     {isPlaying ? (
                                         <IonIcon icon={pauseCircle} className="PlayPauseIcon" />
@@ -168,6 +178,7 @@ const Music: React.FC = () => {
                                         <IonIcon icon={playCircle} className="PlayPauseIcon" />
                                     )}
                                 </IonButton>
+
                                 <IonButton
                                     className="SkipButtons"
                                     fill="clear"
