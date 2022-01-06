@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
 import routerReducer from '../features/Routing/RouterStore';
 import climateReducer, { Direction } from '../features/Climate/ClimateStore';
-import batteryReducer, { BatteryStatus } from '../features/Battery/TopBarStore';
+import batteryReducer, { BatteryStatus } from '../features/Battery/BatteryStore';
+import bluetoothReducer from '../features/Bluetooth/BluetoothStore';
 import darkModeReducer from '../features/DarkMode/DarkModeStore';
 import { RootState } from './store';
 import { Pages } from '../Models/Enums';
@@ -19,6 +20,7 @@ export default combineReducers({
     climateReducer,
     darkModeReducer,
     batteryReducer,
+    bluetoothReducer,
 });
 
 /**  Selectors for various redux states used throughout the UI.
@@ -43,8 +45,10 @@ export const selectDarkModeActive = (state: RootState): boolean => state.darkMod
 
 export const selectFanDirection = (state: RootState): Direction => state.climateReducer.fanDirection;
 
-export const selectBatteryStatus = (state: RootState): BatteryStatus => state.batteryReducer.batteryStatus;
+export const batteryStatus = (state: RootState): BatteryStatus => state.batteryReducer.batteryStatus;
 
-export const selectBatteryPercentage = (state: RootState): number => state.batteryReducer.batteryPercent;
+export const batteryPercent = (state: RootState): number => state.batteryReducer.batteryPercent;
 
-export const selectIsBatteryCharging = (state: RootState): boolean => state.batteryReducer.isCharging;
+export const isBatteryCharging = (state: RootState): boolean => state.batteryReducer.isCharging;
+
+export const isBluetoothOn = (state: RootState): boolean => state.bluetoothReducer.bluetoothOn;
