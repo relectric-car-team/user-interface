@@ -2,7 +2,7 @@ import { IonItem, IonLabel, IonToggle } from '@ionic/react';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectDarkModeActive } from '../../app/reducersindex';
-import { updateDarkMode } from '../../features/DarkMode/DarkModeStore';
+import { updateDarkMode } from '../../redux-features/DarkMode/DarkModeStore';
 
 const DarkMode: React.FC = () => {
     const dispatch = useDispatch();

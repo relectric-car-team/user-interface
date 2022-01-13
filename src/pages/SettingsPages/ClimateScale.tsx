@@ -3,7 +3,7 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsCelsius, selectSliderValue } from '../../app/reducersindex';
-import { switchMeasurement, updateTemperature } from '../../features/Climate/ClimateStore';
+import { switchMeasurement, updateTemperature } from '../../redux-features/Climate/ClimateStore';
 
 const TempSystemSegment: React.FC = () => {
     const dispatch = useDispatch();

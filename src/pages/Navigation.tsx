@@ -4,7 +4,7 @@ import ExploreContainer from '../components/ExploreContainer';
 import { close } from 'ionicons/icons';
 import './Navigation.scss';
 import { Pages } from '../Models/Enums';
-import { setPage } from '../features/Routing/RouterStore';
+import { setPage } from '../redux-features/Routing/RouterStore';
 import { useDispatch } from 'react-redux';
 
 const Navigation: React.FC = () => {

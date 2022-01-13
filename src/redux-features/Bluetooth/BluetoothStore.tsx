@@ -11,7 +11,7 @@ interface BluetoothState {
 }
 
 const initialState: BluetoothState = {
-    bluetoothOn: false,
+    bluetoothOn: true,
 };
 
 export const slice = createSlice({

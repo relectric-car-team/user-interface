@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import routerReducer from '../features/Routing/RouterStore';
-import climateReducer, { Direction } from '../features/Climate/ClimateStore';
-import batteryReducer, { BatteryStatus } from '../features/Battery/BatteryStore';
-import bluetoothReducer from '../features/Bluetooth/BluetoothStore';
-import darkModeReducer from '../features/DarkMode/DarkModeStore';
+import routerReducer from '../redux-features/Routing/RouterStore';
+import climateReducer, { Direction } from '../redux-features/Climate/ClimateStore';
+import batteryReducer, { BatteryStatus } from '../redux-features/Battery/BatteryStore';
+import bluetoothReducer from '../redux-features/Bluetooth/BluetoothStore';
+import darkModeReducer from '../redux-features/DarkMode/DarkModeStore';
 import { RootState } from './store';
 import { Pages } from '../Models/Enums';
 

@@ -25,7 +25,7 @@ import './Car.scss';
 import '../theme/Modal.scss';
 import './InnerModal.scss';
 import { useDispatch } from 'react-redux';
-import { setPage } from '../features/Routing/RouterStore';
+import { setPage } from '../redux-features/Routing/RouterStore';
 import { Pages } from '../Models/Enums';
 import carAerial from '../assets/car-aerial/car-aerial-frame.svg';
 import passengerDoor from '../assets/car-aerial/passenger-door.svg';
