@@ -20,7 +20,7 @@ import './Settings.scss';
 import '../theme/Modal.scss';
 import '../theme/variables.scss';
 import { useDispatch } from 'react-redux';
-import { setPage } from '../features/Routing/RouterStore';
+import { setPage } from '../redux-features/Routing/RouterStore';
 import { Pages } from '../Models/Enums';
 import DarkMode from './SettingsPages/DarkMode';
 import TempSystemSegment from './SettingsPages/ClimateScale';
