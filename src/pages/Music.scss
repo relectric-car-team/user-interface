@@ -4,14 +4,17 @@
     background: $music;
     color: $white;
 }
+
 .MusicGrid {
     height: 100%;
 }
+
 .AlbumCover {
     transform: translateX(16%) translateY(10%);
     width: 270px;
     height: 270px;
 }
+
 .InfoButtonRow {
     height: 80%;
 }
@@ -19,39 +22,48 @@
     padding-top: 4%;
     text-align: center;
 }
+
 .ButtonRow {
     padding-top: 30%;
     justify-items: center;
 }
+
 .SkipButtons {
     transform: translateX(-50px);
 }
+
 .PlayPauseButton {
     width: 105px;
     height: 105px;
     transform: translateY(-25px) translateX(-50px);
 }
+
 .PlayPauseIcon {
     width: 105px;
     height: 105px;
 }
+
 .SongTitle {
     font-size: 30px;
     color: $dark-text;
 }
+
 .MediaDetailLabel {
     font-size: 20px;
     transform: translateX(-30px);
     color: $dark-text;
 }
+
 .ProgressRow {
     height: 20%;
 }
+
 .TimeBar {
     transform: translateY(-20px);
     --knob-size: 30px;
     border-radius: 40px;
 }
+
 .TimeRow {
     vertical-align: middle;
     justify-content: center;

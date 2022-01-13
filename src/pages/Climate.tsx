@@ -39,7 +39,7 @@ import '../theme/Modal.scss';
  * Imports for Redux
  */
 import { useDispatch, useSelector } from 'react-redux';
-import { setPage } from '../features/Routing/RouterStore';
+import { setPage } from '../redux-features/Routing/RouterStore';
 import { Pages } from '../Models/Enums';
 import {
     selectClimateColour,
@@ -48,7 +48,7 @@ import {
     selectSliderValue,
     selectTempSymbol,
 } from '../app/reducersindex';
-import { Direction, updateDirection, updateTemperature } from '../features/Climate/ClimateStore';
+import { Direction, updateDirection, updateTemperature } from '../redux-features/Climate/ClimateStore';
 
 /**
  * Variables for allowing implementation of dynamic colour in various page components.
@@ -111,15 +111,15 @@ const Climate: React.FC = () => {
 
             <IonContent fullscreen className="ModalContent">
                 {/*
-                DirectionCard is the uppermost button panel which accpets selection of choice 
+                DirectionCard is the uppermost button panel which accpets selection of choice
                 of direction of airflow: upper passenger body, lower passenger body, both upper
-                and lower, and front of vehicle/windshield. Only one mode may be selected at 
+                and lower, and front of vehicle/windshield. Only one mode may be selected at
                 a time.
                 */}
                 <IonCard className="DirectionCard" color="light">
                     <IonCardContent className="DirectionSegment">
                         {/*
-                        Buttons on the same panel are contained within segments to only allow 
+                        Buttons on the same panel are contained within segments to only allow
                         one button to be selected at any given time.
                         */}
                         <IonSegment value={fanDirection} className="DirectionSegment">
@@ -181,7 +181,7 @@ const Climate: React.FC = () => {
                 {/*
                 Intensity is the lower button panel which accpets selection of choice of
                 intensity of airflow: OFF, 1, 2, 3, and 4. OFF is the least intense with no
-                airflow while 4 is the most intense mose. Only one mode may be selected at 
+                airflow while 4 is the most intense mose. Only one mode may be selected at
                 a time.
                 */}
                 <IonRange

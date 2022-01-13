@@ -5,7 +5,7 @@ import React from 'react';
 import { selectRouter } from '../app/reducersindex';
 import Fan from '../assets/icons/fan.svg';
 import { Pages } from '../Models/Enums';
-import { setPage } from '../features/Routing/RouterStore';
+import { setPage } from '../redux-features/Routing/RouterStore';
 import './FooterBar.scss';
 
 const FooterBar: React.FC = () => {

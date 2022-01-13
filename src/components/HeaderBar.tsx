@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import './HeaderBar.scss';
 import './DateTime';
 import { batteryStatus, batteryPercent, isBluetoothOn } from '../app/reducersindex';
-import { BatteryStatus } from '../features/Battery/BatteryStore';
+import { BatteryStatus } from '../redux-features/Battery/BatteryStore';
 import {
     batteryChargingOutline,
     batteryDeadOutline,

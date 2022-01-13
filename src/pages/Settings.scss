@@ -10,48 +10,47 @@
 }
 
 .ToggleLabel {
-    font-size:x-large;
+    font-size: x-large;
     text-align: left;
     color: $dark-text;
 }
 
-.ToggleButton{
-    left:0px;
+.ToggleButton {
+    left: 0px;
     width: 50px;
     height: 20px;
-    --handle-border-radius:  15px;
+    --handle-border-radius: 15px;
     --handle-background-checked: #9fb0db;
     --background-checked: #455b92;
 }
 
-.ClimateSymbolSegment{
+.ClimateSymbolSegment {
     text-align: end;
     width: 20%;
     height: 100%;
-    --background:var(--ion-color-light);
-right: 0px;}
+    --background: var(--ion-color-light);
+    right: 0px;
+}
 
-.ClimateSymbolSegmentButton{
-    
+.ClimateSymbolSegmentButton {
+
     font-size: large;
     --color: var(--ion-color-medium);
     --background-checked: #455b92;
     --color-checked: #b5c2e4;
     --background-hover: var(--ion-color-medium);
-    --color-hover:var(--ion-color-tertiary);
-    --background-hover-opacity:15%;
+    --color-hover: var(--ion-color-tertiary);
+    --background-hover-opacity: 15%;
     --indicator-color: #b5c2e4;
-    
-
 }
 
-.PageTitle{
+.PageTitle {
     font-size: xx-large;
-    color:$white;
+    color: $white;
     text-align: center;
     padding-top: 18%;
 }
 
-.ToggleItem{
---min-height: 100%;
+.ToggleItem {
+    --min-height: 100%;
 }

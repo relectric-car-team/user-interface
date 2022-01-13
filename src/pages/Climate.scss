@@ -12,11 +12,13 @@
     box-shadow: none;
     padding-top: 0px;
 }
+
 .DirectionSegment {
     text-align: center;
     height: 100%;
     --background:var(--ion-color-light);
 }
+
 .TempRange {
     transform: translateX(-50%) translateY(65%);
     top: 50%;
@@ -34,6 +36,7 @@
     --knob-size: 100px;
     --knob-box-shadow: none;
 }
+
 .SegmentButton {
     font-size: 200%;
     --color: var(--ion-color-tertiary);
@@ -42,6 +45,7 @@
     --indicator-color: transparent !important;
     transform: translateY(-4%);
 }
+
 .TempCard {
     display: flex;
     transform: translateX(225%) translateY(540%);
@@ -56,10 +60,12 @@
     vertical-align: middle;
     display: inline-block;
 }
+
 .ClimateUpperButton {
     width: 50px;
     height: 50px;
 }
+
 .DirectionButton {
     width: 50px;
     height: 50px;
