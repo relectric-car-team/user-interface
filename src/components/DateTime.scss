@@ -1,6 +1,8 @@
 @import '../theme/variables.scss';
 
 .time {
+    font-family: 'Poppins';
+    font-weight: 500;
     font-size: 70px;
     color: $dark-text;
     text-align: center;
@@ -11,7 +13,9 @@
     padding-bottom: 30px;
     transform: translateY(-50%);
 }
+
 .date {
+    font-family: 'Poppins';
     font-size: 28px;
     color: $medium-text;
     text-align: center;
@@ -19,6 +23,5 @@
     top: 50%;
     left: 0;
     right: 0;
-    transform: translateY(+100%);
+    transform: translateY(+76%);
 }
-
