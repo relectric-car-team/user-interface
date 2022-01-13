@@ -16,11 +16,11 @@
         "jsx": "react-jsx",
         "noFallthroughCasesInSwitch": true
     },
-    "include": ["src"],
+    "include": ["src", "src/components/.depreciated"],
     "typedocOptions": {
         "entryPoints": ["src"],
         "out": "ui",
         "name": "User Interface Code Documentation",
         "exclude": "**/*+(colours|Enums).ts"
-    }    
+    }
 }
