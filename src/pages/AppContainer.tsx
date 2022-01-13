@@ -2,7 +2,7 @@ import React from 'react';
 import Home from './Home';
 import FooterBar from '../components/FooterBar';
 import ComponentModal from './ComponentModal';
-import TopBar from '../components/TopBar';
+import TopBar from '../components/HeaderBar';
 
 const AppContainer: React.FC = () => {
     return (
