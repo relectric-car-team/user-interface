@@ -1,6 +1,6 @@
 import { IonGrid, IonRow, IonToolbar, IonCol, IonTitle, IonIcon, IonText } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
-import './TopBar.scss';
+import './HeaderBar.scss';
 import './DateTime';
 import { batteryStatus, batteryPercent, isBluetoothOn } from '../app/reducersindex';
 import { BatteryStatus } from '../features/Battery/BatteryStore';
