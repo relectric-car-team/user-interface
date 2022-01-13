@@ -2,11 +2,17 @@
     colors.scss
 
     @author - Ratik Kapoor
+    @author - Brooke Kindleman
     @description - Holds colours to use across app for consistency
 */
 
 // Used to allow use access to the "Poppins" font, used throughout.
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+// Set font-family to 'Poppins' to use for any text component
+@import '../assets/fonts/PoppinsFont/Poppins-Regular.ttf';
+@font-face {
+    font-family: 'Poppins';
+    src: url('../assets/fonts/PoppinsFont/Poppins-Regular.ttf');
+}
 
 // For use in custom .CSS formatting some react components require such as '--background'
 // All colours are named based on the light mode colour scheme
