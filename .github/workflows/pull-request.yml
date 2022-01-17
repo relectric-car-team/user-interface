@@ -17,6 +17,9 @@ jobs:
                       ${{ runner.OS }}-build-${{ env.cache-name }}-
                       ${{ runner.OS }}-build-
                       ${{ runner.OS }}-
+            - uses: actions/setup-node@v2
+              with:
+                node-version: '14'
             - name: Yarn install
               if: steps.cache-node-modules.outputs.cache-hit != 'true'
               run: yarn install
