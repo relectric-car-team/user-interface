@@ -2,16 +2,14 @@ import React from 'react';
 import {
     IonPage,
     IonCard,
-    // IonSegment,
-    // IonSegmentButton,
+    IonSegment,
     IonLabel,
     IonCol,
     IonRow,
     IonButton,
     IonIcon,
+    IonSegmentButton,
 } from '@ionic/react';
-
-import styled from 'styled-components';
 
 /**
  * Imports for all custom icons
@@ -34,16 +32,7 @@ import '../theme/Modal.scss';
  * Imports for Redux
  */
 import { useDispatch, useSelector } from 'react-redux';
-// import { setPage } from '../features/Routing/RouterStore';
-// import { Pages } from '../Models/Enums';
-import {
-    // selectClimateColour,
-    // selectDisplayedTemp,
-    selectFanIntensity,
-    selectFanDirection,
-    selectTempValue,
-    selectTempSymbol,
-} from '../app/reducersindex';
+import { selectFanIntensity, selectFanDirection, selectTempValue, selectTempSymbol } from '../app/reducersindex';
 import {
     Direction,
     updateDirection,
@@ -64,23 +53,21 @@ const Climate: React.FC = () => {
         <IonPage>
             <IonRow>
                 <IonCol>
-                    <IonCard className="Card">
+                    <IonCard>
                         <IonLabel className="High">High</IonLabel>
-                        <IonRow className="Fan-Intensity-Row">
-                            <input
-                                type="range"
-                                min={0}
-                                max={4}
-                                className="Fan-Intensity-Range"
-                                value={selectedFanIntensity}
-                                onChange={(e) => dispatch(updateFanIntensity(e.target.value))}
-                            />
-                        </IonRow>
+                        <input
+                            type="range"
+                            min={0}
+                            max={4}
+                            className="Fan-Intensity-Range"
+                            value={selectedFanIntensity}
+                            onChange={(e) => dispatch(updateFanIntensity(e.target.value))}
+                        />
                         <IonLabel className="OFF">OFF</IonLabel>
                     </IonCard>
                 </IonCol>
                 <IonCol>
-                    <IonCard className="Card">
+                    <IonCard>
                         <IonButton
                             expand="block"
                             fill="clear"
@@ -106,47 +93,45 @@ const Climate: React.FC = () => {
                     </IonCard>
                 </IonCol>
                 <IonCol>
-                    <IonCard className="Card">
-                        <IonButton
-                            expand="block"
-                            fill="clear"
-                            onClick={() => {
-                                dispatch(updateDirection(Direction.UpperAndLower));
-                            }}
-                            className={fanDirection === 'UpperAndLower' ? 'Fan-Button-Selected' : 'Fan-Button'}
-                        >
-                            <IonIcon icon={climateUpperAndLower} className="Fan-Direction-Icon" />
-                        </IonButton>
-                        <IonButton
-                            expand="block"
-                            fill="clear"
-                            onClick={() => {
-                                dispatch(updateDirection(Direction.Upper));
-                            }}
-                            className={fanDirection === 'Upper' ? 'Fan-Button-Selected' : 'Fan-Button'}
-                        >
-                            <IonIcon icon={climateUpper} className="Fan-Direction-Icon" />
-                        </IonButton>
-                        <IonButton
-                            expand="block"
-                            fill="clear"
-                            onClick={() => {
-                                dispatch(updateDirection(Direction.Lower));
-                            }}
-                            className={fanDirection === 'Lower' ? 'Fan-Button-Selected' : 'Fan-Button'}
-                        >
-                            <IonIcon icon={climateLower} className="Fan-Direction-Icon" />
-                        </IonButton>
-                        <IonButton
-                            expand="block"
-                            fill="clear"
-                            onClick={() => {
-                                dispatch(updateDirection(Direction.Front));
-                            }}
-                            className={fanDirection === 'Front' ? 'Fan-Button-Selected' : 'Fan-Button'}
-                        >
-                            <IonIcon icon={climateFront} className="Fan-Direction-Icon" />
-                        </IonButton>
+                    <IonCard>
+                        <IonSegment value={fanDirection}>
+                            <IonSegmentButton
+                                value={Direction.UpperAndLower}
+                                onClick={() => {
+                                    dispatch(updateDirection(Direction.UpperAndLower));
+                                }}
+                                className="Fan-Button"
+                            >
+                                <IonIcon icon={climateUpperAndLower} className="Fan-Direction-Icon" />
+                            </IonSegmentButton>
+                            <IonSegmentButton
+                                value={Direction.Upper}
+                                onClick={() => {
+                                    dispatch(updateDirection(Direction.Upper));
+                                }}
+                                className="Fan-Button"
+                            >
+                                <IonIcon icon={climateUpper} className="Fan-Direction-Icon" />
+                            </IonSegmentButton>
+                            <IonSegmentButton
+                                value={Direction.Lower}
+                                onClick={() => {
+                                    dispatch(updateDirection(Direction.Lower));
+                                }}
+                                className="Fan-Button"
+                            >
+                                <IonIcon icon={climateLower} className="Fan-Direction-Icon" />
+                            </IonSegmentButton>
+                            <IonSegmentButton
+                                value={Direction.Front}
+                                onClick={() => {
+                                    dispatch(updateDirection(Direction.Front));
+                                }}
+                                className="Fan-Button"
+                            >
+                                <IonIcon icon={climateFront} className="Fan-Direction-Icon" />
+                            </IonSegmentButton>
+                        </IonSegment>
                     </IonCard>
                 </IonCol>
             </IonRow>
