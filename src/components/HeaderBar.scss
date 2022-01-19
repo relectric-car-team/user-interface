@@ -1,9 +1,9 @@
-@use '../theme/variables.scss';
+@import '../theme/variables.scss';
 
 .TopToolbar {
     min-width: 100%;
     min-height: 12%;
-    max-height: 12%;
+    max-height: 64px;
     padding-left: 3%;
     padding-right: 3%;
     padding-top: 1%;
@@ -30,13 +30,7 @@
     text-align: center;
 }
 
-.TimeCol {
-    background-color: green;
-}
 
-.BatteryCol {
-    background-color: blue;
-}
 
 .BluetoothRow {
     padding-left: 92%;
