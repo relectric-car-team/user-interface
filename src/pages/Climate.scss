@@ -23,18 +23,14 @@
     text-align: center;
 }
 
-.Fan-Intensity-Row {
-    transform: rotate(-90deg);
-}
-
 .Fan-Intensity-Range {
+    transform: rotate(-90deg);
     -webkit-appearance: none;
     border-radius: 15px;
     height: 17px;
     width: 300px;
     margin-top: 170px;
     margin-bottom: 170px;
-    // background-color: blue;
     // background-image: url('../assets/climate_slider_background.jpg');
 }
 
@@ -47,7 +43,7 @@
     border-radius: 14px;
 }
 
-.Card {
+ion-card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,33 +51,24 @@
     height: 100%;
     border-radius: 27.8px;
     margin: 0px;
-    --background: #1c1d23;
+    --background: #1c1d23; // dynamic with light/dark mode
+    box-shadow: none;
 }
 
 .Fan-Button {
-    height: 114px;
-    width: 100%;
-    --border-radius: 25px;
-    --background: #1c1d23;
-    --color-activated: #1c1d23;
-}
-
-.Fan-Button-Selected {
-    --color-activated: #1c1d23;
-    height: 114px;
-    width: 100%;
-    --border-radius: 25px;
-    --background: #c1c1c1;
-    .Fan-Direction-Icon {
-        color: #1c1d23;
-        font-size: 70px;
-    }
+    --color: var(--ion-color-tertiary);
+    --color-checked: #1c1d23;
+    --background-checked: white;
+    --indicator-color: transparent !important;
+    margin: 5%;
+    --border-radius: 15px;
 }
 
 .Temperature-Button {
     font-size: 64px;
     width: 100%;
     height: 100%;
+    margin: 0;
 }
 
 .Temperature-Button-Icon {
@@ -89,7 +76,6 @@
 }
 
 .Fan-Direction-Icon {
-    color: $medium-text;
     font-size: 70px;
 }
 
@@ -97,4 +83,11 @@
     font-size: 50px;
     color: var(--re-lc-white);
     align-self: center;
+    height: 60px;
+    margin-top: -30px;
+    margin-bottom: -30px;
+}
+
+ion-segment {
+    display: block;
 }
