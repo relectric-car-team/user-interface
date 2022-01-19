@@ -1,6 +1,8 @@
 @import '../theme/variables.scss';
 
 .ComponentModal {
+    top: 64px;
+    bottom: 74px;
     .modal-wrapper {
         min-width: 96%;
         max-height: 70%;
