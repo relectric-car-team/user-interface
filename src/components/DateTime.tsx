@@ -28,10 +28,9 @@ const DateTime: React.FC = () => {
         setDate(months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear());
         // Format time using `d`
         setTime(
-            `${d.getHours() > 12 ? (d.getHours() - 12).toString() : d.getHours().toString()}:${d
-                .getMinutes()
-                .toString()
-                .padStart(2, '0')} ${d.getHours() > 12 ? 'PM' : 'AM'}`,
+            `${
+                d.getHours() > 12 ? (d.getHours() - 12).toString() : d.getHours().toString()
+            }:${d.getMinutes().toString().padStart(2, '0')} ${d.getHours() > 12 ? 'PM' : 'AM'}`,
         );
     };
 
