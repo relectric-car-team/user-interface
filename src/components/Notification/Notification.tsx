@@ -4,23 +4,8 @@ import { notifications } from '../../app/reducersindex';
 import './Notification.scss';
 import { notifActions } from './NotificationStore';
 
-// TODO: you need to make it so that the notification:
-// - obeys the light/dark mode settings & make CSS more uniform
-// - add links to router ? or support for this -> will do an example? need a good example. maybe make a fake system notification.
-// - stacking notifications -> not sure if this is a good idea, since it might take up a lot of the screen. (even on iphone only 1 shows at a time).
-//      -> considering pre-emption of older notifications
-//          -> will need this: https://reactjs.org/docs/animation.html
-// - notif categories -> WIP (ie: make more types)
-// - notification panel (see history) -> future? draft something up in the morning & show during meeting tomorrow.
-//      -> solves problem of having sticky notifications clog the screen
-
-// sticky notification / alerts -> stuff like battery / charge that should persist until cleared
-//  -> use maxheap to track by priority
-//      -> only ever want one to show at a time, since having multiple would probably render the UI pretty unusable (& potentially distract the driver)
-//  -> regular notifications pre-empt stickies (maybe display both?)
-//  -> after regular notification expire, highest priority sticky is selected.
-//  -> must be explicitly cleared (x icon / pressed)
-//  -> next highest priority (if any) is displayed
+// - to add links to router -> just need to add an <a> element to the body of the component
+// - notification panel (see history) -> have a draft
 
 const DEFAULT_NOTIFICATION_DURATION = 1.5; // seconds
 
@@ -70,7 +55,7 @@ export class MusicNotif implements INotif {
         this.play = play;
         this.duration = duration ? duration : DEFAULT_NOTIFICATION_DURATION;
     }
-    renderNotif(onDismiss: () => void): JSX.Element {
+    renderNotif(): JSX.Element {
         const anim = {
             animation: `inandout ${this.duration}s ease-in-out`,
         };
@@ -83,9 +68,6 @@ export class MusicNotif implements INotif {
                         Now {this.play ? 'playing' : 'pausing'} <span className="text-highlight">{this.title}</span> by
                         <span className="text-highlight"> {this.artist}</span>
                     </div>
-                    <button className="notif-dismiss" onClick={onDismiss}>
-                        Dismiss
-                    </button>
                 </div>
             </div>
         );
