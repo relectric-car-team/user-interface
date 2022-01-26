@@ -66,8 +66,26 @@ export const slice = createSlice({
     initialState,
     reducers: {
         updateDoors: (state, action) => {
-            console.log(state);
-            console.log(action);
+            switch (action.payload.door) {
+                case 'driverDoor':
+                    state.doorStates.driverDoorOpen = action.payload.open;
+                    break;
+                case 'passengerDoor':
+                    state.doorStates.passengerDoorOpen = action.payload.open;
+                    break;
+                case 'rearPassengerDoor':
+                    state.doorStates.rearPassengerDoorOpen = action.payload.open;
+                    break;
+                case 'rearDriverDoor':
+                    state.doorStates.rearDriverDoorOpen = action.payload.open;
+                    break;
+                default:
+                    break;
+            }
         },
     },
 });
+
+export const { updateDoors } = slice.actions;
+
+export default slice.reducer;
