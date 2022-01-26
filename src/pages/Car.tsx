@@ -24,7 +24,7 @@ import { batteryHalfOutline, close } from 'ionicons/icons';
 import './Car.scss';
 import '../theme/Modal.scss';
 import './InnerModal.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setPage } from '../redux-features/Routing/RouterStore';
 import { Pages } from '../Models/Enums';
 import carAerial from '../assets/car-aerial/car-aerial-frame.svg';
@@ -34,6 +34,9 @@ import energyGraph from '../assets/graphs/Energy.jpg';
 import batteryGraph from '../assets/graphs/Battery.jpg';
 import Energy from './CarModals/Energy';
 import Battery from './CarModals/Battery';
+
+import { updateDoors } from '../features/Car/CarStore';
+import { doorStates, selectDarkModeActive } from '../app/reducersindex';
 
 const StyledIcon = styled(IonIcon).attrs((props: { colour: string }) => ({
     colour: props.colour,
@@ -55,9 +58,9 @@ const Car: React.FC = () => {
 
     const [showEnergy, setShowEnergy] = useState(false);
     const [showBattery, setShowBattery] = useState(false);
-    const [darkMode] = useState(document.body.classList.contains('dark'));
-    const [PassengerDoorOpen, setPassengerDoorOpen] = useState(false);
-    const [DriverDoorOpen, setDriverDoorOpen] = useState(false);
+    //const [darkMode] = useState(document.body.classList.contains('dark'));
+    const darkMode = useSelector(selectDarkModeActive);
+    const Doors = useSelector(doorStates);
 
     const openEnergyModal = function () {
         setShowEnergy(true);
@@ -65,24 +68,6 @@ const Car: React.FC = () => {
 
     const openBatteryModal = function () {
         setShowBattery(true);
-    };
-
-    //These functions are here to allow for easier implementation of IonToast notifications in the future
-
-    const openDriverDoor = function () {
-        setDriverDoorOpen(true);
-    };
-
-    const closeDriverDoor = function () {
-        setDriverDoorOpen(false);
-    };
-
-    const openPassengerDoor = function () {
-        setPassengerDoorOpen(true);
-    };
-
-    const closePassengerDoor = function () {
-        setPassengerDoorOpen(false);
     };
 
     return (
@@ -137,17 +122,31 @@ const Car: React.FC = () => {
                                 className="AerialViewDriverDoor"
                                 icon={driverDoor}
                                 colour={darkMode ? 'white' : 'black'}
-                                open={DriverDoorOpen ? 'rotate(32deg) translate(-37px)' : 'rotate(0deg) translate(0)'}
-                                onClick={DriverDoorOpen ? closeDriverDoor : openDriverDoor}
+                                open={
+                                    Doors.driverDoorOpen
+                                        ? 'rotate(32deg) translate(-37px)'
+                                        : 'rotate(0deg) translate(0)'
+                                }
+                                onClick={() =>
+                                    Doors.driverDoorOpen
+                                        ? dispatch(updateDoors({ door: 'driverDoor', open: false }))
+                                        : dispatch(updateDoors({ door: 'driverDoor', open: true }))
+                                }
                             />
                             <StyledDoor
                                 className="AerialViewPassengerDoor"
                                 icon={passengerDoor}
                                 colour={darkMode ? 'white' : 'black'}
                                 open={
-                                    PassengerDoorOpen ? 'rotate(-32deg) translate(37px)' : 'rotate(0deg) translate(0)'
+                                    Doors.passengerDoorOpen
+                                        ? 'rotate(-32deg) translate(37px)'
+                                        : 'rotate(0deg) translate(0)'
                                 }
-                                onClick={PassengerDoorOpen ? closePassengerDoor : openPassengerDoor}
+                                onClick={() =>
+                                    Doors.passengerDoorOpen
+                                        ? dispatch(updateDoors({ door: 'passengerDoor', open: false }))
+                                        : dispatch(updateDoors({ door: 'passengerDoor', open: true }))
+                                }
                             />
                         </IonCol>
                         {/* Modal to display the battery on click*/}
