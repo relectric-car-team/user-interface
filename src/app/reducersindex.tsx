@@ -5,6 +5,7 @@ import batteryReducer, { BatteryStatus } from '../redux-features/Battery/Battery
 import bluetoothReducer from '../redux-features/Bluetooth/BluetoothStore';
 import darkModeReducer from '../redux-features/DarkMode/DarkModeStore';
 import notifReducer, { Notification } from '../components/Notification/NotificationStore';
+import carReducer from '../features/Car/CarStore';
 import { RootState } from './store';
 import { Pages } from '../Models/Enums';
 
@@ -23,6 +24,7 @@ export default combineReducers({
     batteryReducer,
     bluetoothReducer,
     notifReducer,
+    carReducer,
 });
 
 /**  Selectors for various redux states used throughout the UI.
@@ -56,3 +58,13 @@ export const isBatteryCharging = (state: RootState): boolean => state.batteryRed
 export const isBluetoothOn = (state: RootState): boolean => state.bluetoothReducer.bluetoothOn;
 
 export const notifications = (state: RootState): Array<Notification> => state.notifReducer.notifs;
+
+export const doorStates = (
+    state: RootState,
+): {
+    driverDoorOpen: boolean;
+    passengerDoorOpen: boolean;
+    rearDriverDoorOpen: boolean;
+    rearPassengerDoorOpen: boolean;
+    trunkOpen: boolean;
+} => state.carReducer.doorStates;
