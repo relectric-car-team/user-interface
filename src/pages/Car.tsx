@@ -37,6 +37,7 @@ import Battery from './CarModals/Battery';
 
 import { updateDoors } from '../features/Car/CarStore';
 import { doorStates, selectDarkModeActive } from '../app/reducersindex';
+import { DoorsEnum } from '../features/Car/CarStore';
 
 const StyledIcon = styled(IonIcon).attrs((props: { colour: string }) => ({
     colour: props.colour,
@@ -129,8 +130,8 @@ const Car: React.FC = () => {
                                 }
                                 onClick={() =>
                                     Doors.driverDoorOpen
-                                        ? dispatch(updateDoors({ door: 'driverDoor', open: false }))
-                                        : dispatch(updateDoors({ door: 'driverDoor', open: true }))
+                                        ? dispatch(updateDoors({ door: DoorsEnum.DRIVER, open: false }))
+                                        : dispatch(updateDoors({ door: DoorsEnum.DRIVER, open: true }))
                                 }
                             />
                             <StyledDoor
@@ -144,8 +145,8 @@ const Car: React.FC = () => {
                                 }
                                 onClick={() =>
                                     Doors.passengerDoorOpen
-                                        ? dispatch(updateDoors({ door: 'passengerDoor', open: false }))
-                                        : dispatch(updateDoors({ door: 'passengerDoor', open: true }))
+                                        ? dispatch(updateDoors({ door: DoorsEnum.PASSENGER, open: false }))
+                                        : dispatch(updateDoors({ door: DoorsEnum.PASSENGER, open: true }))
                                 }
                             />
                         </IonCol>
