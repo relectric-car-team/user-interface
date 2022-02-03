@@ -68,3 +68,20 @@ export const doorStates = (
     rearPassengerDoorOpen: boolean;
     trunkOpen: boolean;
 } => state.carReducer.doorStates;
+
+export const tirePressure = (
+    state: RootState,
+): {
+    frontLeft: number;
+    frontRight: number;
+    backLeft: number;
+    backRight: number;
+} => state.carReducer.tirePressure;
+
+export const batteryLevel = (state: RootState): number[] => state.carReducer.batteryLevel;
+
+export const powerDraw = (state: RootState): number[] => state.carReducer.powerDraw;
+
+export const averagePowerDraw = (state: RootState): number => state.carReducer.averagePowerDraw;
+
+export const currentSpeed = (state: RootState): number => state.carReducer.currentSpeed;
