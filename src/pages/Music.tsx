@@ -25,7 +25,6 @@ import { setPage } from '../redux-features/Routing/RouterStore';
 
 import { MusicNotif } from '../components/Notification/Notification';
 import { notifActions } from '../components/Notification/NotificationStore';
-import { setPage } from '../features/Routing/RouterStore';
 import { Pages } from '../Models/Enums';
 /**
  * The music tab manages the interaction between the driver
