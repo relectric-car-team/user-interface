@@ -77,8 +77,8 @@ const Climate: React.FC = () => {
                         >
                             <IonIcon icon={chevronUpOutline} className="Temperature-Button-Icon" />
                         </IonButton>
-                        <IonLabel className="Temperature">
-                            <IonIcon icon={thermometerOutline} className="Thermometer-Icon" />
+                        <IonIcon icon={thermometerOutline} className="Thermometer-Icon" />
+                        <IonLabel className="Temperature-Display">
                             {Math.round(selectedTemp)}
                             {selectedTempSymbol}
                         </IonLabel>
