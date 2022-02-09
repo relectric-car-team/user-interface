@@ -1,9 +1,15 @@
 @import '../theme/variables.scss';
 
-.Thermometer-Icon {
-    font-size: 50px;
-    transform: translateY(12%);
-    color: $medium-text;
+ion-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-radius: 27.8px;
+    margin: 0px;
+    --background: #1c1d23; // dynamic with light/dark mode
+    box-shadow: none;
 }
 
 .High {
@@ -32,6 +38,8 @@
     margin-top: 170px;
     margin-bottom: 170px;
     // background-image: url('../assets/climate_slider_background.jpg');
+    background-image: url('../assets/slider-background.svg');
+    background-size: 300px;
 }
 
 .Fan-Intensity-Range::-webkit-slider-thumb {
@@ -41,27 +49,6 @@
     height: 200px;
     background: white;
     border-radius: 14px;
-}
-
-ion-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    border-radius: 27.8px;
-    margin: 0px;
-    --background: #1c1d23; // dynamic with light/dark mode
-    box-shadow: none;
-}
-
-.Fan-Button {
-    --color: var(--ion-color-tertiary);
-    --color-checked: #1c1d23;
-    --background-checked: white;
-    --indicator-color: transparent !important;
-    margin: 5%;
-    --border-radius: 15px;
 }
 
 .Temperature-Button {
@@ -75,17 +62,38 @@ ion-card {
     color: $medium-light-text;
 }
 
-.Fan-Direction-Icon {
-    font-size: 70px;
-}
-
-.Temperature {
+.Temperature-Display {
     font-size: 50px;
     color: var(--re-lc-white);
-    align-self: center;
+    align-self: flex-end;
+    margin-right: 60px;
     height: 60px;
     margin-top: -30px;
     margin-bottom: -30px;
+}
+
+.Thermometer-Icon {
+    transform: translateY(-5%);
+    color: $medium-text;
+    font-size: 100px;
+    align-self: flex-start;
+    margin-left: 50px;
+    margin-top: -25px;
+    margin-bottom: -25px;
+}
+
+.Fan-Button {
+    --color: var(--ion-color-tertiary);
+    --color-checked: #1c1d23;
+    --background-checked: white;
+    --indicator-color: transparent !important;
+    --ripple-color: transparent !important;
+    margin: 5%;
+    --border-radius: 15px;
+}
+
+.Fan-Direction-Icon {
+    font-size: 70px;
 }
 
 ion-segment {
