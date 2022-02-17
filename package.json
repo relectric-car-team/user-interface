@@ -59,6 +59,7 @@
         ]
     },
     "devDependencies": {
+        "@tauri-apps/cli": "^1.0.0-rc.4",
         "@types/react-redux": "^7.1.11",
         "@types/styled-components": "^5.1.9",
         "@typescript-eslint/eslint-plugin": "^4.8.2",

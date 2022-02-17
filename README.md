@@ -64,6 +64,21 @@ yarn install
 ionic serve
 ```
 
+### Using Tauri (Launching as a desktop app)
+
+We use Tauri (similar to Electron) to turn the web app / Ionic webview into a desktop app!
+
+As of writing this, we don't use any Rust code in the User Interface, so you **DO NOT** need to follow this. Just use the Docker setup above and develop in your browser. :100:
+
+To try this out for yourself:
+
+1. Install Rust (https://www.rust-lang.org/tools/install)
+    - if you're on Windows, you may need Webview2. See step 4 of: https://tauri.studio/docs/getting-started/setting-up-windows
+2. Run `ionic serve` to start the development server of the web app.
+3. Run `yarn tauri dev` to start up the Tauri client.
+    - this will download all of Tauri's dependencies and compile them. This takes **_a lot_** of time, CPU power, and storage, stick with developing using only `ionic serve` if you can.
+4. Tauri will launch the User Interface via a Desktop App! Voila!
+
 ## Contributing
 
 Pull requests are welcome. Please use semantic commit messages and branch naming conventions using [this guide](https://www.conventionalcommits.org/en/v1.0.0/). Private branches should be named using the `semantic/name/purpose` convention. For example: `docs/ratik/update-readme` signifies that Ratik is responsible for this documentation change and the purpose of the branch is to update the README. For major changes, please open an issue first to discuss what you would like to change. Please base all pull requests off of the main branch as they will be rebase merged. Before opening a pull request: check that there are no linter issues by running `yarn run lint-check` and fix all formatting using `yarn run prettier-fix`. The linear history requirement is enforced on main.
