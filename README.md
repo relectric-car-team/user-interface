@@ -66,17 +66,18 @@ ionic serve
 
 ### Using Tauri (Launching as a desktop app)
 
-We use Tauri (similar to Electron) to turn the web app / Ionic webview into a desktop app!
+**Only install this if you're willing to use up a whole extra load (2ish GB) of storage. It is NOT NECESSARY to help develop the UI!**
 
-As of writing this, we don't use any Rust code in the User Interface, so you **DO NOT** need to follow this. Just use the Docker setup above and develop in your browser. :100:
+We use Tauri (similar to Electron) to turn the web app / Ionic app into a desktop app!
 
 To try this out for yourself:
 
 1. Install Rust (https://www.rust-lang.org/tools/install)
     - if you're on Windows, you may need Webview2. See step 4 of: https://tauri.studio/docs/getting-started/setting-up-windows
-2. Run `ionic serve` to start the development server of the web app.
+2. Run `docker-compose up` to start the development server of the web app.
 3. Run `yarn tauri dev` to start up the Tauri client.
-    - this will download all of Tauri's dependencies and compile them. This takes **_a lot_** of time, CPU power, and storage, stick with developing using only `ionic serve` if you can.
+    - this will download all of Tauri's dependencies and compile them. This takes **_a lot_** of time, CPU power, and storage.
+    - also, if you're not using Docker to host the web app, you may need to change the web address at line 8 of `src-tauri/tauri.conf.json` to the web address `ionic serve` provides (likely "http://localhost:8000"). The default is set to the port where Docker runs, so please use Docker for the smoothest experience!
 4. Tauri will launch the User Interface via a Desktop App! Voila!
 
 ## Contributing
