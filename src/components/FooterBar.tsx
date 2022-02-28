@@ -31,14 +31,14 @@ const FooterBar: React.FC = () => {
                     <IonCol size="2" className="FooterBarColumn">
                         <IonRow>
                             <IonButton fill="clear" size="large" shape="round" onClick={() => handleClick(Pages.Home)}>
-                                <IonIcon className="FooterBarIcon" icon={home} color="tertiary"></IonIcon>
+                                <IonIcon className="FooterBarIcon" icon={home}></IonIcon>
                             </IonButton>
                         </IonRow>
                     </IonCol>
                     <IonCol size="2" className="FooterBarColumn">
                         <IonRow>
                             <IonButton fill="clear" size="large" shape="round" onClick={() => handleClick(Pages.Car)}>
-                                <IonIcon className="FooterBarIcon" icon={car} color="tertiary"></IonIcon>
+                                <IonIcon className="FooterBarIcon" icon={car}></IonIcon>
                             </IonButton>
                         </IonRow>
                     </IonCol>
@@ -50,7 +50,7 @@ const FooterBar: React.FC = () => {
                                 shape="round"
                                 onClick={() => handleClick(Pages.Climate)}
                             >
-                                <IonIcon className="FooterBarIcon" icon={Fan} color="tertiary"></IonIcon>
+                                <IonIcon className="FooterBarIcon" icon={Fan}></IonIcon>
                             </IonButton>
                         </IonRow>
                     </IonCol>
@@ -62,14 +62,14 @@ const FooterBar: React.FC = () => {
                                 shape="round"
                                 onClick={() => handleClick(Pages.Navigation)}
                             >
-                                <IonIcon className="FooterBarIcon" icon={navigate} color="tertiary"></IonIcon>
+                                <IonIcon className="FooterBarIcon" icon={navigate}></IonIcon>
                             </IonButton>
                         </IonRow>
                     </IonCol>
                     <IonCol size="2" className="FooterBarColumn">
                         <IonRow>
                             <IonButton fill="clear" size="large" shape="round" onClick={() => handleClick(Pages.Music)}>
-                                <IonIcon className="FooterBarIcon" icon={musicalNotes} color="tertiary"></IonIcon>
+                                <IonIcon className="FooterBarIcon" icon={musicalNotes}></IonIcon>
                             </IonButton>
                         </IonRow>
                     </IonCol>
@@ -81,7 +81,7 @@ const FooterBar: React.FC = () => {
                                 shape="round"
                                 onClick={() => handleClick(Pages.Settings)}
                             >
-                                <IonIcon className="FooterBarIcon" icon={settings} color="tertiary"></IonIcon>
+                                <IonIcon className="FooterBarIcon" icon={settings}></IonIcon>
                             </IonButton>
                         </IonRow>
                     </IonCol>
