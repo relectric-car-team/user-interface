@@ -15,7 +15,8 @@ const initialState: DarkMode = {
      * Gets intial setting for dark/light mode from the user's device.
      * If no theme is requested by the user's device, it will default to dark mode.
      */
-    darkModeActive: window.matchMedia('(prefers-color-scheme)').media == 'dark',
+    // darkModeActive: window.matchMedia('(prefers-color-scheme)').media == 'dark',
+    darkModeActive: true,
 };
 
 /**
@@ -27,13 +28,13 @@ export const slice = createSlice({
     initialState,
     reducers: {
         updateDarkMode: (state) => {
-            if (state.darkModeActive == true) {
-                document.body.classList.remove('dark');
-                state.darkModeActive = false;
-            } else {
-                document.body.classList.add('dark');
-                state.darkModeActive = true;
-            }
+            // if (state.darkModeActive == true) {
+            //     document.body.classList.remove('dark');
+            //     state.darkModeActive = false;
+            // } else {
+            //     document.body.classList.add('dark');
+            //     state.darkModeActive = true;
+            // }
         },
     },
 });

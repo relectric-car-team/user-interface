@@ -21,6 +21,8 @@ import '@ionic/react/css/display.css';
 import './theme/variables.scss';
 import AppContainer from './pages/AppContainer';
 
+document.body.classList.add('dark');
+
 const App: React.FC = () => (
     <IonApp>
         <AppContainer />
