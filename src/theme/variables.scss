@@ -375,10 +375,10 @@ $settings: #4d5d84;
 
     .md {
         body.dark {
-            --ion-background-color: #121317;
+            --ion-background-color: var(--re-lc-black);
             --ion-background-color-rgb: 18, 19, 23;
 
-            --ion-text-color: #f6f6f6;
+            --ion-text-color: var(--re-lc-white-shade);
             --ion-text-color-rgb: 246, 246, 246;
 
             --ion-color-step-50: #1d1e22;
@@ -568,7 +568,7 @@ body.dark {
 
 .md {
     body.dark {
-        --ion-background-color: #121317;
+        --ion-background-color: var(--re-lc-black);
         --ion-background-color-rgb: 18, 19, 23;
 
         --ion-text-color: #f6f6f6;

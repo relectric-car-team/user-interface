@@ -2,7 +2,7 @@
     min-width: 100%;
     min-height: 15.5%;
     max-height: 31%;
-    background-color: #000;
+    background-color: var(--re-lc-black);
 }
 
 .FooterBarRow {
@@ -20,6 +20,7 @@
 .FooterBarIcon {
     align-self: center;
     font-size: 40px;
+    color: var(--re-lc-white-shade);
 }
 
 .FooterBarColumn {
