@@ -1,20 +1,24 @@
 @import '../theme/variables.scss';
 
+
+// depreciated, to be removed later
 .location {
     font-family: 'Poppins';
     font-size: 22px;
     color: $medium-text;
 }
 
+// Depreciated, to be removed later
 .temperature {
     font-family: 'Poppins';
     font-size: 30px;
     color: $medium-text;
 }
 
+// Colours the background of the home page
 .content {
     text-align: center;
-    --background: transparent;
+    --background: var(--re-lc-indigo);
     --padding-top: 11%;
     --padding-start: 78%;
 }
