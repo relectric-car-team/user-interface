@@ -27,14 +27,17 @@ import './InnerModal.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPage } from '../redux-features/Routing/RouterStore';
 import { Pages } from '../Models/Enums';
-import carAerial from '../assets/car-aerial/car-aerial-frame.svg';
-import passengerDoor from '../assets/car-aerial/passenger-door.svg';
-import driverDoor from '../assets/car-aerial/driver-door.svg';
 import energyGraph from '../assets/graphs/Energy.jpg';
 import batteryGraph from '../assets/graphs/Battery.jpg';
 import Energy from './CarModals/Energy';
 import Battery from './CarModals/Battery';
-
+import carBody from '../assets/car-aerial/Body.svg';
+import carHeadlights from '../assets/car-aerial/HeadLights.svg';
+import carTailLights from '../assets/car-aerial/TailLights.svg';
+import driverDoor from '../assets/car-aerial/LeftTopDoor.svg';
+import passengerDoor from '../assets/car-aerial/TopRightDoor.svg';
+import rearDriverDoor from '../assets/car-aerial/BottomLeftDoor.svg';
+import rearPassengerDoor from '../assets/car-aerial/BottomRightDoor.svg';
 import { updateDoors } from '../features/Car/CarStore';
 import { doorStates, selectDarkModeActive } from '../app/reducersindex';
 import { DoorsEnum } from '../features/Car/CarStore';
@@ -118,37 +121,11 @@ const Car: React.FC = () => {
                                 Three Icons where the doors lay ontop of the car frame, when doors open, the door models
                                 rotate and move to give the apperence of an open door.
                             */}
-                            <StyledIcon className="AerialView" icon={carAerial} colour={darkMode ? 'white' : 'black'} />
-                            <StyledDoor
-                                className="AerialViewDriverDoor"
-                                icon={driverDoor}
-                                colour={darkMode ? 'white' : 'black'}
-                                open={
-                                    Doors.driverDoorOpen
-                                        ? 'rotate(32deg) translate(-37px)'
-                                        : 'rotate(0deg) translate(0)'
-                                }
-                                onClick={() =>
-                                    Doors.driverDoorOpen
-                                        ? dispatch(updateDoors({ door: DoorsEnum.DRIVER, open: false }))
-                                        : dispatch(updateDoors({ door: DoorsEnum.DRIVER, open: true }))
-                                }
-                            />
-                            <StyledDoor
-                                className="AerialViewPassengerDoor"
-                                icon={passengerDoor}
-                                colour={darkMode ? 'white' : 'black'}
-                                open={
-                                    Doors.passengerDoorOpen
-                                        ? 'rotate(-32deg) translate(37px)'
-                                        : 'rotate(0deg) translate(0)'
-                                }
-                                onClick={() =>
-                                    Doors.passengerDoorOpen
-                                        ? dispatch(updateDoors({ door: DoorsEnum.PASSENGER, open: false }))
-                                        : dispatch(updateDoors({ door: DoorsEnum.PASSENGER, open: true }))
-                                }
-                            />
+                            <StyledDoor className="DriverDoor" icon={driverDoor} />
+                            <StyledDoor className="PassengerDoor" icon={passengerDoor} />
+                            <StyledDoor className="RearDriverDoor" icon={rearDriverDoor} />
+                            <StyledDoor className="RearPassengerDoor" icon={rearPassengerDoor} />
+                            <StyledIcon className="AerialView" icon={carBody} />
                         </IonCol>
                         {/* Modal to display the battery on click*/}
                         <IonModal isOpen={showBattery} onDidDismiss={() => setShowBattery(false)} cssClass="InnerModal">

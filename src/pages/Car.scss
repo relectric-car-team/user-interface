@@ -40,16 +40,30 @@
     text-align: center;
 }
 
-.AerialViewPassengerDoor {
+.PassengerDoor {
     font-size: 134px;
     position: absolute;
     left: 198px;
     top: 94px;
 }
 
-.AerialViewDriverDoor {
+.DriverDoor {
+    font-size: 90px;
+    position: absolute;
+    left: 88px;
+    top: 128px;
+}
+
+.RearDriverDoor{
     font-size: 134px;
     position: absolute;
     left: 47px;
-    top: 94px
+    top: 300px;
+}
+
+.RearPassengerDoor {
+    font-size: 134px;
+    position: absolute;
+    left: 198px;
+    top: 300px;
 }
