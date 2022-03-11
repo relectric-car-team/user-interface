@@ -1,7 +1,7 @@
 .FooterToolbar {
     min-width: 100%;
-    min-height: 15.5%;
-    max-height: 31%;
+    // min-height: 15.5%;
+    // max-height: 31%;
     background-color: var(--re-lc-black);
 }
 
@@ -12,6 +12,7 @@
 }
 
 .FooterBarGrid {
+    height: 90px;
     text-align: center;
     padding-left: 11%;
     padding-right: 11%;
