@@ -8,13 +8,14 @@ ion-card {
     height: 100%;
     border-radius: 27.8px;
     margin: 0px;
-    --background: #1c1d23; // dynamic with light/dark mode
+    --background: blue !important; // dynamic with light/dark mode
+    // background: green !important;
     box-shadow: none;
 }
 
 .High {
     width: 49px;
-    height: 25.2px;
+    //height: 25.2px;
     // font-family: Poppins;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 19.2px;
@@ -23,7 +24,7 @@ ion-card {
 
 .OFF {
     width: 49px;
-    height: 25.2px;
+    // height: 25.2px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 19.2px;
     text-align: center;
