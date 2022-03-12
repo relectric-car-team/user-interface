@@ -10,8 +10,8 @@ ion-card {
     top: 0%;
     padding: 0;
     margin: 0px;
-    --background: blue !important; // dynamic with light/dark mode
-    // background: green !important;
+    --background: var(--re-lc-dark-grey);
+    // NOTE Controls the background of the climate cards
     box-shadow: none;
 }
 

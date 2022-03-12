@@ -1,7 +1,6 @@
 @import '../theme/variables.scss';
 
 .ModalContent {
-    --background: var(--re-lc-black);
-    // NOTE this has done nothing for fixing the climate piece so far.
-    // Currently at original value
+    --background: var(--re-lc-dark-grey);
+    // NOTE Necessary for overriding black background in modals that do not specify another background color.
 }

@@ -4,22 +4,22 @@
     top: 62px;
     bottom: 90px;
 
-    //background-color: aqua;
+    // background-color: aqua;
     // NOTE For locating it in the background
     .modal-wrapper {
         background-color: transparent !important;
-        min-width: 90vw;
+        min-width: 98vw;
         min-height: 90vw;
         max-height: 90%;
         border-radius: 15px;
         position: absolute;
 
         @media only screen and (max-height: 800px) {
-            top: 14%;
+            top: 1vh;
         }
 
         @media only screen and (max-height: 600px) {
-            top: 14%;
+            top: 1.5vh;
         }
 
         box-shadow: none;
