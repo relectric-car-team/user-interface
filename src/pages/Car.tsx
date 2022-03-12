@@ -31,16 +31,10 @@ import energyGraph from '../assets/graphs/Energy.jpg';
 import batteryGraph from '../assets/graphs/Battery.jpg';
 import Energy from './CarModals/Energy';
 import Battery from './CarModals/Battery';
-import carBody from '../assets/car-aerial/Body.svg';
-import carHeadlights from '../assets/car-aerial/HeadLights.svg';
-import carTailLights from '../assets/car-aerial/TailLights.svg';
-import driverDoor from '../assets/car-aerial/LeftTopDoor.svg';
-import passengerDoor from '../assets/car-aerial/TopRightDoor.svg';
-import rearDriverDoor from '../assets/car-aerial/BottomLeftDoor.svg';
-import rearPassengerDoor from '../assets/car-aerial/BottomRightDoor.svg';
 import { updateDoors } from '../features/Car/CarStore';
 import { doorStates, selectDarkModeActive } from '../app/reducersindex';
 import { DoorsEnum } from '../features/Car/CarStore';
+import CarComponent from '../components/CarComponent';
 
 const StyledIcon = styled(IonIcon).attrs((props: { colour: string }) => ({
     colour: props.colour,
@@ -121,11 +115,7 @@ const Car: React.FC = () => {
                                 Three Icons where the doors lay ontop of the car frame, when doors open, the door models
                                 rotate and move to give the apperence of an open door.
                             */}
-                            <StyledDoor className="DriverDoor" icon={driverDoor} />
-                            <StyledDoor className="PassengerDoor" icon={passengerDoor} />
-                            <StyledDoor className="RearDriverDoor" icon={rearDriverDoor} />
-                            <StyledDoor className="RearPassengerDoor" icon={rearPassengerDoor} />
-                            <StyledIcon className="AerialView" icon={carBody} />
+                            <CarComponent />
                         </IonCol>
                         {/* Modal to display the battery on click*/}
                         <IonModal isOpen={showBattery} onDidDismiss={() => setShowBattery(false)} cssClass="InnerModal">
