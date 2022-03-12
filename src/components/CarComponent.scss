@@ -1,0 +1,88 @@
+.carComponentWrapper {
+    height: 80%;
+    width: 34%;
+    margin: auto;
+}
+
+.carBody {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    z-index: 1;
+    top: 0;
+}
+
+.carHeadLights {
+    position: absolute;
+    font-size: 24vw;
+    left: 19.7%;
+    top: -20.2vh;
+    z-index: 2;
+}
+
+.carFrame{
+    position: absolute;
+    font-size: 17.5vw;
+    left: 28.0%;
+    top: 33%;
+    z-index: -1;
+}
+
+.carTailLights {
+    position: absolute;
+    font-size: 25vw;
+    left: 18.5%;
+    top: 60.5%;
+    z-index: 2;
+}
+
+.carDriverDoor {
+    position: absolute;
+    font-size: 8.4vw;
+    left: 25.8%;
+    top: 32%;
+    z-index: 0;
+    transform: rotate(0deg);
+    transition: 0.5s;
+}
+
+.carRearDriverDoor {
+    position: absolute;
+    font-size: 8.4vw;
+    left: 25.8%;
+    top: 51%;
+    z-index: 0;
+    transform: rotate(0deg);
+    transition: 0.5s;
+}
+
+.driverSideRotate{
+    transform: rotate(60deg) translateX(5%) translate(-33%);
+    transition: 0.5s;
+}
+
+.carPassengerDoor {
+    position: absolute;
+    font-size: 8.4vw;
+    left: 53%;
+    top: 32%;
+    z-index: 0;
+    transform: rotate(0deg);
+    transition: 0.5s;
+}
+
+.carRearPassengerDoor {
+    position: absolute;
+    font-size: 8.4vw;
+    left: 53%;
+    top: 51%;
+    z-index: 0;
+    transform: rotate(0deg);
+    transition: 0.5s;
+}
+
+.passengerSideRotate{
+    transform: rotate(-60deg) translateX(5%) translate(33%);
+    transition: 0.5s;
+}
