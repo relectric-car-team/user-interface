@@ -3,24 +3,29 @@
 .ComponentModal {
     top: 62px;
     bottom: 90px;
-
-    // background-color: aqua;
+    height: auto;
+    width: 100%;
+    //background-color: aqua;
 
     // NOTE For locating it in the background
     .modal-wrapper {
         background-color: transparent !important;
-        width: 98vw;
-        height: 96%;
+        width: auto;
+        top: 9px;
+        bottom: 10px;
+        right: 19px;
+        left: 19px;
+        height: auto;
         border-radius: 27px;
         position: absolute;
 
-        @media only screen and (max-height: 800px) {
-            height: 96%;
-        }
+        // @media only screen and (max-height: 800px) {
+        //     height: 96%;
+        // }
 
-        @media only screen and (max-height: 600px) {
-            height: 92%;
-        }
+        // @media only screen and (max-height: 600px) {
+        //     height: 92%;
+        // }
 
         box-shadow: none;
     }
