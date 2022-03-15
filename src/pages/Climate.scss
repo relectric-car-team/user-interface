@@ -5,14 +5,39 @@ ion-card {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 70vh;
+    height: 100%;
     border-radius: 27.8px;
     top: 0%;
     padding: 0;
     margin: 0px;
+    width: 100%;
     --background: var(--re-lc-dark-grey);
     // NOTE Controls the background of the climate cards
     box-shadow: none;
+}
+
+.climateRow {
+    display: flex;
+    flex-flow: row;
+    gap: 16px;
+    justify-content: space-between;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: greenyellow;
+    align-items: stretch;
+}
+
+.climateColumn {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
 }
 
 .High {

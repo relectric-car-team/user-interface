@@ -51,8 +51,8 @@ const Climate: React.FC = () => {
 
     return (
         <IonPage>
-            <IonRow>
-                <IonCol>
+            <IonRow className="climateRow">
+                <IonCol className="climateColumn">
                     <IonCard>
                         <IonLabel className="High">High</IonLabel>
                         <input
@@ -66,7 +66,7 @@ const Climate: React.FC = () => {
                         <IonLabel className="OFF">OFF</IonLabel>
                     </IonCard>
                 </IonCol>
-                <IonCol>
+                <IonCol className="climateColumn">
                     <IonCard>
                         <IonButton
                             expand="block"
@@ -92,7 +92,7 @@ const Climate: React.FC = () => {
                         </IonButton>
                     </IonCard>
                 </IonCol>
-                <IonCol>
+                <IonCol className="climateColumn">
                     <IonCard>
                         <IonSegment value={fanDirection}>
                             <IonSegmentButton
