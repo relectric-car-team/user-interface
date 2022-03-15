@@ -5,7 +5,8 @@
     bottom: 90px;
     height: auto;
     width: 100%;
-    //background-color: aqua;
+    background-color: aqua;
+
 
     // NOTE For locating it in the background
     .modal-wrapper {
@@ -18,6 +19,8 @@
         height: auto;
         border-radius: 27px;
         position: absolute;
+        margin: 0px;
+        padding: 0px;
 
         // @media only screen and (max-height: 800px) {
         //     height: 96%;
