@@ -56,8 +56,10 @@
 .Logo {
     background-image: url('../assets/logo1.png');
     background-repeat: no-repeat;
-    height: 100px;
-    width: 120px;
+    height: 59px;
+    width: 142px;
+    border: solid;
+    position: flex-end;
 }
 
 .DisplayModeItem {
@@ -87,6 +89,7 @@
 .TopRow {
     background-color: green;
     align-items: center;
+
     .DisplayModeSegment {
         // --background: transparent;
         --background: red;
@@ -163,5 +166,29 @@
 
 .BottomRow {
     align-items: center;
-    background-color: green;
+    background-color: orange;
+}
+
+.AppearanceLabel,
+.TempUnitsLabel {
+    // font-family: Poppins;
+    display: flex;
+    justify-content: center;
+    font-size: large;
+    font-weight: bold;
+    color: var(--re-lc-white);
+}
+
+.C {
+    transform: translate(-235px, 50px);
+    font-size: 30px;
+    z-index: 3;
+    position: fixed;
+}
+
+.F {
+    transform: translate(-70px, 50px);
+    font-size: 30px;
+    z-index: 3;
+    position: fixed;
 }

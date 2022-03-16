@@ -8,8 +8,8 @@ import {
     IonSegment,
     IonSegmentButton,
     IonLabel,
-    IonItem,
     IonCol,
+    IonText,
     // IonGrid,
     // IonText,
 } from '@ionic/react';
@@ -36,7 +36,9 @@ const Settings: React.FC = () => {
             <IonRow className="MainRow">
                 <IonCol size="10">
                     <IonRow className="TopRow">
-                        <IonCol size="3">Appearance:</IonCol>
+                        <IonCol size="3">
+                            <IonLabel className="AppearanceLabel">Appearance:</IonLabel>
+                        </IonCol>
                         <IonCol size="9">
                             <IonSegment className="DisplayModeSegment" value={darkModeActive ? 'true' : 'false'}>
                                 <IonSegmentButton
@@ -61,7 +63,7 @@ const Settings: React.FC = () => {
                         <IonCol size="3"></IonCol>
                         <IonCol size="9">
                             <IonSegment className="DisplayModeLabelsSegment" value={darkModeActive ? 'true' : 'false'}>
-                                <IonSegmentButton onClick={() => dispatch(updateDarkMode(false))} value={'auto'}>
+                                <IonSegmentButton onClick={() => console.log('auto')} value={'auto'}>
                                     Auto
                                 </IonSegmentButton>
                                 <IonSegmentButton onClick={() => dispatch(updateDarkMode(true))} value={'true'}>
@@ -75,12 +77,16 @@ const Settings: React.FC = () => {
                     </IonRow>
 
                     <IonRow className="BottomRow">
-                        <IonCol size="3">Temperature Units:</IonCol>
-                        <IonCol size="9">
-                            <IonRow>
-                                <IonToggle className="TempUnitsToggle" />
-                                <div className="Logo" />
-                            </IonRow>
+                        <IonCol size="3">
+                            <IonLabel className="TempUnitsLabel">Temperature Units:</IonLabel>
+                        </IonCol>
+                        <IonCol size="6">
+                            <IonToggle className="TempUnitsToggle" />
+                            <IonText className="C">C</IonText>
+                            <IonText className="F">F</IonText>
+                        </IonCol>
+                        <IonCol push="0">
+                            <div className="Logo" />
                         </IonCol>
                     </IonRow>
                 </IonCol>
