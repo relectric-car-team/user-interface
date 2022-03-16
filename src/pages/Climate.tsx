@@ -94,42 +94,42 @@ const Climate: React.FC = () => {
                 </IonCol>
                 <IonCol className="climateColumn">
                     <IonCard>
-                        <IonSegment value={fanDirection}>
+                        <IonSegment value={fanDirection} className="Fan Segment">
                             <IonSegmentButton
                                 value={Direction.UpperAndLower}
                                 onClick={() => {
                                     dispatch(updateDirection(Direction.UpperAndLower));
                                 }}
-                                className="Fan-Button"
+                                className="Fan Button"
                             >
-                                <IonIcon icon={climateUpperAndLower} className="Fan-Direction-Icon" />
+                                <IonIcon icon={climateUpperAndLower} className="Fan Direction-Icon" />
                             </IonSegmentButton>
                             <IonSegmentButton
                                 value={Direction.Upper}
                                 onClick={() => {
                                     dispatch(updateDirection(Direction.Upper));
                                 }}
-                                className="Fan-Button"
+                                className="Fan Button"
                             >
-                                <IonIcon icon={climateUpper} className="Fan-Direction-Icon" />
+                                <IonIcon icon={climateUpper} className="Fan Direction-Icon" />
                             </IonSegmentButton>
                             <IonSegmentButton
                                 value={Direction.Lower}
                                 onClick={() => {
                                     dispatch(updateDirection(Direction.Lower));
                                 }}
-                                className="Fan-Button"
+                                className="Fan Button"
                             >
-                                <IonIcon icon={climateLower} className="Fan-Direction-Icon" />
+                                <IonIcon icon={climateLower} className="Fan Direction-Icon" />
                             </IonSegmentButton>
                             <IonSegmentButton
                                 value={Direction.Front}
                                 onClick={() => {
                                     dispatch(updateDirection(Direction.Front));
                                 }}
-                                className="Fan-Button"
+                                className="Fan Button"
                             >
-                                <IonIcon icon={climateFront} className="Fan-Direction-Icon" />
+                                <IonIcon icon={climateFront} className="Fan Direction-Icon" />
                             </IonSegmentButton>
                         </IonSegment>
                     </IonCard>
