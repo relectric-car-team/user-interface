@@ -26,13 +26,13 @@
 }
 
 .MainRow {
-    background-color: rgb(92, 92, 92);
+    // background-color: rgb(92, 92, 92);
     height: 100%;
     align-items: center;
 }
 
 .NextButtonCol {
-    background-color: gray;
+    // background-color: gray;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -43,7 +43,7 @@
         --ripple-color: transparent !important;
         height: 100px;
         ion-icon {
-            color: black;
+            color: white;
             font-size: 108px;
         }
     }
@@ -58,7 +58,7 @@
     background-repeat: no-repeat;
     height: 59px;
     width: 142px;
-    border: solid;
+    // border: solid;
     position: flex-end;
 }
 
@@ -87,12 +87,12 @@
 }
 
 .TopRow {
-    background-color: green;
+    // background-color: green;
     align-items: center;
 
     .DisplayModeSegment {
-        // --background: transparent;
-        --background: red;
+        --background: transparent;
+        // --background: red;
         align-items: center;
         padding: 10px;
         height: 200px;
@@ -110,7 +110,7 @@
                 height: 100%;
                 outline-style: inset;
                 outline-width: 2px;
-                outline-color: black;
+                outline-color: white;
                 outline-offset: 10px;
                 // border-width: 3px;
                 // border-color: black;
@@ -142,10 +142,10 @@
 }
 
 .MiddleRow {
-    background-color: blue;
+    // background-color: blue;
     .DisplayModeLabelsSegment {
-        // --background: transparent;
-        --background: red;
+        --background: transparent;
+        // --background: red;
         // margin-left: 150px;
         ion-segment-button {
             border-radius: 15px;
@@ -166,7 +166,7 @@
 
 .BottomRow {
     align-items: center;
-    background-color: orange;
+    // background-color: orange;
 }
 
 .AppearanceLabel,
