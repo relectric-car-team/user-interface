@@ -26,7 +26,11 @@ export const slice = createSlice({
     name: 'darkMode',
     initialState,
     reducers: {
-        updateDarkMode: (state) => {
+        updateDarkMode: (state, action) => {
+            state.darkModeActive = action.payload;
+            action.payload ? document.body.classList.add('dark') : document.body.classList.remove('dark');
+        },
+        updateDarkModew: (state) => {
             if (state.darkModeActive == true) {
                 document.body.classList.remove('dark');
                 state.darkModeActive = false;
@@ -42,5 +46,6 @@ export const slice = createSlice({
  * Reducer to update the dark mode must be exported with 'slice.actions' as a property.
  */
 export const { updateDarkMode } = slice.actions;
+export const { updateDarkModew } = slice.actions;
 
 export default slice.reducer;

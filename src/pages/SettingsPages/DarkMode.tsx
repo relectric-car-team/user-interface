@@ -13,7 +13,7 @@ const DarkMode: React.FC = () => {
             <IonLabel className="ToggleLabel">Dark Mode</IonLabel>
             <IonToggle
                 className="ToggleButton"
-                onIonChange={() => dispatch(updateDarkMode())}
+                // onIonChange={() => dispatch(updateDarkMode(false))}
                 checked={darkModeActive}
             />
         </IonItem>
