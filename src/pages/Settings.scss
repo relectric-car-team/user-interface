@@ -1,5 +1,14 @@
 @import '../theme/variables.scss';
 
+.ToggleButton {
+    left: 0px;
+    width: 50px;
+    height: 20px;
+    --handle-border-radius: 15px;
+    --handle-background-checked: #9fb0db;
+    --background-checked: #455b92;
+}
+
 .SettingsToolBar {
     background: $settings;
     color: $white;
@@ -9,49 +18,150 @@
     font-size: 30px;
 }
 
-.ToggleLabel {
-    font-size:x-large;
-    text-align: left;
-    color: $dark-text;
-}
-
-.ToggleButton{
-    left:0px;
-    width: 50px;
-    height: 20px;
-    --handle-border-radius:  15px;
-    --handle-background-checked: #9fb0db;
-    --background-checked: #455b92;
-}
-
-.ClimateSymbolSegment{
-    text-align: end;
-    width: 20%;
-    height: 100%;
-    --background:var(--ion-color-light);
-right: 0px;}
-
-.ClimateSymbolSegmentButton{
-    
-    font-size: large;
-    --color: var(--ion-color-medium);
-    --background-checked: #455b92;
-    --color-checked: #b5c2e4;
-    --background-hover: var(--ion-color-medium);
-    --color-hover:var(--ion-color-tertiary);
-    --background-hover-opacity:15%;
-    --indicator-color: #b5c2e4;
-    
-
-}
-
-.PageTitle{
+.PageTitle {
     font-size: xx-large;
-    color:$white;
+    color: $white;
     text-align: center;
     padding-top: 18%;
 }
 
-.ToggleItem{
---min-height: 100%;
+.MainRow {
+    background-color: rgb(92, 92, 92);
+    height: 100%;
+    align-items: center;
+}
+
+.NextButtonCol {
+    background-color: gray;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ion-button {
+        --background: transparent;
+        --box-shadow: 0;
+        --ripple-color: transparent !important;
+        height: 100px;
+        ion-icon {
+            color: black;
+            font-size: 108px;
+        }
+    }
+}
+
+.ToggleItem {
+    --background: transparent;
+}
+
+.Logo {
+    background-image: url('../assets/logo1.png');
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 120px;
+}
+
+.DisplayModeItem {
+    --background: transparent;
+}
+
+.TempUnitsToggle {
+    width: 260px;
+    height: 100px;
+    --border-radius: 10px;
+    --handle-width: 40%;
+    --handle-height: 100px;
+    --handle-border-radius: 10px;
+    --background: #414141;
+    --background-checked: #414141;
+    --handle-background-checked: rgb(145, 145, 145);
+    --handle-background: rgb(145, 145, 145);
+    --handle-box-shadow: none;
+}
+
+.UnitsLabel {
+    transform: translateX(-250px);
+    font-size: 3em !important;
+    z-index: 2;
+}
+
+.TopRow {
+    background-color: green;
+    align-items: center;
+    .DisplayModeSegment {
+        // --background: transparent;
+        --background: red;
+        align-items: center;
+        padding: 10px;
+        height: 200px;
+        // width: 100%;
+        ion-segment-button {
+            // min-width: 195.1px;
+            height: 129.4px;
+            border-radius: 15px;
+            --color: white;
+            --ripple-color: transparent !important;
+            --color-checked: white;
+            margin-left: 10px;
+            margin-right: 10px;
+            &::part(indicator) {
+                height: 100%;
+                outline-style: inset;
+                outline-width: 2px;
+                outline-color: black;
+                outline-offset: 10px;
+                // border-width: 3px;
+                // border-color: black;
+                border-radius: 15px;
+                // border-style: inset;
+            }
+            &::part(indicator-background) {
+                background: transparent;
+                height: 100%;
+                border-radius: 15px;
+            }
+            ion-label {
+                font-weight: bold;
+            }
+        }
+        .auto {
+            --background: linear-gradient(salmon, navy);
+            --background-checked: linear-gradient(salmon, navy);
+        }
+        .light {
+            --background: salmon;
+            --background-checked: salmon;
+        }
+        .dark {
+            --background: navy;
+            --background-checked: navy;
+        }
+    }
+}
+
+.MiddleRow {
+    background-color: blue;
+    .DisplayModeLabelsSegment {
+        // --background: transparent;
+        --background: red;
+        // margin-left: 150px;
+        ion-segment-button {
+            border-radius: 15px;
+            height: 50px;
+            --background: transparent;
+            margin-left: 50px;
+            margin-right: 50px;
+            --background-checked: rgba(255, 255, 255, 0.35);
+            --color: white;
+            --ripple-color: transparent !important;
+            --color-checked: white;
+            &::part(indicator-background) {
+                background: transparent;
+            }
+        }
+    }
+}
+
+.BottomRow {
+    align-items: center;
+    background-color: green;
 }
