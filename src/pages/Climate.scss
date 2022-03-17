@@ -121,9 +121,8 @@ ion-card {
     flex-direction: column;
     flex-grow: 1;
     flex-shrink: 1;
-    flex-grow: 1;
-    flex-shrink: 1;
-    row-gap: 12px;
+
+    row-gap: 0px;
     align-self: stretch;
     height: auto;
     justify-items: space-around;
@@ -161,7 +160,7 @@ ion-card {
         flex-flow: column wrap;
         align-content: stretch;
         justify-content: stretch;
-        margin-top: 14px;
+        //   margin-top: 14px;
         justify-self: stretch;
 
         //    width: max-content;
