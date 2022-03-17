@@ -166,11 +166,14 @@ ion-card {
         width: 90%;
         padding: 0%;
         border-radius: 27px;
+        --border-radius: 27px;
         //   padding-inline: 5%;
         --color: var(--ion-color-tertiary);
         --color-checked: #1c1d23;
         --background-checked: white;
+        --background: transparent;
         --indicator-color:
             transparent;
+        --ripple-color: transparent;
     }
 }
