@@ -25,7 +25,7 @@ ion-card {
     padding: 0px;
     height: 100%;
     width: 100%;
-    background-color: greenyellow;
+    //  background-color: greenyellow;
     align-items: stretch;
 }
 
@@ -78,6 +78,7 @@ ion-card {
     height: 200px;
     background: white;
     border-radius: 14px;
+    z-index: 12;
 }
 
 .Temperature-Button {
@@ -121,11 +122,12 @@ ion-card {
     flex-direction: column;
     flex-grow: 1;
     flex-shrink: 1;
-
+    border-radius: 27px;
     row-gap: 0px;
     align-self: stretch;
     height: auto;
     justify-items: space-around;
+    margin: 10px 0px;
 
     // margin: 16px;
 
@@ -138,20 +140,18 @@ ion-card {
         left: 0;
         right: 0;
         padding-block: 24px;
-        margin: 0px;
-
+        margin: 0%;
     }
 
     .Segment {
         display: flex;
         flex-flow: column wrap;
-
+        //row-gap: 100px;
         align-self: stretch;
         align-items: center;
         align-content: stretch;
-        //   margin: 4%;
+        margin: 0%;
         //   width: inherit;
-        background-color: red;
     }
 
     .Button {
@@ -161,13 +161,16 @@ ion-card {
         align-content: stretch;
         justify-content: stretch;
         //   margin-top: 14px;
-        justify-self: stretch;
-
-        //    width: max-content;
+        justify-self: space-around;
+        margin: 1%;
+        width: 90%;
+        padding: 0%;
+        border-radius: 27px;
         //   padding-inline: 5%;
         --color: var(--ion-color-tertiary);
         --color-checked: #1c1d23;
         --background-checked: white;
-        --indicator-color: transparen
+        --indicator-color:
+            transparent;
     }
 }
