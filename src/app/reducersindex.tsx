@@ -39,4 +39,6 @@ export const selectIsCelsius = (state: RootState): boolean => state.climateReduc
 
 export const selectDarkModeActive = (state: RootState): boolean => state.darkModeReducer.darkModeActive;
 
+export const selectDisplayModePreference = (state: RootState): string => state.darkModeReducer.preference;
+
 export const selectFanDirection = (state: RootState): Direction => state.climateReducer.fanDirection;

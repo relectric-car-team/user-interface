@@ -4,6 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
  * Interface for dark mode redux; contains variables needed for dark mode to work correctly.
  */
 interface DarkMode {
+    preference: string;
     darkModeActive: boolean;
 }
 
@@ -16,6 +17,7 @@ const initialState: DarkMode = {
      * If no theme is requested by the user's device, it will default to dark mode.
      */
     darkModeActive: window.matchMedia('(prefers-color-scheme)').media == 'dark',
+    preference: 'light',
 };
 
 /**
@@ -26,17 +28,31 @@ export const slice = createSlice({
     name: 'darkMode',
     initialState,
     reducers: {
+        // new one
         updateDarkMode: (state, action) => {
-            state.darkModeActive = action.payload;
             action.payload ? document.body.classList.add('dark') : document.body.classList.remove('dark');
+            state.darkModeActive = action.payload;
         },
-        updateDarkModew: (state) => {
-            if (state.darkModeActive == true) {
-                document.body.classList.remove('dark');
-                state.darkModeActive = false;
-            } else {
-                document.body.classList.add('dark');
-                state.darkModeActive = true;
+        updatePreference: (state, action) => {
+            switch (action.payload) {
+                case 'dark':
+                    state.preference = 'dark';
+                    updateDarkMode(true);
+                    document.body.classList.add('dark');
+                    break;
+                case 'light':
+                    state.preference = 'light';
+                    updateDarkMode(false); // TODO: this isn't doing anything
+                    document.body.classList.remove('dark');
+                    break;
+                case 'auto':
+                    state.preference = 'auto';
+                    updateDarkMode(isItDarkOut());
+                    document.body.classList.add('dark');
+                    break;
+                default:
+                    console.log('fatal error');
+                    break;
             }
         },
     },
@@ -46,6 +62,10 @@ export const slice = createSlice({
  * Reducer to update the dark mode must be exported with 'slice.actions' as a property.
  */
 export const { updateDarkMode } = slice.actions;
-export const { updateDarkModew } = slice.actions;
+export const { updatePreference } = slice.actions;
 
 export default slice.reducer;
+
+function isItDarkOut() {
+    return true;
+}
