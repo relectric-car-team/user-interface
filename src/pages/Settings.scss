@@ -94,8 +94,9 @@
         --background: transparent;
         // --background: red;
         align-items: center;
-        padding: 10px;
-        height: 200px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        // height: 200px;
         // width: 100%;
         ion-segment-button {
             // min-width: 195.1px;
@@ -111,7 +112,7 @@
                 outline-style: inset;
                 outline-width: 2px;
                 outline-color: white;
-                outline-offset: 10px;
+                outline-offset: 5px;
                 // border-width: 3px;
                 // border-color: black;
                 border-radius: 15px;
@@ -146,13 +147,19 @@
     .DisplayModeLabelsSegment {
         --background: transparent;
         // --background: red;
+        // height: 50px;
+        // display: flex;
+        // flex-direction: row;
+        // justify-content: center;
+        // align-items: center;
         // margin-left: 150px;
         ion-segment-button {
             border-radius: 15px;
-            height: 50px;
+            height: 10px;
+            width: 50px;
             --background: transparent;
-            margin-left: 50px;
-            margin-right: 50px;
+            margin-left: 70px;
+            margin-right: 70px;
             --background-checked: rgba(255, 255, 255, 0.35);
             --color: white;
             --ripple-color: transparent !important;
@@ -161,6 +168,24 @@
                 background: transparent;
             }
         }
+    }
+}
+
+.ButtonLabels {
+    // background-color: red;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    .selected {
+        background-color: rgba(255, 255, 255, 0.35);
+    }
+    ion-text {
+        height: 30px;
+        width: 75px;
+        border-radius: 5px;
+        display: grid;
+        place-items: center;
     }
 }
 
@@ -174,8 +199,8 @@
     // font-family: Poppins;
     display: flex;
     justify-content: center;
-    font-size: large;
-    font-weight: bold;
+    font-size: 15px;
+    // font-weight: bold;
     color: var(--re-lc-white);
 }
 

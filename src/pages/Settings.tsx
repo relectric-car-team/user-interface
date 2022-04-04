@@ -24,73 +24,77 @@ import '../theme/Modal.scss';
 import '../theme/variables.scss';
 // import { setPage } from '../features/Routing/RouterStore';
 // import { Pages } from '../Models/Enums';
-import { selectDarkModeActive } from '../app/reducersindex';
+import { selectDarkModeActive, selectDisplayModePreference } from '../app/reducersindex';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateDarkMode } from '../features/DarkMode/DarkModeStore';
+import { updateDarkMode, updatePreference } from '../features/DarkMode/DarkModeStore';
 
 const Settings: React.FC = () => {
     const dispatch = useDispatch();
     const darkModeActive = useSelector(selectDarkModeActive);
+    const displayPreference = useSelector(selectDisplayModePreference);
     return (
         <IonPage>
             <IonRow className="MainRow">
-                <IonCol size="10">
+                <IonCol size="11">
                     <IonRow className="TopRow">
-                        <IonCol size="3">
+                        <IonCol size="2">
                             <IonLabel className="AppearanceLabel">Appearance:</IonLabel>
                         </IonCol>
-                        <IonCol size="9">
-                            <IonSegment className="DisplayModeSegment" value={darkModeActive ? 'true' : 'false'}>
+                        <IonCol size="10">
+                            <IonSegment className="DisplayModeSegment" value={displayPreference}>
                                 <IonSegmentButton
-                                    className="auto"
                                     value={'auto'}
-                                    onClick={() => console.log('Cancel Animation')}
+                                    className="auto"
+                                    onClick={() => dispatch(updatePreference('auto'))}
                                 ></IonSegmentButton>
                                 <IonSegmentButton
-                                    value={'true'}
+                                    value={'dark'}
                                     className="dark"
-                                    onClick={() => dispatch(updateDarkMode(true))}
+                                    onClick={() => dispatch(updatePreference('dark'))}
                                 ></IonSegmentButton>
                                 <IonSegmentButton
-                                    value={'false'}
+                                    value={'light'}
                                     className="light"
-                                    onClick={() => dispatch(updateDarkMode(false))}
+                                    onClick={() => dispatch(updatePreference('light'))}
                                 ></IonSegmentButton>
                             </IonSegment>
                         </IonCol>
                     </IonRow>
                     <IonRow className="MiddleRow">
-                        <IonCol size="3"></IonCol>
-                        <IonCol size="9">
-                            <IonSegment className="DisplayModeLabelsSegment" value={darkModeActive ? 'true' : 'false'}>
-                                <IonSegmentButton onClick={() => console.log('auto')} value={'auto'}>
+                        <IonCol size="2"></IonCol>
+                        <IonCol size="10" className="ButtonLabels">
+                            {/* <IonSegment className="DisplayModeLabelsSegment" value={darkModeActive ? 'dark' : 'light'}>
+                                <IonSegmentButton onClick={() => dispatch(updatePreference('auto'))} value={'auto'}>
                                     Auto
                                 </IonSegmentButton>
-                                <IonSegmentButton onClick={() => dispatch(updateDarkMode(true))} value={'true'}>
+                                <IonSegmentButton onClick={() => dispatch(updatePreference('dark'))} value={'dark'}>
                                     Dark
                                 </IonSegmentButton>
-                                <IonSegmentButton onClick={() => dispatch(updateDarkMode(false))} value={'false'}>
+                                <IonSegmentButton onClick={() => dispatch(updatePreference('light'))} value={'light'}>
                                     Light
                                 </IonSegmentButton>
-                            </IonSegment>
+                            </IonSegment> */}
+                            <IonText className={displayPreference === 'auto' ? 'selected' : ''}>Auto</IonText>
+                            <IonText className={displayPreference === 'dark' ? 'selected' : ''}>Dark</IonText>
+                            <IonText className={displayPreference === 'light' ? 'selected' : ''}>Light</IonText>
                         </IonCol>
                     </IonRow>
 
                     <IonRow className="BottomRow">
-                        <IonCol size="3">
+                        <IonCol size="2">
                             <IonLabel className="TempUnitsLabel">Temperature Units:</IonLabel>
                         </IonCol>
-                        <IonCol size="6">
+                        <IonCol size="5">
                             <IonToggle className="TempUnitsToggle" />
                             <IonText className="C">C</IonText>
                             <IonText className="F">F</IonText>
                         </IonCol>
-                        <IonCol push="0">
+                        <IonCol push="3">
                             <div className="Logo" />
                         </IonCol>
                     </IonRow>
                 </IonCol>
-                <IonCol className="NextButtonCol">
+                <IonCol size="1" className="NextButtonCol">
                     <IonButton className="NextButton" onClick={() => console.log('Next')}>
                         <IonIcon icon={chevronForward}></IonIcon>
                     </IonButton>
