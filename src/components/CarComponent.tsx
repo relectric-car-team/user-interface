@@ -21,7 +21,7 @@ const Car: React.FC = () => {
                 document.getElementById('passengerDoor')?.classList.toggle('passengerSideRotate');
                 break;
             case DoorsEnum.REARDRIVER:
-                document.getElementById('rearDriverDoor')?.classList.toggle('passengerSideRotate');
+                document.getElementById('rearDriverDoor')?.classList.toggle('driverSideRotate');
                 break;
             case DoorsEnum.REARPASSENGER:
                 document.getElementById('rearPassengerDoor')?.classList.toggle('passengerSideRotate');
@@ -58,7 +58,7 @@ const Car: React.FC = () => {
                 className="carRearPassengerDoor"
                 onClick={() => doorToggle(DoorsEnum.REARPASSENGER)}
             />
-            <IonIcon icon={Body} className="carBody" />
+            <IonIcon icon={Body} className="carBody" onClick={() => doorToggle(DoorsEnum.DRIVER)} />
             <IonIcon icon={Headlights} className="carHeadLights" />
             <IonIcon icon={CarFrame} className="carFrame" />
             <IonIcon icon={TailLights} className="carTailLights" />
