@@ -125,7 +125,7 @@ const Car: React.FC = () => {
                                 colour={darkMode ? 'white' : 'black'}
                                 open={
                                     Doors.driverDoorOpen
-                                        ? 'rotate(32deg) translate(-37px)'
+                                        ? 'rotate(32deg) translate(-32px)'
                                         : 'rotate(0deg) translate(0)'
                                 }
                                 onClick={() =>
@@ -140,7 +140,7 @@ const Car: React.FC = () => {
                                 colour={darkMode ? 'white' : 'black'}
                                 open={
                                     Doors.passengerDoorOpen
-                                        ? 'rotate(-32deg) translate(37px)'
+                                        ? 'rotate(-32deg) translate(32px)'
                                         : 'rotate(0deg) translate(0)'
                                 }
                                 onClick={() =>

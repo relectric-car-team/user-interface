@@ -7,9 +7,10 @@
 
 .AerialView {
     pointer-events: none;
-    height: 105%;
+    height: 80%;
     width: 100%;
     text-align: center;
+    padding: 5% 0 0 0;
 }
 
 .ImagePreview {
@@ -18,10 +19,12 @@
 
 .BatteryStats {
     float: right;
+
     .BatteryIcon {
         font-size: 5rem;
         color: #008080;
     }
+
     .BatteryPercentage {
         font-size: 3rem;
         color: #008080;
@@ -41,15 +44,15 @@
 }
 
 .AerialViewPassengerDoor {
-    font-size: 134px;
+    font-size: 112px;
     position: absolute;
-    left: 198px;
-    top: 94px;
+    left: 206px;
+    top: 91px;
 }
 
 .AerialViewDriverDoor {
-    font-size: 134px;
+    font-size: 112px;
     position: absolute;
-    left: 47px;
-    top: 94px
+    left: 88px;
+    top: 91px
 }
