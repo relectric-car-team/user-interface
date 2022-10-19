@@ -27,6 +27,7 @@ export const slice = createSlice({
     name: 'darkMode',
     initialState,
     reducers: {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         updateDarkMode: (state) => {
             // if (state.darkModeActive == true) {
             //     document.body.classList.remove('dark');

@@ -11,10 +11,12 @@
     width: 100%;
     text-align: center;
     padding: 5% 0 0 0;
+    z-index: 0;
 }
 
 .ImagePreview {
     pointer-events: none;
+
 }
 
 .BatteryStats {
@@ -48,11 +50,22 @@
     position: absolute;
     left: 206px;
     top: 91px;
+    z-index: 2;
 }
 
 .AerialViewDriverDoor {
     font-size: 112px;
     position: absolute;
     left: 88px;
-    top: 91px
+    top: 91px;
+    z-index: 3;
+
+}
+
+.RightStats {
+    height: auto;
+}
+
+.LeftStats {
+    height: auto;
 }
