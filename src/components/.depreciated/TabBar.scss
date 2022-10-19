@@ -3,12 +3,15 @@
 .TabBarRow {
     justify-content: space-around;
 }
+
 .IonColMiddle {
     text-align: center;
 }
+
 .IonColRight {
     text-align: right;
 }
+
 .TabBar {
     z-index: 999999;
     --background: none;
@@ -26,11 +29,7 @@
 .Right {
     padding-left: 15px;
 }
+
 .Left {
     padding-right: 15px;
 }
-
-// .Fan {
-//     width: 35px;
-//     height: 35px;
-// }
