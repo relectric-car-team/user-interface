@@ -8,8 +8,12 @@
 
 // Used to allow use access to the "Poppins" font, used throughout.
 // Set font-family to 'Poppins' to use for any text component
+<<<<<<< HEAD
 @import '../assets/fonts/PoppinsFont/Poppins-Regular.ttf';
 
+=======
+//@use '../assets/fonts/PoppinsFont/Poppins-Regular.ttf';
+>>>>>>> 9e59e0e (fix: upgraded sass version)
 @font-face {
     font-family: 'Poppins';
     src: url('../assets/fonts/PoppinsFont/Poppins-Regular.ttf');
@@ -19,6 +23,7 @@
 // All colours are named based on the light mode colour scheme
 // 'var' is used to ensure proper transition between light/dark mode so all elements of the
 //      UI are visible, regardless of the active colour theme.
+
 $light-text: var(--ion-color-light);
 $medium-text: var(--ion-color-medium);
 $dark-text: var(--ion-color-dark);
