@@ -8,12 +8,7 @@
 
 // Used to allow use access to the "Poppins" font, used throughout.
 // Set font-family to 'Poppins' to use for any text component
-<<<<<<< HEAD
-@import '../assets/fonts/PoppinsFont/Poppins-Regular.ttf';
-
-=======
 //@use '../assets/fonts/PoppinsFont/Poppins-Regular.ttf';
->>>>>>> 9e59e0e (fix: upgraded sass version)
 @font-face {
     font-family: 'Poppins';
     src: url('../assets/fonts/PoppinsFont/Poppins-Regular.ttf');
