@@ -3,7 +3,7 @@
  *
  * @author Ratik Kapoor
  */
-export interface IBatteryController {
+export interface IBatteryControllerReceivable {
     percentage: number;
     voltage: number;
     temperature: number;
@@ -14,7 +14,7 @@ export interface IBatteryController {
  *
  * @author Ratik Kapoor
  */
-export interface IMotorController {
+export interface IMotorControllerReceivable {
     speed: number;
     voltage: number;
     temperature: number;
@@ -26,7 +26,7 @@ export interface IMotorController {
  *
  * @author Ratik Kapoor
  */
-export interface IClimateController {
+export interface IClimateControllerReceivable {
     outsideTemperature: number; // In Celsius
     insideTemperature: number; // In Celsius
     fanPower: number; // From 0-4
