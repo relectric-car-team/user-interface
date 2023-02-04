@@ -3,7 +3,7 @@ import { IonButton, IonContent, IonHeader, IonIcon, IonPage, IonRow, IonTitle, I
 import { close } from 'ionicons/icons';
 import './Navigation.scss';
 import '../theme/Modal.scss';
-import { Pages } from '../Models/Enums';
+import { ControllerTypes, Pages } from '../Models/Enums';
 import { setPage } from '../redux-features/Routing/RouterStore';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectDispatchSystemsAction } from '../redux/NetworkDispatch/NetworkDispatch';
@@ -14,7 +14,8 @@ const Navigation: React.FC = () => {
     const dispatchSystemsAction = useSelector(selectDispatchSystemsAction);
 
     const handleClick = () => {
-        dispatchSystemsAction && dispatchSystemsAction('5');
+        dispatchSystemsAction &&
+            dispatchSystemsAction({ controller: ControllerTypes.BatteryController, data: { percentage: 20 } });
     };
 
     return (
