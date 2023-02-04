@@ -1,10 +1,19 @@
-import { IBatteryController, IClimateController, IMotorController } from './Controllers';
+import { IBatteryControllerReceivable, IClimateControllerReceivable, IMotorControllerReceivable } from './Controllers';
 import { ControllerTypes } from './Enums';
 
 /**
- * Message format of socket messages
+ * Message format of received socket messages
  */
 export interface ISocketMessageReceivable {
     controller: ControllerTypes;
-    data: IBatteryController | IMotorController | IClimateController;
+    data: IBatteryControllerReceivable | IMotorControllerReceivable | IClimateControllerReceivable;
+}
+
+/**
+ * Message format of transmitted socket messages
+ */
+export interface ISocketMessageTransmittable {
+    controller: ControllerTypes;
+    data: any;
+    // TODO: Make statically typed
 }

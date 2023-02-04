@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
+import { ISocketMessageTransmittable } from '../../Models/Interfaces';
 
 interface NetworkDispatchState {
-    dispatchSystemsAction: ((message: string) => void) | undefined;
+    dispatchSystemsAction: ((message: ISocketMessageTransmittable) => void) | undefined;
 }
 
 const initialState: NetworkDispatchState = {
@@ -13,7 +14,7 @@ export const slice = createSlice({
     name: 'networkDispatch',
     initialState,
     reducers: {
-        setDispatchSystemsAction: (state, action: PayloadAction<(message: string) => void>) => {
+        setDispatchSystemsAction: (state, action: PayloadAction<(message: ISocketMessageTransmittable) => void>) => {
             state.dispatchSystemsAction = action.payload;
         },
     },
@@ -34,7 +35,8 @@ export const { setDispatchSystemsAction } = slice.actions;
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
-export const selectDispatchSystemsAction = (state: RootState): ((message: string) => void) | undefined =>
-    state.dispatchSystemsAction.dispatchSystemsAction;
+export const selectDispatchSystemsAction = (
+    state: RootState,
+): ((message: ISocketMessageTransmittable) => void) | undefined => state.dispatchSystemsAction.dispatchSystemsAction;
 
 export default slice.reducer;
