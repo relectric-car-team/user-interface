@@ -5,8 +5,8 @@ import batteryReducer, { BatteryStatus } from '../redux-features/Battery/Battery
 import bluetoothReducer from '../redux-features/Bluetooth/BluetoothStore';
 import darkModeReducer from '../redux-features/DarkMode/DarkModeStore';
 import notifReducer, { Notification } from '../components/Notification/NotificationStore';
-import auxillarySensorsReducer from '../redux-features/AuxillarySensors/AuxillarySensors';
-import networkDispatchReducer from '../redux-features/NetworkDispatch/NetworkDispatch';
+import auxillarySensorsReducer from '../redux-features/AuxillarySensors/AuxillarySensorStore';
+import networkDispatchReducer from '../redux-features/NetworkDispatch/NetworkDispatchStore';
 import carReducer from '../features/Car/CarStore';
 import { RootState } from './store';
 import { Pages } from '../Models/Enums';
