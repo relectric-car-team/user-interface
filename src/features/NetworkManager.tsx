@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setDispatchSystemsAction } from '../redux-features/NetworkDispatch/NetworkDispatch';
+import { setDispatchSystemsAction } from '../redux-features/NetworkDispatch/NetworkDispatchStore';
 import * as zmq from 'jszmq';
 import { ISocketMessageReceivable, ISocketMessageTransmittable } from '../Models/Interfaces';
 import { ControllerTypes } from '../Models/Enums';
