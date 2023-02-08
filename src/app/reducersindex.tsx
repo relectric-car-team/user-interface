@@ -5,9 +5,12 @@ import batteryReducer, { BatteryStatus } from '../redux-features/Battery/Battery
 import bluetoothReducer from '../redux-features/Bluetooth/BluetoothStore';
 import darkModeReducer from '../redux-features/DarkMode/DarkModeStore';
 import notifReducer, { Notification } from '../components/Notification/NotificationStore';
+import auxillarySensorsReducer from '../redux-features/AuxillarySensors/AuxillarySensors';
+import networkDispatchReducer from '../redux-features/NetworkDispatch/NetworkDispatch';
 import carReducer from '../features/Car/CarStore';
 import { RootState } from './store';
 import { Pages } from '../Models/Enums';
+import { ISocketMessageTransmittable } from '../Models/Interfaces';
 
 /**
  * Reducer combiner, used to reduce all the smaller 'child' reducers
@@ -25,6 +28,8 @@ export default combineReducers({
     bluetoothReducer,
     notifReducer,
     carReducer,
+    auxillarySensorsReducer,
+    networkDispatchReducer,
 });
 
 /**  Selectors for various redux states used throughout the UI.
@@ -56,6 +61,12 @@ export const isBatteryCharging = (state: RootState): boolean => state.batteryRed
 export const isBluetoothOn = (state: RootState): boolean => state.bluetoothReducer.bluetoothOn;
 
 export const notifications = (state: RootState): Array<Notification> => state.notifReducer.notifs;
+
+export const selectTemperature = (state: RootState): number => state.auxillarySensorsReducer.currentTemperature;
+
+export const selectDispatchSystemsAction = (
+    state: RootState,
+): ((message: ISocketMessageTransmittable) => void) | undefined => state.networkDispatchReducer.dispatchSystemsAction;
 
 export const doorStates = (
     state: RootState,

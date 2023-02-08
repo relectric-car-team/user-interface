@@ -6,8 +6,7 @@ import '../theme/Modal.scss';
 import { ControllerTypes, Pages } from '../Models/Enums';
 import { setPage } from '../redux-features/Routing/RouterStore';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectDispatchSystemsAction } from '../redux/NetworkDispatch/NetworkDispatch';
-
+import { selectDispatchSystemsAction } from '../app/reducersindex';
 const Navigation: React.FC = () => {
     const dispatch = useDispatch();
 
